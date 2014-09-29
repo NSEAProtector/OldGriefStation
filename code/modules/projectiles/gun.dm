@@ -2,12 +2,12 @@
 	name = "gun"
 	desc = "Its a gun. It's pretty terrible, though."
 	icon = 'icons/obj/gun.dmi'
+	var/icon/r_icon = null
 	icon_state = "detective"
 	item_state = "gun"
-	flags =  FPRINT | TABLEPASS | CONDUCT |  USEDELAY
+	flags =  FPRINT | TABLEPASS | CONDUCT
 	slot_flags = SLOT_BELT
 	m_amt = 2000
-	w_type = RECYK_METAL
 	w_class = 3.0
 	throwforce = 5
 	throw_speed = 4
@@ -18,7 +18,7 @@
 
 	var/fire_sound = 'sound/weapons/Gunshot.ogg'
 	var/obj/item/projectile/in_chamber = null
-	var/list/caliber //the ammo the gun will accept. Now multiple types (make sure to set them to =1)
+	var/caliber = ""
 	var/silenced = 0
 	var/recoil = 0
 	var/ejectshell = 1
@@ -29,10 +29,24 @@
 	var/automatic = 0 //Used to determine if you can target multiple people.
 	var/tmp/mob/living/last_moved_mob //Used to fire faster at more than one person.
 	var/tmp/told_cant_shoot = 0 //So that it doesn't spam them with the fact they cannot hit them.
-	var/firerate = 1 	// 0 for one bullet after tarrget moves and aim is lowered,
-						//1 for keep shooting until aim is lowered
-	var/fire_delay = 2
+	var/firerate = 0 	//0 for keep shooting until aim is lowered
+						// 1 for one bullet after tarrget moves and aim is lowered
+	var/fire_delay = 6
 	var/last_fired = 0
+
+	var/list/obj/item/weapon/weapon_module/modules = list()
+
+	New()
+		..()
+		r_icon = src.icon
+		regenerate_icons()
+
+	proc/regenerate_icons()
+		var/icon/I = new(src.r_icon, src.icon_state)
+		sort_modules() // Сортировка модулей. См. gun_module.dm
+		for(var/obj/item/weapon/weapon_module/module in modules)
+			I.Blend(icon(module.icon, "[src.icon_state]_[module.weapon_icon_state]"), ICON_OVERLAY)
+		src.icon = I
 
 	proc/ready_to_fire()
 		if(world.time >= last_fired + fire_delay)
@@ -41,7 +55,7 @@
 		else
 			return 0
 
-	proc/process_chambered()
+	proc/load_into_chamber()
 		return 0
 
 	proc/special_check(var/mob/M) //Placeholder for any special checks, like detective's revolver.
@@ -52,7 +66,7 @@
 			O.emp_act(severity)
 
 /obj/item/weapon/gun/afterattack(atom/A as mob|obj|turf|area, mob/living/user as mob|obj, flag, params)
-	if(flag)	return //we're placing gun on a table or in backpack
+	if(flag)	return //It's adjacent, is the user, or is on the user's person
 	if(istype(target, /obj/machinery/recharger) && istype(src, /obj/item/weapon/gun/energy))	return//Shouldnt flag take care of this?
 	if(user && user.client && user.client.gun_mode && !(A in target))
 		PreFire(A,user,params) //They're using the new gun system, locate what they're aiming at.
@@ -63,7 +77,7 @@
 	return 1
 
 /obj/item/weapon/gun/proc/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0)//TODO: go over this
-	//Exclude lasertag guns from the M_CLUMSY check.
+	//Exclude lasertag guns from the CLUMSY check.
 	if(clumsy_check)
 		if(istype(user, /mob/living))
 			var/mob/living/M = user
@@ -74,7 +88,7 @@
 				del(src)
 				return
 
-	if (!user.IsAdvancedToolUser() || isMoMMI(user) || istype(user, /mob/living/carbon/monkey/diona))
+	if (!user.IsAdvancedToolUser())
 		user << "\red You don't have the dexterity to do this!"
 		return
 	if(istype(user, /mob/living))
@@ -83,13 +97,8 @@
 			M << "\red Your meaty finger is much too large for the trigger guard!"
 			return
 	if(ishuman(user))
-		var/mob/living/carbon/human/H=user
 		if(user.dna && user.dna.mutantrace == "adamantine")
 			user << "\red Your metal fingers don't fit in the trigger guard!"
-			return
-		var/datum/organ/external/a_hand = H.get_active_hand_organ()
-		if(!a_hand.can_use_advanced_tools())
-			user << "\red Your [a_hand] doesn't have the dexterity to do this!"
 			return
 
 	add_fingerprint(user)
@@ -102,18 +111,17 @@
 	if(!special_check(user))
 		return
 
-	if (!ready_to_fire())
+	/*if (!ready_to_fire())
 		if (world.time % 3) //to prevent spam
 			user << "<span class='warning'>[src] is not ready to fire again!"
-		return
+		return*/ // Идите в жопу.
 
-	if(!process_chambered()) //CHECK
+	if(!load_into_chamber()) //CHECK
 		return click_empty(user)
 
 	if(!in_chamber)
 		return
-	if(!istype(src, /obj/item/weapon/gun/energy/laser/redtag) && !istype(src, /obj/item/weapon/gun/energy/laser/redtag))
-		log_attack("[user.name] ([user.ckey]) fired \the [src] (proj:[in_chamber.name]) at [target] [ismob(target) ? "([target:ckey])" : ""] ([target.x],[target.y],[target.z])" )
+
 	in_chamber.firer = user
 	in_chamber.def_zone = user.zone_sel.selecting
 	if(targloc == curloc)
@@ -143,6 +151,14 @@
 	in_chamber.current = curloc
 	in_chamber.yo = targloc.y - curloc.y
 	in_chamber.xo = targloc.x - curloc.x
+	if(istype(user, /mob/living/carbon))
+		var/mob/living/carbon/mob = user
+		if(mob.shock_stage > 120)
+			in_chamber.yo += rand(-2,2)
+			in_chamber.xo += rand(-2,2)
+		else if(mob.shock_stage > 70)
+			in_chamber.yo += rand(-1,1)
+			in_chamber.xo += rand(-1,1)
 
 	if(params)
 		var/list/mouse_control = params2list(params)
@@ -165,7 +181,7 @@
 		user.update_inv_r_hand()
 
 /obj/item/weapon/gun/proc/can_fire()
-	return process_chambered()
+	return load_into_chamber()
 
 /obj/item/weapon/gun/proc/can_hit(var/mob/living/target as mob, var/mob/living/user as mob)
 	return in_chamber.check_fire(target,user)
@@ -176,30 +192,31 @@
 		playsound(user, 'sound/weapons/empty.ogg', 100, 1)
 	else
 		src.visible_message("*click click*")
-		playsound(get_turf(src), 'sound/weapons/empty.ogg', 100, 1)
+		playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 
 /obj/item/weapon/gun/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
 	//Suicide handling.
 	if (M == user && user.zone_sel.selecting == "mouth" && !mouthshoot)
-		if(istype(M.wear_mask, /obj/item/clothing/mask/happy))
-			M << "<span class='sinister'>BUT WHY? I'M SO HAPPY!</span>"
-			return
 		mouthshoot = 1
 		M.visible_message("\red [user] sticks their gun in their mouth, ready to pull the trigger...")
 		if(!do_after(user, 40))
 			M.visible_message("\blue [user] decided life was worth living")
 			mouthshoot = 0
 			return
-		if (process_chambered())
+		if (load_into_chamber())
 			user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
 			if(silenced)
 				playsound(user, fire_sound, 10, 1)
 			else
 				playsound(user, fire_sound, 50, 1)
+			if(istype(in_chamber, /obj/item/projectile/beam/lastertag))
+				user.show_message("<span class = 'warning'>You feel rather silly, trying to commit suicide with a toy.</span>")
+				mouthshoot = 0
+				return
+
 			in_chamber.on_hit(M)
-			if (!in_chamber.nodamage)
-				user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, "head", used_weapon = "Point blank shot in the mouth with \a [in_chamber]")
-				user.stat=2 // Just to be sure
+			if (in_chamber.damage_type != HALLOSS)
+				user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, "head", used_weapon = "Point blank shot in the mouth with \a [in_chamber]", sharp=1)
 				user.death()
 			else
 				user << "<span class = 'notice'>Ow...</span>"
@@ -212,15 +229,69 @@
 			mouthshoot = 0
 			return
 
-	if (src.process_chambered())
+	if (load_into_chamber())
 		//Point blank shooting if on harm intent or target we were targeting.
 		if(user.a_intent == "hurt")
 			user.visible_message("\red <b> \The [user] fires \the [src] point blank at [M]!</b>")
-			in_chamber.damage *= 1.3
-			src.Fire(M,user,0,0,1)
+			if(istype(in_chamber)) in_chamber.damage *= 1.3
+			Fire(M,user)
 			return
 		else if(target && M in target)
-			src.Fire(M,user,0,0,1) ///Otherwise, shoot!
+			Fire(M,user) ///Otherwise, shoot!
 			return
 	else
 		return ..() //Pistolwhippin'
+
+/obj/item/weapon/gun/attackby(var/obj/item/A as obj, mob/user as mob)
+	..()
+	if(istype(A, /obj/item/weapon/weapon_module/))
+		if(A:AttachCheck(src))
+			A:Attach(src)
+			user.drop_item()
+			A.loc = src
+			user << "You successfuly attach [A] to [src]!"
+			regenerate_icons()
+		else
+			var/obj/item/weapon/weapon_module/M = A
+			user << "You can't attach [M] to [src], because [M:connect_error_reason]."
+
+/obj/item/weapon/gun/verb/detach_module()
+	set name = "Detach module"
+	set category = "Object"
+	set src in usr
+
+	var/mob/user = usr
+
+	var/obj/item/weapon/weapon_module/module = input("Choise module to detach", "Module detach") in src.modules
+
+	if(!user)
+		user <<  "You successfuly detach [module] from [src].."
+		return
+	if(!Adjacent(user))
+		return
+	if (user.restrained())
+		user << "<span class='notice'>You need your hands free for this.</span>"
+		return
+	if (user.stat || user.paralysis || user.sleeping || user.lying || user.weakened)
+		return
+	if (issilicon(user))
+		user << "<span class='notice'>You need hands for this.</span>"
+		return
+
+	if(module.DetachCheck())
+		modules -= module
+		regenerate_icons()
+		user.put_in_hands(module)
+	else
+		user << "You can't detach [module] from [src], because [module.connect_error_reason]."
+
+/mob/living/carbon/human/ClickOn( var/atom/A, var/params )
+	if(world.time <= next_click)
+		return
+	var/list/modifiers = params2list(params)
+	if(modifiers["middle"] && modifiers["ctrl"])
+		if(istype(src.get_active_hand(), /obj/item/weapon/gun))
+			for(var/obj/item/weapon/weapon_module/module in modules)
+				if(!module.middle_click_hook) continue
+				module.middle_click_proc(A)
+	..()
