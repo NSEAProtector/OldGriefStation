@@ -1,5 +1,6 @@
 /mob/living/carbon/human/emote(var/act,var/m_type=1,var/message = null)
 	var/param = null
+	var/ya = sanitize_russian("я")
 	if (findtext(act, "-", 1, null))
 		var/t1 = findtext(act, "-", 1, null)
 		param = copytext(act, t1 + 1, length(act) + 1)
@@ -25,7 +26,6 @@
 		src.miming = 0
 		for(var/obj/effect/proc_holder/spell/aoe_turf/conjure/mime_wall/s in src.spell_list)
 			del(s)
-		var/ya = sanitize_russian("я")
 		message_admins("[src.name] ([src.ckey]) нарушает свой обет молчани[ya]. (<A HREF='?_src_=holder;adminplayerobservejump=\ref[src]'>JMP</a>)")
 		src << "\red An unsettling feeling surrounds you..."
 		return
@@ -41,7 +41,7 @@
 			m_type = 1
 
 		if ("blink_r")
-			message = "<B>[src]</B> постоянно моргает."
+			message = "<B>[src]</B> посто[ya]нно моргает."
 			m_type = 1
 
 		if ("bow")
@@ -56,9 +56,9 @@
 					param = null
 
 				if (param)
-					message = "<B>[src]</B> кланяется в сторону [param]."
+					message = "<B>[src]</B> клан[ya]етс[ya] в сторону [param]."
 				else
-					message = "<B>[src]</B> кланяется"
+					message = "<B>[src]</B> клан[ya]етс[ya]"
 			m_type = 1
 
 		if ("custom")
@@ -110,12 +110,13 @@
 			m_type = 1
 
 		if ("choke")
+
 			if(miming)
-				message = "<B>[src]</B> отчаянно хватается за горло!"
+				message = "<B>[src]</B> отча[ya]нно хватаетс[ya] за горло!"
 				m_type = 1
 			else
 				if (!muzzled)
-					message = "<B>[src]</B> дергается в шоке и мычит."
+					message = "<B>[src]</B> дергаетс[ya] в шоке и мычит."
 					m_type = 2
 				else
 					message = ("<B>[src]</B> издает пронзительный крик!")
@@ -129,7 +130,7 @@
 					m_type = 1
 		if ("flap")
 			if (!src.restrained())
-				message = "<B>[src]</B> пытается похлопать в ладоши."
+				message = "<B>[src]</B> пытаетс[ya] похлопать в ладоши."
 				m_type = 2
 				if(miming)
 					m_type = 1
@@ -162,11 +163,10 @@
 					m_type = 2
 
 		if ("twitch")
-			message = "<B>[src]</B> яростно дергается."
 			m_type = 1
 
 		if ("twitch_s")
-			message = "<B>[src]</B> дергается."
+			message = "<B>[src]</B> дергаетс[ya]."
 			m_type = 1
 
 		if ("faint")
@@ -178,20 +178,18 @@
 
 		if ("cough")
 			if(miming)
-				message = "<B>[src]</B> пытается кашлять!"
 				m_type = 1
 			else
 				if (!muzzled)
-					message = "<B>[src]</B> кашляет!"
+					message = "<B>[src]</B> кашл[ya]ет!"
 					m_type = 2
 				else
-					message = "<B>[src]</B> слегка дергается и издает звуки, смахивающие на кашель."
+					message = "<B>[src]</B> слегка дергаетс[ya] и издает звуки, смахивающие на кашель."
 					m_type = 2
 
 		if ("frown")
-			message = "<B>[src]</B> хмурится."
+			message = "<B>[src]</B> хмуритс[ya]."
 			m_type = 1
-
 		if ("nod")
 			message = "<B>[src]</B> кивает."
 			m_type = 1
@@ -202,25 +200,24 @@
 
 		if ("gasp")
 			if(miming)
-				message = "<B>[src]</B> бесшумно задыхается!"
+				message = "<B>[src]</B> бесшумно задыхаетс[ya]!"
 				m_type = 1
 			else
 				if (!muzzled)
-					message = "<B>[src]</B> задыхается!"
+					message = "<B>[src]</B> задыхаетс[ya]!"
 					m_type = 2
 				else
 					message = "<B>[src]</B> мычит."
 					m_type = 2
 
 		if ("deathgasp")
-			var/ya = sanitize_russian("я")
 			if(M_ELVIS in mutations)
 				src.emote("fart")
 				message = "<B>[src]</B> покинул сознание..."
 			if(M_HARDCORE in mutations)
 				message = "<B>[src]</B> прошептал с последним вздохом, <i>'i told u i was hardcore..'</i>"
 			else
-				message = "<B>[src]</B> больше не дышит и не двигаетс[ya], глаза стали мертвыми и безжизненными..."
+				message = "<B>[src]</B> больше не дышит, глаза стали мертвыми и безжизненными..."
 			m_type = 1
 
 		if ("giggle")
@@ -261,7 +258,7 @@
 				param = null
 
 			if (param)
-				message = "<B>[src]</B> уставился на [param]."
+				message = "<B>[src]</B> уставилс[ya] на [param]."
 			else
 				message = "<B>[src]</B> куда-то смотрит."
 
@@ -283,7 +280,7 @@
 			m_type = 1
 
 		if ("grin")
-			message = "<B>[src]</B> усмехается."
+			message = "<B>[src]</B> усмехаетс[ya]."
 			m_type = 1
 
 		if ("cry")
@@ -312,11 +309,11 @@
 
 		if ("laugh")
 			if(miming)
-				message = "<B>[src]</B> беззвучно смеется."
+				message = "<B>[src]</B> беззвучно смеетс[ya]."
 				m_type = 1
 			else
 				if (!muzzled)
-					message = "<B>[src]</B> смеется."
+					message = "<B>[src]</B> смеетс[ya]."
 					m_type = 2
 				else
 					message = "<B>[src]</B> мычит."
@@ -385,7 +382,7 @@
 
 		if ("raise")
 			if (!src.restrained())
-				message = "<B>[src]</B> поднял руки вверх."
+				message = "<B>[src]</B> подн[ya]л руки вверх."
 			m_type = 1
 
 		if("shake")
@@ -407,7 +404,7 @@
 			m_type = 1
 
 		if ("smile")
-			message = "<B>[src]</B> улыбается."
+			message = "<B>[src]</B> улыбаетс[ya]."
 			m_type = 1
 
 		if ("shiver")
@@ -456,14 +453,14 @@
 
 		if ("whimper")
 			if (miming)
-				message = "<B>[src]</B> корчится от боли."
+				message = "<B>[src]</B> корчитс[ya] от боли."
 				m_type = 1
 			else
 				if (!muzzled)
 					message = "<B>[src]</B> скулит."
 					m_type = 2
 				else
-					message = "<B>[src]</B> пытается скулить."
+					message = "<B>[src]</B> пытаетс[ya] скулить."
 					m_type = 2
 
 		if ("wink")
@@ -499,7 +496,7 @@
 				if (M)
 					message = "<B>[src]</B> обнимает [M]."
 				else
-					message = "<B>[src]</B> обнимает себя."
+					message = "<B>[src]</B> обнимает себ[ya]."
 
 		if ("handshake")
 			m_type = 1
@@ -517,7 +514,7 @@
 					if (M.canmove && !M.r_hand && !M.restrained())
 						message = "<B>[src]</B> пожимает руку [M]."
 					else
-						message = "<B>[src]</B> протягивает руку [M]."
+						message = "<B>[src]</B> прот[ya]гивает руку [M]."
 
 		if("dap")
 			m_type = 1
@@ -529,9 +526,9 @@
 							M = A
 							break
 				if (M)
-					message = "<B>[src]</B> дает пять [M]."
+					message = "<B>[src]</B> дает п[ya]ть [M]."
 				else
-					message = "<B>[src]</B> грустно смотрит что никто не дает пять, после чего дает пять себе. Позорище!"
+					message = "<B>[src]</B> грустно смотрит что никто не дает п[ya]ть, после чего дает п[ya]ть себе. Позорище!"
 
 		if ("scream")
 			if (miming)
@@ -594,7 +591,7 @@
 				m_type = 2
 			else
 				if (src.w_uniform)
-					message = "<B>[src]</B> обосрался в свою форму!"
+					message = "<B>[src]</B> обосралс[ya] в свою форму!"
 					playsound(src.loc, 'sound/misc/fart.ogg', 60, 1)
 					playsound(src.loc, 'sound/misc/squishy.ogg', 40, 1)
 					src.nutrition -= 80
@@ -674,7 +671,7 @@
 		if("fart")
 			if(src.op_stage.butt != 4)
 				if(world.time-lastFart >= 400)
-					var/list/farts = sanitize_russian(list("пукнул!","пукнул [pick("слегка", "нежно", "мягко", "с осторожностью")]!","пукает с силой тысячи солнц!"))
+					var/list/farts = sanitize_russian(list("пукнул!","пукнул [pick("слегка", "нежно", "м[ya]гко", "с осторожностью")]!","пукает с силой тыс[ya]чи солнц!"))
 					if(miming)
 						farts = list("тихо пукает!", "пукнул!", "начинает тихо выпускать очень вонюючий амбре из своей поганой задницы!")
 					var/fart = pick(farts)
@@ -760,7 +757,7 @@
 							usr << "\red Вас прервали, вам не удалось пернуть! Как грубо!"
 					lastFart=world.time
 				else
-					message = "<b>[src]</b> пытается пукнуть"
+					message = "<b>[src]</b> пытаетс[ya] пукнуть"
 					m_type = 1
 			else
 				message = "<b>[src]</b> lets out a [pick("отвратный","отвратительный","ужасный","удушающий","богохульный")] звук из мутировавшей мудаческой задницы."

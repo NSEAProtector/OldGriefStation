@@ -79,10 +79,16 @@
 	item_state = "pirate"
 
 /obj/item/clothing/head/collectable/kitty
-	name = "collectable kitty ears"
+	name = "collectable kitty ears and.."
 	desc = "The fur feels.....a bit too realistic."
 	icon_state = "kitty"
 	item_state = "kitty"
+
+/obj/item/clothing/head/collectable/kittyf
+	name = "collectable kitty ears"
+	desc = "The fur feels.....a bit too realistic."
+	icon_state = "kitty-f"
+	item_state = "kitty-f"
 
 /obj/item/clothing/head/collectable/rabbitears
 	name = "collectable rabbit ears"
