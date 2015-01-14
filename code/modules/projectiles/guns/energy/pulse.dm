@@ -5,31 +5,31 @@
 	item_state = null	//so the human update icon uses the icon_state instead.
 	force = 10
 	fire_sound = 'sound/weapons/pulse.ogg'
-	charge_cost = 200
+	charge_cost = 1000
 	projectile_type = "/obj/item/projectile/beam/pulse"
 	cell_type = "/obj/item/weapon/cell/super"
 	var/mode = 2
-	fire_delay = 2
+	fire_delay = 6
 
 	attack_self(mob/living/user as mob)
 		switch(mode)
 			if(2)
 				mode = 0
-				charge_cost = 100
+				charge_cost = 500
 				fire_delay = 5 //учитесь стрелять наконец!!
 				fire_sound = 'sound/weapons/Taser.ogg'
 				user << "\red [src.name] is now set to stun."
 				projectile_type = "/obj/item/projectile/energy/electrode"
 			if(0)
 				mode = 1
-				charge_cost = 100
+				charge_cost = 500
 				fire_delay = 3
 				fire_sound = 'sound/weapons/Laser.ogg'
 				user << "\red [src.name] is now set to kill."
 				projectile_type = "/obj/item/projectile/beam"
 			if(1)
 				mode = 2
-				charge_cost = 200
+				charge_cost = 1000
 				fire_delay = 6 //Balancing stuff
 				fire_sound = 'sound/weapons/pulse.ogg'
 				user << "\red [src.name] is now set to DESTROY."

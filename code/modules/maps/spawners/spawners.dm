@@ -50,7 +50,7 @@
 		/obj/item/weapon/card/id/rd,
 		/obj/item/weapon/card/id/ce,
 		/obj/item/weapon/card/id/clown,
-		/obj/item/weapon/card/id/mime,
+		/obj/item/weapon/card/id/mime
 		)
 
 // Medical /////////////////////////////////////////////////////
@@ -76,7 +76,7 @@
 		/obj/item/weapon/storage/pill_bottle/inaprovaline,
 		/obj/item/weapon/storage/pill_bottle/kelotane,
 		/obj/item/weapon/reagent_containers/blood/OMinus,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector
 		)
 
 /obj/map/spawner/medical/pills
@@ -97,7 +97,7 @@
 		/obj/item/weapon/reagent_containers/pill/dexalin,
 		/obj/item/weapon/reagent_containers/pill/bicaridine,
 		/obj/item/weapon/reagent_containers/pill/happy,
-		/obj/item/weapon/reagent_containers/pill/zoom,
+		/obj/item/weapon/reagent_containers/pill/zoom
 		)
 
 // Security ////////////////////////////////////////////////////
@@ -109,7 +109,11 @@
 		/obj/item/clothing/suit/armor/riot,
 		/obj/item/clothing/suit/armor/bulletproof,
 		/obj/item/clothing/suit/armor/laserproof,
-		/obj/item/clothing/suit/armor/heavy,,
+		/obj/item/clothing/suit/armor/heavy,
+		/obj/item/clothing/suit/armor/vest,
+		/obj/item/clothing/suit/armor/vest/security,
+		/obj/item/clothing/suit/armor/xcomsquaddie,
+		/obj/item/clothing/suit/armor/xcomarmor
 		)
 
 /obj/map/spawner/security/gear
@@ -122,7 +126,7 @@
 		/obj/item/clothing/suit/armor/vest/security,
 		/obj/item/weapon/storage/belt/security,
 		/obj/item/weapon/gun/energy/taser,
-		/obj/item/device/hailer,
+		/obj/item/device/hailer
 		)
 
 /obj/map/spawner/security/weapons_armory
@@ -136,6 +140,9 @@
 		/obj/item/weapon/gun/projectile/colt,
 		/obj/item/weapon/gun/projectile/shotgun/pump,
 		/obj/item/weapon/gun/energy/plasma/rifle,
+		/obj/item/weapon/gun/energy/plasma/light,
+		/obj/item/weapon/gun/energy/plasma/pistol,
+
 		)
 
 /obj/map/spawner/security/weapons
@@ -158,7 +165,7 @@
 		/obj/item/weapon/gun/energy/plasma/light,
 		/obj/item/weapon/gun/energy/sniper,
 		/obj/item/weapon/gun/energy/plasma/MP40k,
-		/obj/item/weapon/gun/energy/pulse_rifle,
+		/obj/item/weapon/gun/energy/pulse_rifle
 		)
 
 /obj/map/spawner/security/misc
@@ -170,7 +177,7 @@
 		/obj/item/weapon/storage/box/flashbangs,
 		/obj/item/weapon/storage/box/handcuffs,
 		/obj/item/weapon/storage/box/donkpockets,
-		/obj/item/weapon/storage/fancy/donut_box,
+		/obj/item/weapon/storage/fancy/donut_box
 		)
 
 // Engineering /////////////////////////////////////////////////
@@ -199,7 +206,7 @@
 	chance = 50
 	toSpawn = list(
 		/obj/structure/reagent_dispensers/fueltank,
-		/obj/structure/reagent_dispensers/watertank,
+		/obj/structure/reagent_dispensers/watertank
 		)
 
 /obj/map/spawner/engi/machinery
@@ -250,7 +257,7 @@
 		/obj/structure/shuttle/engine/router,
 		/obj/structure/toilet,
 		/obj/structure/turret/gun_turret,
-		/obj/spacepod/random,
+		/obj/spacepod/random
 		)
 
 // Assistants //////////////////////////////////////////////////
@@ -297,7 +304,7 @@
 		/obj/item/weapon/stock_parts/capacitor,
 		/obj/item/weapon/stock_parts/micro_laser,
 		/obj/item/weapon/storage/belt/utility,
-		/obj/item/weapon/storage/toolbox/electrical,
+		/obj/item/weapon/storage/toolbox/electrical
 		)
 
 /obj/map/spawner/assistant/materials
@@ -314,7 +321,7 @@
 		/obj/item/stack/sheet/cloth{amount=50},
 		/obj/item/stack/sheet/cardboard{amount=50},
 		/obj/item/stack/rods{amount=50},
-		/obj/item/stack/sheet/mineral/sandstone{amount=50},
+		/obj/item/stack/sheet/mineral/sandstone{amount=50}
 		)
 
 // Maintenance /////////////////////////////////////////////////
@@ -621,7 +628,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/plump_pie,
 		/obj/item/weapon/reagent_containers/food/snacks/soylenviridians,
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake,
-		/obj/item/weapon/reagent_containers/food/snacks/tofurkey,
+		/obj/item/weapon/reagent_containers/food/snacks/tofurkey
 		)
 
 // Space ///////////////////////////////////////////////////////
@@ -654,7 +661,7 @@
 		/obj/item/weapon/organ/head,
 		/obj/item/weapon/organ/r_leg,
 		/obj/item/weapon/organ/l_arm,
-		/obj/item/weapon/organ/l_foot,
+		/obj/item/weapon/organ/l_foot
 		)
 
 /obj/map/spawner/space/tools
@@ -710,7 +717,7 @@
 		/obj/item/weapon/weldingtool/hugetank,
 		/obj/item/weapon/tank/plasma,
 		/obj/item/weapon/silencer,
-		/obj/item/weapon/storage/backpack/holding,
+		/obj/item/weapon/storage/backpack/holding
 		)
 
 /obj/map/spawner/space/gear
@@ -734,11 +741,7 @@
 		/obj/item/clothing/head/helmet/space/syndicate/black/engie,
 		/obj/item/clothing/suit/space/syndicate/black/engie,
 		/obj/item/clothing/tie/storage/webbing,
-		/obj/item/clothing/tie/storage/brown_vest,
-		/obj/item/weapon/organ/head,
-		/obj/item/weapon/organ/r_leg,
-		/obj/item/weapon/organ/l_arm,
-		/obj/item/weapon/organ/l_foot,
+		/obj/item/clothing/tie/storage/brown_vest
 		)
 
 /obj/map/spawner/space/supply
@@ -788,7 +791,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/wingfangchu,
 		/obj/item/weapon/reagent_containers/food/snacks/soylentgreen,
 		/obj/item/weapon/reagent_containers/food/snacks/bearmeat,
-		/obj/item/weapon/reagent_containers/food/snacks/xenomeat,
+		/obj/item/weapon/reagent_containers/food/snacks/xenomeat
 		)
 
 /obj/map/spawner/space/drinks
@@ -803,7 +806,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/rum,
 		/obj/item/weapon/reagent_containers/food/drinks/soda_cans/grifeo,
-		/obj/item/weapon/reagent_containers/food/drinks/groansbanned,
+		/obj/item/weapon/reagent_containers/food/drinks/groansbanned
 		)
 
 /obj/map/spawner/space/russian
@@ -835,7 +838,7 @@
 	toSpawn = list(
 		/mob/living/simple_animal/mouse/brown,
 		/mob/living/simple_animal/mouse/gray,
-		/mob/living/simple_animal/mouse/white,
+		/mob/living/simple_animal/mouse/white
 		)
 
 /obj/map/spawner/mobs/bear
@@ -852,7 +855,7 @@
 	toSpawn = list(
 		/mob/living/simple_animal/hostile/giant_spider,
 		/mob/living/simple_animal/hostile/giant_spider/nurse,
-		/mob/living/simple_animal/hostile/giant_spider/hunter,
+		/mob/living/simple_animal/hostile/giant_spider/hunter
 		)
 
 // Robutts /////////////////////////////////////////////////////
@@ -866,7 +869,7 @@
 		/obj/machinery/bot/farmbot,
 		/obj/machinery/bot/floorbot,
 		/obj/machinery/bot/medbot,
-		/obj/machinery/bot/secbot,
+		/obj/machinery/bot/secbot
 		)
 
 /obj/map/spawner/robot/sec
@@ -963,7 +966,7 @@
 		/obj/item/seeds/walkingmushroommycelium,
 		/obj/item/seeds/watermelonseed,
 		/obj/item/seeds/wheatseed,
-		/obj/item/seeds/whitebeetseed,
+		/obj/item/seeds/whitebeetseed
 		)
 
 

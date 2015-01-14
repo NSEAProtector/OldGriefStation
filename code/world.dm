@@ -256,14 +256,9 @@
 	var/s = ""
 
 	if (config && config.server_name)
-		s += {"<b><a href=\"http://nsea.forum2x2.com/">(RU)NSEA protector] FUN SERVER</b></a>"}
-		s += " ("
-		s += "Build - /VG/: Custom"
-		s += "</a>"
-		s += ")"
-		s += "<br>English: FUN AND RP in VG:PKS.<br>"
-		s += "<br>Russian: ‘‡Ì Ë –œ Ì‡ VG:PKS<br>"
-		s += ""
+		s += {"<b><a href=\"http://nsea.forum2x2.com/">(RU)NSEA protector]</a> FUN SERVER</b>
+		s +="(Build - VGstation13:PKS)"}
+		s += {"<b>English: FUN AND RP in VG:PKS</b> <b>Russian: ‘‡Ì Ë –œ Ì‡ VG:PKS</b>"}
 	var/list/features = list()
 
 	if(ticker)
