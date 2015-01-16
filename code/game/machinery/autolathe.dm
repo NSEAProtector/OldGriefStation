@@ -76,7 +76,6 @@ var/global/list/autolathe_recipes_hidden = list( \
 		new /obj/item/ammo_storage/magazine/a50(),  \
 		new /obj/item/ammo_storage/magazine/a762(),  \
 		new /obj/item/ammo_storage/magazine/c45(),  \
-		new /obj/item/ammo_storage/magazine/a50s(),  \
 		new /obj/item/clothing/suit/armor/vest(), \
 		new /obj/item/clothing/head/helmet(), \
 		new /obj/item/weapon/gun/projectile/pistol(), \

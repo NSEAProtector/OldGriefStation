@@ -8,11 +8,12 @@
 	origin_tech = "combat=4;materials=2"
 	ammo_type = "/obj/item/ammo_casing/c9mm"
 	automatic = 1
-	fire_delay = 0
+	flags =  USEDELAY
 	var/burstfire = 0 //Whether or not the gun fires multiple bullets at once
 	var/burst_count = 3
 	load_method = 2
 	mag_type = "/obj/item/ammo_storage/magazine/smg9mm"
+	m_amt = 3500
 
 	update_icon()
 		..()
@@ -68,7 +69,7 @@
 	origin_tech = "combat=5;materials=2;syndicate=8"
 	ammo_type = "/obj/item/ammo_casing/c45m"
 	mag_type = "/obj/item/ammo_storage/magazine/uzi45"
-
+	m_amt = 4000
 	update_icon()
 		..()
 		if(stored_magazine)
@@ -89,6 +90,7 @@
 	w_class = 3.0
 	max_shells = 20
 	burst_count = 4
+	m_amt = 7500
 	caliber = list("12mm" = 1)
 	origin_tech = "combat=5;materials=2;syndicate=8"
 	ammo_type = "/obj/item/ammo_casing/a12mm"
@@ -106,31 +108,6 @@
 	return
 
 
-/obj/item/weapon/gun/projectile/automatic/xcom
-	name = "\improper Assault Rifle"
-	desc = "A lightweight, fast firing gun, issued to shadow organization members."
-	icon_state = "xcomassaultrifle"
-	origin_tech = "combat=5;materials=2"
-	item_state = "c20r"
-	w_class = 4.0
-	max_shells = 20
-	burst_count = 4
-	caliber = list("12mm" = 1)
-	ammo_type = "/obj/item/ammo_casing/a12mm"
-	mag_type = "/obj/item/ammo_storage/magazine/a12mm"
-	fire_sound = 'sound/weapons/Gunshot_c20.ogg'
-	load_method = 2
-	auto_mag_drop = 1
-
-	update_icon()
-		..()
-		if(stored_magazine)
-			icon_state = "xcomassaultrifle-full"
-		else
-			icon_state = "xcomassaultrifle"
-		return
-
-
 /obj/item/weapon/gun/projectile/automatic/l6_saw
 	name = "\improper L6 SAW"
 	desc = "A rather traditionally made light machine gun with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2531' engraved on the reciever"
@@ -140,6 +117,7 @@
 	slot_flags = 0
 	max_shells = 50
 	burst_count = 10
+	m_amt = 15000
 	caliber = list("a762" = 1)
 	origin_tech = "combat=5;materials=1;syndicate=2"
 	ammo_type = "/obj/item/ammo_casing/a762"
@@ -216,6 +194,7 @@
 	max_shells = 8
 	caliber = list(".45" = 1)
 	burst_count = 2
+	m_amt = 3750
 	origin_tech = "combat=5;materials=1"
 	ammo_type = "/obj/item/ammo_casing/c45"
 	mag_type = "/obj/item/ammo_storage/magazine/c45"
@@ -240,6 +219,7 @@
 	w_class = 3.0
 	max_shells = 30
 	burst_count = 3
+	m_amt = 7500
 	caliber = list("5.56" = 1)
 	origin_tech = "combat=4;materials=4"
 	ammo_type = "/obj/item/ammo_casing/a556"
@@ -247,6 +227,8 @@
 	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 	load_method = 2
 	auto_mag_drop = 1
+	flags =  USEDELAY
+	fire_delay = 0.5
 
 	update_icon()
 		..()
@@ -256,7 +238,6 @@
 			icon_state = "k4m"
 		return
 
-
 /obj/item/weapon/gun/projectile/automatic/mp5
 	name = "Mp5-A2"
 	desc = "A lightweight, fast firing gun, used by Corp. special ops. Uses 9mm rounds."
@@ -264,6 +245,7 @@
 	w_class = 3.0
 	max_shells = 30
 	burst_count = 3
+	m_amt = 4000
 	caliber = "9x18"
 	fire_sound = 'sound/weapons/mp5.ogg'
 	origin_tech = "combat=4;materials=2"
@@ -271,6 +253,8 @@
 	mag_type = "/obj/item/ammo_storage/magazine/c9mmp"
 	load_method = 2
 	auto_mag_drop = 1
+	flags =  USEDELAY
+	fire_delay = 0.5
 
 	update_icon()
 		..()
@@ -289,6 +273,7 @@
 	item_state = "c20r"
 	w_class = 4.0
 	max_shells = 30
+	m_amt = 5600
 	burst_count = 3
 	caliber = list("5.56" = 1)
 	origin_tech = "combat=5;materials=3;syndicate=4"
@@ -300,6 +285,63 @@
 
 /obj/item/weapon/gun/projectile/automatic/G36K/isHandgun()
 	return 1
+
+/obj/item/weapon/gun/projectile/automatic/assault
+	name = "\improper Assault Rifle"
+	desc = "Very fast firing gun, issued to shadow organization members."
+	icon_state = "assaultrifle"
+	origin_tech = "combat=5;materials=2"
+	m_amt = 1800
+	item_state = "c20r"
+	w_class = 4.0
+	max_shells = 30
+	burst_count = 6
+	caliber = list("5.56" = 1)
+	ammo_type = "/obj/item/ammo_casing/a556"
+	mag_type = "/obj/item/ammo_storage/magazine/a556"
+	fire_sound = 'sound/weapons/Gunshot_c20.ogg'
+	load_method = 2
+	auto_mag_drop = 1
+	flags =  USEDELAY
+	fire_delay = 1
+
+	update_icon()
+		..()
+		if(stored_magazine)
+			icon_state = "assaultrifle-full"
+		else
+			icon_state = "assaultrifle"
+		return
+
+/obj/item/weapon/gun/projectile/automatic/advanced
+	name = "High tech assault rifle"
+	desc = "A lightweight gun, made with plastic. Strange, but this rifle have mark with that text: Made from PKS. Uses 12.7 rounds"
+	icon_state = "pkst1m"
+	origin_tech = "combat=5;materials=2"
+	item_state = "c20r"
+	w_class = 4.0
+	max_shells = 15
+	m_amt = 400
+	burst_count = 3
+	caliber = list("12.7" = 1)
+	ammo_type = "/obj/item/ammo_casing/a127s"
+	mag_type = "/obj/item/ammo_storage/magazine/a127s"
+	fire_sound = 'sound/weapons/G36.ogg'
+	load_method = 2
+	auto_mag_drop = 1
+	flags =  USEDELAY
+	fire_delay = 0.2
+
+	update_icon()
+		..()
+		if(stored_magazine)
+			icon_state = "pkst1m-full"
+		else
+			icon_state = "pkst1m"
+		return
+
+
+/////test////
 
 /*
 /obj/item/weapon/gun/projectile/automatic/hkg36c

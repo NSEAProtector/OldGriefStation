@@ -140,10 +140,10 @@
 	projectile_type = "/obj/item/projectile/bullet/midbullet3"
 	w_type = RECYK_METAL
 
-/obj/item/ammo_casing/a50s
-	desc = "A .50s bullet casing."
-	caliber = ".50s"
-	projectile_type = "/obj/item/projectile/bullet"
+/obj/item/ammo_casing/a127s
+	desc = "A 12.7 bullet casing."
+	caliber = "12.7"
+	projectile_type = "/obj/item/projectile/bullet/midbulleta"
 	w_type = RECYK_METAL
 
 /obj/item/ammo_casing/energy/kinetic

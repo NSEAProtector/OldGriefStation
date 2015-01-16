@@ -256,9 +256,15 @@
 	var/s = ""
 
 	if (config && config.server_name)
-		s += {"<b><a href=\"http://nsea.forum2x2.com/">(RU)NSEA protector]</a> FUN SERVER</b>
-		s +="(Build - VGstation13:PKS)"}
-		s += {"<b>English: FUN AND RP in VG:PKS</b> <b>Russian: ‘‡Ì Ë –œ Ì‡ VG:PKS</b>"}
+		s += "<a href=\"\"><b>(RU)Grief-Station</b> &#8212;"
+	s += "<b>N.S.E.A. Protector</b> | Hosted by [host]";
+	//s += " ("
+	//s += "" //Change this to wherever you want the hub to link to.
+	//s += "[config.server_version]"
+	//s += ")"
+	s += "<br><img src=\"\"><br>"
+	s += "</a>"
+
 	var/list/features = list()
 
 	if(ticker)
@@ -275,9 +281,6 @@
 	if (config && config.allow_vote_mode)
 		features += "vote"
 
-	if (config && config.allow_ai)
-		features += "AI allowed"
-
 	var/n = 0
 	for (var/mob/M in player_list)
 		if (M.client)
@@ -287,10 +290,6 @@
 		features += "~[n] players"
 	else if (n > 0)
 		features += "~[n] player"
-
-	if (host)
-		features += "hosted by <b>[host]</b>"
-
 
 	if (!host && config && config.hostedby)
 		features += "hosted by <b>P.K.S.Server.root</b>"

@@ -52,6 +52,9 @@
 /obj/item/projectile/bullet/midbullet2 //7 62
 	damage = 25
 
+/obj/item/projectile/bullet/midbulleta //0.50s
+	damage = 35
+
 /obj/item/projectile/bullet/midbullet3 //5 56
 	damage = 20
 

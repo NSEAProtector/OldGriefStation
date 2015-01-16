@@ -351,7 +351,7 @@
 	icon_state = "swim_red"
 	_color = "swim_red"
 	siemens_coefficient = 1
-
+/*
 /obj/item/clothing/suit/simonjacket
 	name = "Simon's Jacket"
 	desc = "Now you too can pierce the heavens"
@@ -364,7 +364,7 @@
 	desc = "Don't believe in yourself, dumbass. Believe in me. Believe in the Kamina who believes in you."
 	icon_state = "kaminacape"
 	item_state = "kaminacape"
-
+*/
 /obj/item/clothing/suit/storage/bandolier
 	name = "bandolier"
 	desc = "A bandolier designed to hold up to eight shotgun shells."

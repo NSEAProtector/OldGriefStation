@@ -220,7 +220,7 @@
 	icon_state = "thermalimplants"
 	item_state = "syringe_kit"
 	species_fit = list("Vox")
-
+/*
 /obj/item/clothing/glasses/simonglasses
 	name = "Simon's Glasses"
 	desc = "Just who the hell do you think I am?"
@@ -234,3 +234,4 @@
 	icon_state = "kaminaglasses"
 	item_state = "kaminaglasses"
 	cover_hair = 1
+*/

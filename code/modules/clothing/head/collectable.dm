@@ -90,6 +90,18 @@
 	icon_state = "kitty-f"
 	item_state = "kitty-f"
 
+/obj/item/clothing/head/collectable/kittycap
+	name = "collectable funny kitty cap"
+	desc = "reall cap with citty ears, that is funny."
+	icon_state = "kittycap"
+	item_state = "kittycap"
+
+/obj/item/clothing/head/collectable/kittycapf
+	name = "collectable funny kitty cap"
+	desc = "reall cap with citty ears, that is funny, that cap with colored ears"
+	icon_state = "kittycapf"
+	item_state = "kittycapf"
+
 /obj/item/clothing/head/collectable/rabbitears
 	name = "collectable rabbit ears"
 	desc = "Not as lucky as the feet!"

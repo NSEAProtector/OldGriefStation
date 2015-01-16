@@ -111,9 +111,7 @@
 		/obj/item/clothing/suit/armor/laserproof,
 		/obj/item/clothing/suit/armor/heavy,
 		/obj/item/clothing/suit/armor/vest,
-		/obj/item/clothing/suit/armor/vest/security,
-		/obj/item/clothing/suit/armor/xcomsquaddie,
-		/obj/item/clothing/suit/armor/xcomarmor
+		/obj/item/clothing/suit/armor/vest/security
 		)
 
 /obj/map/spawner/security/gear

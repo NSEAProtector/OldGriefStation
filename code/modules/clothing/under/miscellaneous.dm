@@ -381,7 +381,7 @@
 	_color = "roman"
 	item_state = "armor"
 	armor = list(melee = 25, bullet = 0, laser = 25, energy = 10, bomb = 10, bio = 0, rad = 0)
-
+/*
 /obj/item/clothing/under/simonpants
 	name = "Simon's Pants"
 	desc = "Simon's pants, clad with belt and whatever the fuck that thing is around his neck"
@@ -389,7 +389,7 @@
 	_color = "simonpants"
 	item_state = "spants"
 	species_fit = list("Vox")
-
+*/
 /obj/item/clothing/under/batmansuit
 	name = "batsuit"
 	desc = "You are the night."

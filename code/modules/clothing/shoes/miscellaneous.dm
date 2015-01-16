@@ -136,14 +136,14 @@
 	desc = "Sandals with buckled leather straps on it."
 	icon_state = "roman"
 	item_state = "roman"
-
+/*
 /obj/item/clothing/shoes/simonshoes
 	name = "Simon's Shoes"
 	desc = "Simon's Shoes"
 	icon_state = "simonshoes"
 	item_state = "simonshoes"
 	species_fit = list("Vox")
-
+*/
 /obj/item/clothing/shoes/kneesocks
 	name = "kneesocks"
 	desc = "A pair of girly knee-high socks"
