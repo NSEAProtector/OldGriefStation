@@ -256,14 +256,10 @@
 	var/s = ""
 
 	if (config && config.server_name)
-		s += "<a href=\"\"><b>(RU)Grief-Station</b> &#8212;"
-	s += "<b>N.S.E.A. Protector</b> | Hosted by [host]";
-	//s += " ("
-	//s += "" //Change this to wherever you want the hub to link to.
-	//s += "[config.server_version]"
-	//s += ")"
+		s += ""
+	s += "<b>(RU-ENG)<a href=\"http://nsea.forum2x2.com\">N.S.E.A. Protector - Grief station</b></a>";
 	s += "<br><img src=\"\"><br>"
-	s += "</a>"
+	s += ""
 
 	var/list/features = list()
 
