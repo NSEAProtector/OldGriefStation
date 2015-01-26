@@ -257,7 +257,7 @@
 
 	if (config && config.server_name)
 		s += ""
-	s += "<b>(RU-ENG)<a href=\"http://nsea.forum2x2.com\">N.S.E.A. Protector - Grief station</b></a>";
+	s += "<b>(RU-ENG)<a href=\"http://nsea.forum2x2.com\">N.S.E.A. Protector.</b></a>";
 	s += "<br><img src=\"\"><br>"
 	s += ""
 

@@ -43,7 +43,6 @@
 	H.equip_or_collect(new /obj/item/clothing/gloves/black(H), slot_gloves)
 	H.equip_or_collect(new /obj/item/clothing/mask/balaclava(H), slot_wear_mask) //YEAH
 	H.equip_or_collect(new /obj/item/weapon/blade/sck(H), slot_l_store)
-	H.equip_or_collect(new /obj/item/weapon/gun/projectile/automatic/u40ag(H), slot_l_hand)
 	if(H.backbag == 1)
 		H.equip_or_collect(new H.species.survival_gear(H), slot_r_hand)
 		H.equip_or_collect(new /obj/item/clothing/tie/storage/black_vest(H), slot_l_hand)

@@ -2,7 +2,7 @@
 	title = "Paramedic"
 	flag = PARAMEDIC
 	department_flag = MEDSCI
-	//faction = "Station" - Grief
+	faction = "Station"
 	total_positions = 4
 	spawn_positions = 2
 	supervisors = "the chief medical officer"

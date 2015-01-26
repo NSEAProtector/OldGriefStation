@@ -3,7 +3,7 @@
 	flag = AI
 	info_flag = JINFO_SILICON
 	department_flag = ENGSEC
-	//faction = "Station" - Grief
+	faction = "Station"
 	total_positions = 0
 	spawn_positions = 1
 	selection_color = "#ccffcc"

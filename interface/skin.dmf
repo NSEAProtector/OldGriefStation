@@ -593,8 +593,8 @@ window "Telecomms IDE"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #d2d2d2
-		background-color = #414141
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -621,8 +621,8 @@ window "Telecomms IDE"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #d2d2d2
-		background-color = #414141
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -649,8 +649,8 @@ window "Telecomms IDE"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #d2d2d2
-		background-color = #414141
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -703,8 +703,8 @@ window "Telecomms IDE"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #d2d2d2
-		background-color = #414141
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -731,8 +731,8 @@ window "Telecomms IDE"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #d2d2d2
-		background-color = #414141
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1030,7 +1030,7 @@ window "mainwindow"
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #1e1e1e
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1068,8 +1068,8 @@ window "mainwindow"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #0f0f0f
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1096,8 +1096,8 @@ window "mainwindow"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #0f0f0f
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1124,8 +1124,8 @@ window "mainwindow"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #8e3131
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1145,15 +1145,15 @@ window "mainwindow"
 		button-type = pushbox
 	elem "mainvsplit"
 		type = CHILD
-		pos = 0,0
-		size = 637x420
+		pos = 3,0
+		size = 634x416
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = ""
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #1e1e1e
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1178,8 +1178,8 @@ window "mainwindow"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #414141
+		text-color = #000000
+		background-color = #d3b5b5
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1202,8 +1202,8 @@ window "mainwindow"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #0f0f0f
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1294,7 +1294,7 @@ window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
 		pos = 281,0
-		size = 761x474
+		size = 640x480
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
@@ -1333,7 +1333,7 @@ window "outputwindow"
 	elem "output"
 		type = OUTPUT
 		pos = 0,0
-		size = 761x474
+		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = ""
@@ -1350,7 +1350,7 @@ window "outputwindow"
 		right-click = false
 		saved-params = "max-lines"
 		on-size = ""
-		link-color = #0000e1
+		link-color = #0000ff
 		visited-color = #ff00ff
 		style = ".system {color:#ff0000;}"
 		enable-http-images = false
@@ -1361,14 +1361,14 @@ window "rpane"
 	elem "rpane"
 		type = MAIN
 		pos = 281,0
-		size = 597x469
+		size = 640x480
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #1e1e1e
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1400,14 +1400,14 @@ window "rpane"
 	elem "rpanewindow"
 		type = CHILD
 		pos = 0,0
-		size = 638x475
+		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = ""
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #1e1e1e
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1423,17 +1423,17 @@ window "rpane"
 		splitter = 50
 		show-splitter = true
 		lock = none
-	elem "rulesb"
+	elem "map"
 		type = BUTTON
-		pos = 356,0
-		size = 108x16
+		pos = 386,0
+		size = 67x16
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #1e1e1e
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1443,7 +1443,61 @@ window "rpane"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "Правила сервера"
+		text = "MapName"
+		image = ""
+		command = "MapRender"
+		is-flat = false
+		stretch = false
+		is-checked = false
+		group = ""
+		button-type = pushbutton
+	elem "hosttracker"
+		type = BROWSER
+		pos = 392,25
+		size = 1x1
+		anchor1 = none
+		anchor2 = none
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = ""
+		on-size = ""
+		show-history = false
+		show-url = false
+		auto-format = true
+		use-title = false
+		on-show = ""
+		on-hide = ""
+	elem "rulesb"
+		type = BUTTON
+		pos = 253,0
+		size = 60x16
+		anchor1 = none
+		anchor2 = none
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "is-checked"
+		on-size = ""
+		text = "Rules"
 		image = ""
 		command = "rules"
 		is-flat = false
@@ -1451,17 +1505,17 @@ window "rpane"
 		is-checked = false
 		group = "rpanemode"
 		button-type = pushbutton
-	elem "forumb"
+	elem "changelog"
 		type = BUTTON
-		pos = 216,0
-		size = 136x16
+		pos = 316,0
+		size = 67x16
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #1e1e1e
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1471,7 +1525,35 @@ window "rpane"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "Форум NSEA Protector"
+		text = "Changelog"
+		image = ""
+		command = "Changelog"
+		is-flat = false
+		stretch = false
+		is-checked = false
+		group = "rpanemode"
+		button-type = pushbutton
+	elem "forumb"
+		type = BUTTON
+		pos = 190,0
+		size = 60x16
+		anchor1 = none
+		anchor2 = none
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "is-checked"
+		on-size = ""
+		text = "Forum"
 		image = ""
 		command = "forum"
 		is-flat = false
@@ -1481,15 +1563,15 @@ window "rpane"
 		button-type = pushbutton
 	elem "wikib"
 		type = BUTTON
-		pos = 152,0
+		pos = 127,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #1e1e1e
+		text-color = #000000
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1499,7 +1581,7 @@ window "rpane"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "VG Wiki"
+		text = "Wiki"
 		image = ""
 		command = "wiki"
 		is-flat = false
@@ -1516,8 +1598,8 @@ window "rpane"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #1e1e1e
+		text-color = #000000
+		background-color = none
 		is-visible = false
 		is-disabled = false
 		is-transparent = false
@@ -1537,15 +1619,15 @@ window "rpane"
 		button-type = pushbox
 	elem "browseb"
 		type = BUTTON
-		pos = 472,0
+		pos = 570,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #1e1e1e
+		text-color = #000000
+		background-color = none
 		is-visible = false
 		is-disabled = false
 		is-transparent = false
@@ -1565,15 +1647,15 @@ window "rpane"
 		button-type = pushbox
 	elem "infob"
 		type = BUTTON
-		pos = 60,0
+		pos = 64,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #1e1e1e
+		text-color = #000000
+		background-color = none
 		is-visible = false
 		is-disabled = false
 		is-transparent = false
@@ -1642,7 +1724,7 @@ window "browserwindow"
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #414141
+		background-color = #ffffff
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1670,7 +1752,7 @@ window "infowindow"
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #1e1e1e
+		background-color = none
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1681,11 +1763,11 @@ window "infowindow"
 		saved-params = "pos;size;is-minimized;is-maximized"
 		on-size = ""
 		title = "Info"
-		titlebar = false
-		statusbar = false
-		can-close = false
-		can-minimize = false
-		can-resize = false
+		titlebar = true
+		statusbar = true
+		can-close = true
+		can-minimize = true
+		can-resize = true
 		is-pane = true
 		is-minimized = false
 		is-maximized = false
@@ -1702,14 +1784,14 @@ window "infowindow"
 	elem "info"
 		type = INFO
 		pos = 0,0
-		size = 638x472
+		size = 638x475
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #171717
+		text-color = #000000
+		background-color = #ffffff
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1719,9 +1801,9 @@ window "infowindow"
 		right-click = false
 		saved-params = ""
 		on-size = ""
-		highlight-color = #e09d0d
-		tab-text-color = #ffffff
-		tab-background-color = #1e1e1e
+		highlight-color = #00aa00
+		tab-text-color = #000000
+		tab-background-color = none
 		tab-font-family = ""
 		tab-font-size = 0
 		tab-font-style = ""
@@ -1730,14 +1812,14 @@ window "infowindow"
 		on-show = ".winset\"rpane.infob.is-visible=true;rpane.browseb.is-visible=true?rpane.infob.pos=130,0:rpane.infob.pos=65,0 rpane.textb.is-visible=true rpane.infob.is-checked=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=infowindow\""
 		on-hide = ".winset\"rpane.infob.is-visible=false;rpane.browseb.is-visible=true?rpane.browseb.is-checked=true rpane.rpanewindow.left=browserwindow:rpane.textb.is-visible=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=\""
 		on-tab = ""
-		prefix-color = #ffffff
-		suffix-color = #ffffff
+		prefix-color = none
+		suffix-color = none
 
 window "window1"
 	elem "window1"
 		type = MAIN
 		pos = 281,0
-		size = 634x473
+		size = 634x480
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
@@ -1768,22 +1850,22 @@ window "window1"
 		image = ""
 		image-mode = center
 		keep-aspect = false
-		transparent-color = #4e4e4e
+		transparent-color = none
 		alpha = 255
 		macro = ""
 		menu = ""
 		on-close = ""
 	elem "input2"
 		type = INPUT
-		pos = 0,455
-		size = 634x17
+		pos = 0,456
+		size = 634x20
 		anchor1 = 0,100
 		anchor2 = 100,100
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #2d2d2d
-		background-color = #cfcfcf
+		text-color = #000000
+		background-color = #d3b5b5
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1806,8 +1888,8 @@ window "window1"
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #d3b5b5
-		background-color = #4e4e4e
+		text-color = #000000
+		background-color = #fffdd0
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1817,8 +1899,8 @@ window "window1"
 		right-click = false
 		saved-params = "max-lines"
 		on-size = ""
-		link-color = #e1a21e
-		visited-color = #dcdf6c
+		link-color = #0000ff
+		visited-color = #ff00ff
 		style = ""
 		enable-http-images = false
 		max-lines = 1000
