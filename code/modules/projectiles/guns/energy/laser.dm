@@ -16,23 +16,6 @@
 	projectile_type = "/obj/item/projectile/beam/practice"
 	clumsy_check = 0
 
-/obj/item/weapon/gun/energy/laser/pistol
-	name = "laser pistol"
-	desc = "A laser pistol issued to high ranking members of a certain shadow corporation."
-	icon_state = "laserpistol"
-	projectile_type = /obj/item/projectile/beam
-	cell_removing = 1
-	charge_cost = 200 // holds less "ammo" then the rifle variant.
-
-
-/obj/item/weapon/gun/energy/laser/rifle
-	name = "laser rifle"
-	desc = "improper laser rifle, standart shots and ejectable cell"
-	icon_state = "lrifle"
-	projectile_type = /obj/item/projectile/beam
-	cell_removing = 1
-	charge_cost = 100
-
 obj/item/weapon/gun/energy/laser/retro
 	name ="retro laser"
 	icon_state = "retro"

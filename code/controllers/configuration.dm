@@ -81,6 +81,7 @@
 	var/wikiurl = "http://ss13.nexisonline.net/wiki/Main_Page"
 	var/vgws_base_url = "http://vg13.undo.it" // No hanging slashes.
 	var/forumurl = "http://nsea.forum2x2.com"
+	var/faqurl = "http://nsea.forum2x2.com"
 
 	var/media_base_url = "http://ss13.nexisonline.net/media" // попробуем, чому нет.
 	//Alert level description

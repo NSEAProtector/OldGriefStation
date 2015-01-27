@@ -1400,14 +1400,14 @@ window "rpane"
 	elem "rpanewindow"
 		type = CHILD
 		pos = 0,0
-		size = 638x475
-		anchor1 = 0,0
-		anchor2 = 100,100
+		size = 597x469
+		anchor1 = none
+		anchor2 = none
 		font-family = ""
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #d2d2d2
+		background-color = #e1e1e1
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1418,18 +1418,18 @@ window "rpane"
 		saved-params = "splitter"
 		on-size = ""
 		left = ""
-		right = "outputwindow"
+		right = ""
 		is-vert = false
 		splitter = 50
 		show-splitter = true
 		lock = none
-	elem "rulesb"
+	elem "faqb"
 		type = BUTTON
-		pos = 312,0
-		size = 64x16
+		pos = 400,0
+		size = 72x16
 		anchor1 = none
 		anchor2 = none
-		font-family = ""
+		font-family = "Gisha"
 		font-size = 0
 		font-style = ""
 		text-color = #ffffff
@@ -1451,16 +1451,44 @@ window "rpane"
 		is-checked = false
 		group = "rpanemode"
 		button-type = pushbutton
-	elem "forumb"
+	elem "rulesb"
 		type = BUTTON
-		pos = 208,0
-		size = 104x16
+		pos = 320,0
+		size = 80x16
 		anchor1 = none
 		anchor2 = none
-		font-family = ""
+		font-family = "Gisha"
 		font-size = 0
 		font-style = ""
 		text-color = #ffffff
+		background-color = #1e1e1e
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "is-checked"
+		on-size = ""
+		text = "Server Rules"
+		image = ""
+		command = "rules"
+		is-flat = false
+		stretch = false
+		is-checked = false
+		group = "rpanemode"
+		button-type = pushbutton
+	elem "forumb"
+		type = BUTTON
+		pos = 200,0
+		size = 120x16
+		anchor1 = none
+		anchor2 = none
+		font-family = "Gisha"
+		font-size = 0
+		font-style = ""
+		text-color = #e7e767
 		background-color = #1e1e1e
 		is-visible = true
 		is-disabled = false
@@ -1481,15 +1509,15 @@ window "rpane"
 		button-type = pushbutton
 	elem "wikib"
 		type = BUTTON
-		pos = 152,0
+		pos = 144,0
 		size = 56x16
 		anchor1 = none
 		anchor2 = none
-		font-family = ""
+		font-family = "Gisha"
 		font-size = 0
 		font-style = ""
-		text-color = #414141
-		background-color = #efefef
+		text-color = #ffffff
+		background-color = #1e1e1e
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1541,7 +1569,7 @@ window "rpane"
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
-		font-family = ""
+		font-family = "Gisha"
 		font-size = 0
 		font-style = ""
 		text-color = #ffffff
@@ -1705,10 +1733,10 @@ window "infowindow"
 		size = 638x472
 		anchor1 = 0,0
 		anchor2 = 100,100
-		font-family = ""
+		font-family = "Gisha"
 		font-size = 0
-		font-style = ""
-		text-color = #ffffff
+		font-style = "bold"
+		text-color = #414141
 		background-color = #e8e8e8
 		is-visible = true
 		is-disabled = false
@@ -1719,7 +1747,7 @@ window "infowindow"
 		right-click = false
 		saved-params = ""
 		on-size = ""
-		highlight-color = #e09d0d
+		highlight-color = #7e7005
 		tab-text-color = #282828
 		tab-background-color = #c5c5c5
 		tab-font-family = ""

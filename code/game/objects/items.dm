@@ -734,6 +734,7 @@
 	blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 	return 1 //we applied blood to the item
 
+
 /obj/item/proc/generate_blood_overlay()
 	if(blood_overlay)
 		return
@@ -750,6 +751,7 @@
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
 		M.show_message("[user] holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
+
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
