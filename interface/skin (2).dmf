@@ -136,8 +136,8 @@ macro "macro"
 		command = ".options"
 		is-disabled = false
 	elem 
-		name = "F2+REP"
-		command = ".screenshot auto"
+		name = "F2"
+		command = "OOC"
 		is-disabled = false
 	elem 
 		name = "SHIFT+F2+REP"
@@ -379,7 +379,7 @@ macro "hotkeymode"
 		is-disabled = false
 	elem 
 		name = "F2+REP"
-		command = ".screenshot auto"
+		command = "OOC"
 		is-disabled = false
 	elem 
 		name = "SHIFT+F2+REP"
@@ -1340,7 +1340,7 @@ window "outputwindow"
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #ffffff
+		background-color = #f2f2f2
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1418,15 +1418,43 @@ window "rpane"
 		saved-params = "splitter"
 		on-size = ""
 		left = ""
-		right = ""
+		right = "outputwindow"
 		is-vert = false
 		splitter = 50
 		show-splitter = true
 		lock = none
+	elem "respawnb"
+		type = BUTTON
+		pos = 424,0
+		size = 56x16
+		anchor1 = none
+		anchor2 = none
+		font-family = "Gisha"
+		font-size = 0
+		font-style = ""
+		text-color = #ffffff
+		background-color = #1e1e1e
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "is-checked"
+		on-size = ""
+		text = "Respawn"
+		image = ""
+		command = "respawn"
+		is-flat = false
+		stretch = false
+		is-checked = false
+		group = "rpanemode"
+		button-type = pushbutton
 	elem "faqb"
 		type = BUTTON
-		pos = 400,0
-		size = 72x16
+		pos = 288,0
+		size = 64x16
 		anchor1 = none
 		anchor2 = none
 		font-family = "Gisha"
@@ -1453,8 +1481,8 @@ window "rpane"
 		button-type = pushbutton
 	elem "rulesb"
 		type = BUTTON
-		pos = 320,0
-		size = 80x16
+		pos = 352,0
+		size = 72x16
 		anchor1 = none
 		anchor2 = none
 		font-family = "Gisha"
@@ -1481,8 +1509,8 @@ window "rpane"
 		button-type = pushbutton
 	elem "forumb"
 		type = BUTTON
-		pos = 200,0
-		size = 120x16
+		pos = 184,0
+		size = 104x16
 		anchor1 = none
 		anchor2 = none
 		font-family = "Gisha"
@@ -1509,7 +1537,7 @@ window "rpane"
 		button-type = pushbutton
 	elem "wikib"
 		type = BUTTON
-		pos = 144,0
+		pos = 128,0
 		size = 56x16
 		anchor1 = none
 		anchor2 = none
@@ -1565,7 +1593,7 @@ window "rpane"
 		button-type = pushbox
 	elem "browseb"
 		type = BUTTON
-		pos = 472,0
+		pos = 480,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
@@ -1663,7 +1691,7 @@ window "browserwindow"
 	elem "browser"
 		type = BROWSER
 		pos = 0,0
-		size = 640x499
+		size = 638x475
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = ""
@@ -1691,7 +1719,7 @@ window "infowindow"
 	elem "infowindow"
 		type = MAIN
 		pos = 281,0
-		size = 640x480
+		size = 640x469
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
@@ -1730,7 +1758,7 @@ window "infowindow"
 	elem "info"
 		type = INFO
 		pos = 0,0
-		size = 638x472
+		size = 638x461
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = "Gisha"
