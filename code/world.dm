@@ -257,7 +257,7 @@
 
 	if (config && config.server_name)
 		s += ""
-	s += "<b>(RU-ENG)<a href=\"http://nsea.forum2x2.com\">N.S.E.A. Protector.</b></a>";
+	s += "<b>(RU-ENG)<a href=\"http://nsea.forum2x2.com\">Grief Station - No rules</b></a>";
 	s += "<br><img src=\"\"><br>"
 	s += ""
 
@@ -288,7 +288,7 @@
 		features += "~[n] player"
 
 	if (!host && config && config.hostedby)
-		features += "hosted by <b>P.K.S.Server.root</b>"
+		features += "hosted by <b>Viton</b>"
 
 	if (features)
 		s += ": [dd_list2text(features, ", ")]"

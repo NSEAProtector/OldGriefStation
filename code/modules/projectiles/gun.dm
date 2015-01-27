@@ -16,6 +16,7 @@
 	origin_tech = "combat=1"
 	attack_verb = list("struck", "hit", "bashed")
 
+
 	var/fire_sound = 'sound/weapons/Gunshot.ogg'
 	var/obj/item/projectile/in_chamber = null
 	var/list/caliber //the ammo the gun will accept. Now multiple types (make sure to set them to =1)
@@ -93,7 +94,6 @@
 			return
 
 	add_fingerprint(user)
-
 	var/turf/curloc = get_turf(user)
 	var/turf/targloc = get_turf(target)
 	if (!istype(targloc) || !istype(curloc))

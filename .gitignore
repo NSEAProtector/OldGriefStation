@@ -31,3 +31,5 @@ info.json
 config/news/trivial.txt
 config/README feedback.txt
 data/investigate+w
+code/modules/projectilesTG(port in progress).rar
+code/modules/projectiles/guns/energyTG.dm

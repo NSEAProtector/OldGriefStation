@@ -112,7 +112,7 @@ var/global/ZAS_Settings/zas_settings = new
 	valtype=ZAS_TYPE_NUMERIC
 
 /datum/ZAS_Setting/airflow_speed_decay
-	value = 1.5
+	value = 5.0 //viton_test
 	name = "Airflow Speed Decay"
 	desc = "How rapidly the speed gained from airflow decays."
 	valtype=ZAS_TYPE_NUMERIC

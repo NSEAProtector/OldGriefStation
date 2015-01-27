@@ -1368,7 +1368,7 @@ window "rpane"
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #1e1e1e
+		background-color = #d2d2d2
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1407,7 +1407,7 @@ window "rpane"
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #1e1e1e
+		background-color = #d2d2d2
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1425,8 +1425,8 @@ window "rpane"
 		lock = none
 	elem "rulesb"
 		type = BUTTON
-		pos = 356,0
-		size = 108x16
+		pos = 312,0
+		size = 64x16
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
@@ -1443,7 +1443,7 @@ window "rpane"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "Правила сервера"
+		text = "Server FaQ"
 		image = ""
 		command = "rules"
 		is-flat = false
@@ -1453,8 +1453,8 @@ window "rpane"
 		button-type = pushbutton
 	elem "forumb"
 		type = BUTTON
-		pos = 216,0
-		size = 136x16
+		pos = 208,0
+		size = 104x16
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
@@ -1471,7 +1471,7 @@ window "rpane"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "Форум NSEA Protector"
+		text = "NSEA\\Grief Forum"
 		image = ""
 		command = "forum"
 		is-flat = false
@@ -1482,14 +1482,14 @@ window "rpane"
 	elem "wikib"
 		type = BUTTON
 		pos = 152,0
-		size = 60x16
+		size = 56x16
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
 		font-size = 0
 		font-style = ""
-		text-color = #ffffff
-		background-color = #1e1e1e
+		text-color = #414141
+		background-color = #efefef
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1517,7 +1517,7 @@ window "rpane"
 		font-size = 0
 		font-style = ""
 		text-color = #ffffff
-		background-color = #1e1e1e
+		background-color = #d8927a
 		is-visible = false
 		is-disabled = false
 		is-transparent = false
@@ -1573,7 +1573,7 @@ window "rpane"
 		font-size = 0
 		font-style = ""
 		text-color = #ffffff
-		background-color = #1e1e1e
+		background-color = #e08474
 		is-visible = false
 		is-disabled = false
 		is-transparent = false
@@ -1670,7 +1670,7 @@ window "infowindow"
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #1e1e1e
+		background-color = #c4c4c4
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1709,7 +1709,7 @@ window "infowindow"
 		font-size = 0
 		font-style = ""
 		text-color = #ffffff
-		background-color = #171717
+		background-color = #e8e8e8
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1720,8 +1720,8 @@ window "infowindow"
 		saved-params = ""
 		on-size = ""
 		highlight-color = #e09d0d
-		tab-text-color = #ffffff
-		tab-background-color = #1e1e1e
+		tab-text-color = #282828
+		tab-background-color = #c5c5c5
 		tab-font-family = ""
 		tab-font-size = 0
 		tab-font-style = ""

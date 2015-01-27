@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy/laser
 	name = "laser gun"
-	desc = "a basic weapon designed kill with concentrated energy bolts"
+	desc = "a basic weapon designed kill with concentrated energy bolts, power cell integrated and cannot be injected."
 	icon_state = "laser"
 	item_state = "laser"
 	fire_sound = 'sound/weapons/Laser.ogg'
@@ -12,33 +12,36 @@
 
 /obj/item/weapon/gun/energy/laser/practice
 	name = "practice laser gun"
-	desc = "A modified version of the basic laser gun, this one fires less concentrated energy bolts designed for target practice."
+	desc = "A modified version of the basic laser gun, this one fires less concentrated energy bolts designed for target practice, power cell integrated and cannot be injected."
 	projectile_type = "/obj/item/projectile/beam/practice"
 	clumsy_check = 0
 
 /obj/item/weapon/gun/energy/laser/pistol
 	name = "laser pistol"
 	desc = "A laser pistol issued to high ranking members of a certain shadow corporation."
-	icon_state = "xcomlaserpistol"
+	icon_state = "laserpistol"
 	projectile_type = /obj/item/projectile/beam
-	charge_cost = 100 // holds less "ammo" then the rifle variant.
+	cell_removing = 1
+	charge_cost = 200 // holds less "ammo" then the rifle variant.
+
 
 /obj/item/weapon/gun/energy/laser/rifle
 	name = "laser rifle"
-	desc = "A laser rifle issued to high ranking members of a certain shadow corporation."
-	icon_state = "xcomlasergun"
+	desc = "improper laser rifle, standart shots and ejectable cell"
+	icon_state = "lrifle"
 	projectile_type = /obj/item/projectile/beam
-	charge_cost = 50
+	cell_removing = 1
+	charge_cost = 100
 
 obj/item/weapon/gun/energy/laser/retro
 	name ="retro laser"
 	icon_state = "retro"
-	desc = "An older model of the basic lasergun, no longer used by Nanotrasen's security or military forces. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
-
+	desc = "An older model of the basic lasergun, no longer used by Nanotrasen's security or military forces. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws, power cell integrated and cannot be injected."
+	charge_cost = 250
 
 /obj/item/weapon/gun/energy/laser/captain
 	icon_state = "caplaser"
-	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy. On the item is an image of Space Station 13. The station is exploding."
+	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy. On the item is an image of Space Station 13. The station is exploding, power cell integrated and cannot be injected."
 	force = 10
 	origin_tech = null
 	var/charge_tick = 0
