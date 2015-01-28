@@ -3,7 +3,7 @@
 	flag = AI
 	info_flag = JINFO_SILICON
 	department_flag = ENGSEC
-	faction = "Station"
+	//faction = "Station"
 	total_positions = 0
 	spawn_positions = 1
 	selection_color = "#ccffcc"
@@ -20,7 +20,7 @@
 	flag = CYBORG
 	info_flag = JINFO_SILICON
 	department_flag = ENGSEC
-	faction = "Station"
+	//faction = "Station"
 	total_positions = 0
 	spawn_positions = 2
 	supervisors = "your laws and the AI"	//Nodrak

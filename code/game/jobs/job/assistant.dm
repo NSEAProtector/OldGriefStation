@@ -27,7 +27,7 @@
 /datum/job/scavenger
 	title = "Scavenger"
 	flag = SCAVENGER
-	faction = "Station"
+	//faction = "Station"
 	department_flag = CIVILIAN
 	total_positions = -1
 	spawn_positions = -1

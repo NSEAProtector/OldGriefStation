@@ -3,22 +3,23 @@
 /obj/item/weapon/gun/energy/laser/pistol
 	name = "laser pistol"
 	desc = "A laser pistol issued to high ranking members of a certain shadow corporation."
-	icon_state = "laserpistol"
+	icon_state = "lpistol"
 	projectile_type = /obj/item/projectile/beam
+	cell_type = "/obj/item/weapon/cell/high"
 	w_class = 2.0
 	cell_removing = 1
 	fire_delay = 3
-	charge_cost = 200 // holds less "ammo" then the rifle variant.
-
+	charge_cost = 1000 // holds less "ammo" then the rifle variant.
 
 /obj/item/weapon/gun/energy/laser/rifle
 	name = "laser rifle"
 	desc = "improper laser rifle, standart shots and ejectable cell"
 	icon_state = "lrifle"
 	projectile_type = /obj/item/projectile/beam
+	cell_type = "/obj/item/weapon/cell/high"
 	cell_removing = 1
 	fire_delay = 0.5
-	charge_cost = 100
+	charge_cost = 500
 
 /obj/item/weapon/gun/energy/sniper //Самое мощное летальное энерго оружие, что должно быть на станции. от него баланс.
 	name = "P.E.S.R. Mk80"
@@ -123,8 +124,6 @@
 			icon_state = "mp5a"
 		return
 
-
-
 /obj/item/weapon/gun/projectile/automatic/G36K
 	name = "G36K"
 	desc = "For a PKS/EXALT fire support"
@@ -199,7 +198,6 @@
 			icon_state = "pkst1m"
 		return
 
-
 /////test////
 
 /*
@@ -240,7 +238,6 @@
 /obj/item/weapon/gun/projectile/automatic/hkg36c/isHandgun()
 	return 1
 */
-
 //scripts//
 /obj/item/weapon/gun/energy/verb/eject_battery(mob/living/user as mob)
 	if (cell_removing)
@@ -365,3 +362,31 @@
 		else
 			icon_state = "u40ag"
 		return
+
+//melee//
+/obj/item/weapon/kitchenknife/tento
+	force = 20.0
+	throwforce = 15
+	icon_state = "tento"
+	item_state = "knife"
+
+
+//Custom items for players//
+/obj/item/clothing/head/soft/black
+	name = "black cap"
+	desc = "It's a baseball hat in a tasteless black colour."
+	icon_state = "blacksoft"
+	_color = "black"
+
+/obj/item/weapon/storage/secure/briefcase/locked
+	locked = 1
+	code = "17935"
+
+	New()
+		..()
+		new /obj/item/weapon/kitchenknife/tento(src)
+		new /obj/item/clothing/head/soft/black(src)
+		new /obj/item/clothing/head/soft/black(src)
+		new	/obj/item/clothing/under/lawyer/female
+		new	/obj/item/clothing/under/lawyer/red
+

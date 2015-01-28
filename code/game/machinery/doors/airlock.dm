@@ -97,6 +97,11 @@
 	icon = 'icons/obj/doors/Doorele.dmi'
 	opacity = 0
 
+/obj/machinery/door/airlock/pirate
+	name = "Airlock"
+	icon = 'icons/obj/doors/Doorele.dmi'
+	opacity = 1
+
 /obj/machinery/door/airlock/vault
 	name = "Vault"
 	icon = 'icons/obj/doors/vault.dmi'

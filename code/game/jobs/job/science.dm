@@ -2,7 +2,7 @@
 	title = "Research Director"
 	flag = RD
 	department_flag = MEDSCI
-	faction = "Station"
+	//faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"

@@ -56,13 +56,13 @@
 	icon_state = "declone"
 
 /obj/item/projectile/energy/plasma/pistol
-	damage = 5
-
-/obj/item/projectile/energy/plasma/light
 	damage = 10
 
+/obj/item/projectile/energy/plasma/light
+	damage = 22
+
 /obj/item/projectile/energy/plasma/rifle
-	damage = 20
+	damage = 38
 
 /obj/item/projectile/energy/plasma/MP40k
 	damage = 35

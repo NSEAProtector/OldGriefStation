@@ -75,9 +75,16 @@
 	name = "botanist's leather gloves"
 	icon_state = "leather"
 	item_state = "ggloves"
-	permeability_coefficient = 0.9
+	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 	species_fit = list("Vox")
+
+	cutted
+		name = "cutted leather gloves"
+		cold_protection = HANDS
+		icon_state = "cutted"
+		item_state = "cuttedgloves"
+		desc = "These leather gloves cant protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin, but looks great"
 
 /obj/item/clothing/gloves/batmangloves
 	desc = "Used for handling all things bat related."

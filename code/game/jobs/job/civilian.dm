@@ -84,7 +84,7 @@
 	title = "Botanist"
 	flag = BOTANIST
 	department_flag = CIVILIAN
-	faction = "Station"
+	//faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
 	supervisors = "the head of personnel"
@@ -118,7 +118,7 @@
 	title = "Quartermaster"
 	flag = QUARTERMASTER
 	department_flag = CIVILIAN
-	faction = "Station"
+	//faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -260,7 +260,7 @@
 	title = "Mime"
 	flag = MIME
 	department_flag = CIVILIAN
-	faction = "Station"
+	//faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -301,7 +301,7 @@
 	title = "Janitor"
 	flag = JANITOR
 	department_flag = CIVILIAN
-	faction = "Station"
+	//faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"
@@ -331,7 +331,7 @@
 	title = "Librarian"
 	flag = LIBRARIAN
 	department_flag = CIVILIAN
-	faction = "Station"
+	//faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
@@ -362,7 +362,7 @@
 	title = "Internal Affairs Agent"
 	flag = LAWYER
 	department_flag = CIVILIAN
-	faction = "Station"
+	//faction = "Station"
 	idtype = /obj/item/weapon/card/id/centcom
 	total_positions = 2
 	spawn_positions = 2
