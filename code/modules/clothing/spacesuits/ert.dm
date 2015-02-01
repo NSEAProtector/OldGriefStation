@@ -1,4 +1,4 @@
-/obj/item/clothing/head/helmet/space/ert
+/obj/item/clothing/head/helmet/space/rig/ert
 	name = "emergency response team helmet"
 	desc = "A helmet worn by members of the NanoTrasen Emergency Response Team. Armoured, space ready and fire resistant."
 	icon_state = "ert_commander"
@@ -8,7 +8,7 @@
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECITON_TEMPERATURE
 	var/obj/machinery/camera/camera
 	species_restricted = list("exclude","Vox")
-/obj/item/clothing/head/helmet/space/ert/attack_self(mob/user)
+/obj/item/clothing/head/helmet/space/rig/ert/attack_self(mob/user)
 	if(camera)
 		..(user)
 	else
@@ -18,12 +18,12 @@
 		camera.c_tag = user.name
 		user << "\blue User scanned as [camera.c_tag]. Camera activated."
 
-/obj/item/clothing/head/helmet/space/ert/examine()
+/obj/item/clothing/head/helmet/space/rig/ert/examine()
 	..()
 	if(get_dist(usr,src) <= 1)
 		usr << "This helmet has a built-in camera. It's [camera ? "" : "in"]active."
 
-/obj/item/clothing/suit/space/ert
+/obj/item/clothing/head/helmet/space/rig/ert
 	name = "emergency response team suit"
 	desc = "A suit worn by members of the NanoTrasen Emergency Response Team. Armoured, space ready and fire resistant."
 	icon_state = "ert_commander"
@@ -40,53 +40,53 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECITON_TEMPERATURE
 	species_restricted = list("exclude","Vox")
 //Commander
-/obj/item/clothing/head/helmet/space/ert/commander
+/obj/item/clothing/head/helmet/space/rig/ert/commander
 	name = "emergency response team commander helmet"
 	desc = "A helmet worn by the commander of a NanoTrasen Emergency Response Team. Armoured, space ready and fire resistant."
 	icon_state = "ert_commander"
 	item_state = "helm-command"
 	species_restricted = list("exclude","Vox")
 
-/obj/item/clothing/suit/space/ert/commander
+/obj/item/clothing/suit/space/rig/ert/commander
 	name = "emergency response team commander suit"
 	desc = "A suit worn by the commander of a NanoTrasen Emergency Response Team. Armoured, space ready and fire resistant."
 	icon_state = "ert_commander"
 	item_state = "suit-command"
 
 //Security
-/obj/item/clothing/head/helmet/space/ert/security
+/obj/item/clothing/head/helmet/space/rig/ert/security
 	name = "emergency response team security helmet"
 	desc = "A helmet worn by the security members of a NanoTrasen Emergency Response Team. Armoured, space ready and fire resistant."
 	icon_state = "ert_security"
 	item_state = "syndicate-helm-black-red"
 	species_restricted = list("exclude","Vox")
 
-/obj/item/clothing/suit/space/ert/security
+/obj/item/clothing/suit/space/rig/ert/security
 	name = "emergency response team security suit"
 	desc = "A suit worn by the security members of a NanoTrasen Emergency Response Team. Armoured, space ready and fire resistant."
 	icon_state = "ert_security"
 	item_state = "syndicate-black-red"
 
 //Engineer
-/obj/item/clothing/head/helmet/space/ert/engineer
+/obj/item/clothing/head/helmet/space/rig/ert/engineer
 	name = "emergency response team engineer helmet"
 	desc = "A helmet worn by the engineering members of a NanoTrasen Emergency Response Team. Armoured, space ready and fire resistant."
 	icon_state = "ert_engineer"
 	species_restricted = list("exclude","Vox")
 
-/obj/item/clothing/suit/space/ert/engineer
+/obj/item/clothing/suit/space/rig/ert/engineer
 	name = "emergency response team engineer suit"
 	desc = "A suit worn by the engineering members of a NanoTrasen Emergency Response Team. Armoured, space ready and fire resistant."
 	icon_state = "ert_engineer"
 
 //Medical
-/obj/item/clothing/head/helmet/space/ert/medical
+/obj/item/clothing/head/helmet/space/rig/ert/medical
 	name = "emergency response team medical helmet"
 	desc = "A helmet worn by the medical members of a NanoTrasen Emergency Response Team. Armoured, space ready and fire resistant."
 	icon_state = "ert_medical"
 	species_restricted = list("exclude","Vox")
 
-/obj/item/clothing/suit/space/ert/medical
+/obj/item/clothing/suit/space/rig/ert/medical
 	name = "emergency response team medical suit"
 	desc = "A suit worn by the medical members of a NanoTrasen Emergency Response Team. Armoured, space ready and fire resistant."
 	icon_state = "ert_medical"

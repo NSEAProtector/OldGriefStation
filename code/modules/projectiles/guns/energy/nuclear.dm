@@ -14,24 +14,25 @@
 
 
 	attack_self(mob/living/user as mob)
-		switch(mode)
-			if(0)
-				mode = 1
-				charge_cost = 100
-				fire_sound = 'sound/weapons/Laser.ogg'
-				user << "\red [src.name] is now set to kill."
-				projectile_type = "/obj/item/projectile/beam"
-				modifystate = "energykill"
-			if(1)
-				mode = 0
-				charge_cost = 100
-				fire_delay = 5 //учитесь стрелять наконец!!
-				fire_sound = 'sound/weapons/Taser.ogg'
-				user << "\red [src.name] is now set to stun."
-				projectile_type = "/obj/item/projectile/energy/electrode"
-				modifystate = "energystun"
-		update_icon()
-
+		if(user.a_intent == "help")
+			switch(mode)
+				if(0)
+					mode = 1
+					charge_cost = 100
+					fire_sound = 'sound/weapons/Laser.ogg'
+					user << "\red [src.name] is now set to kill."
+					projectile_type = "/obj/item/projectile/beam"
+					modifystate = "energykill"
+				if(1)
+					mode = 0
+					charge_cost = 100
+					fire_delay = 5 //учитесь стрелять наконец!!
+					fire_sound = 'sound/weapons/Taser.ogg'
+					user << "\red [src.name] is now set to stun."
+					projectile_type = "/obj/item/projectile/energy/electrode"
+					modifystate = "energystun"
+			update_icon()
+		return 0
 
 
 /obj/item/weapon/gun/energy/gun/nuclear

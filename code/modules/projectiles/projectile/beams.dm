@@ -14,7 +14,7 @@ var/list/beam_master = list()
 // Special laser the captains gun uses
 /obj/item/projectile/beam/captain
 	name = "captain laser"
-	damage = 40
+	damage = 35
 
 /obj/item/projectile/beam/lightning
 	invisibility = 101

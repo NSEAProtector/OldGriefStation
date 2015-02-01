@@ -20,6 +20,7 @@
 	cell_removing = 1
 	fire_delay = 0.5
 	charge_cost = 500
+	two_handed = 1
 
 /obj/item/weapon/gun/energy/sniper //Самое мощное летальное энерго оружие, что должно быть на станции. от него баланс.
 	name = "P.E.S.R. Mk80"
@@ -38,31 +39,33 @@
 	var/zoomdevicename = null //for name of scopes
 	var/zoom = 0 //for items with scopes
 	fire_delay = 5
+	two_handed = 1
 
 	attack_self(mob/living/user as mob)
-		switch(mode)
-			if(2)
-				mode = 0
-				charge_cost = 500
-				fire_delay = 10 //учитесь стрелять наконец!!
-				fire_sound = 'sound/weapons/Taser.ogg'
-				user << "\red [src.name] is now set to shock beam mode."
-				projectile_type = "/obj/item/projectile/beam/xsniper"
-			if(0)
-				mode = 1
-				charge_cost = 250
-				fire_delay = 5
-				fire_sound = 'sound/weapons/Laser.ogg'
-				user << "\red [src.name] is now set to laser mode."
-				projectile_type = "/obj/item/projectile/beam"
-			if(1)
-				mode = 2
-				charge_cost = 500
-				fire_delay = 20 //Снайперка не автоматическая, не забывайте об этом.
-				fire_sound = 'sound/weapons/pulse.ogg'
-				user << "\red [src.name] is now set to high power sniper mode."
-				projectile_type = "/obj/item/projectile/beam/deathlaser"
-		return
+		if(user.a_intent == "help")
+			switch(mode)
+				if(2)
+					mode = 0
+					charge_cost = 500
+					fire_delay = 10 //учитесь стрелять наконец!!
+					fire_sound = 'sound/weapons/Taser.ogg'
+					user << "\red [src.name] is now set to shock beam mode."
+					projectile_type = "/obj/item/projectile/beam/xsniper"
+				if(0)
+					mode = 1
+					charge_cost = 250
+					fire_delay = 5
+					fire_sound = 'sound/weapons/Laser.ogg'
+					user << "\red [src.name] is now set to laser mode."
+					projectile_type = "/obj/item/projectile/beam"
+				if(1)
+					mode = 2
+					charge_cost = 500
+					fire_delay = 20 //Снайперка не автоматическая, не забывайте об этом.
+					fire_sound = 'sound/weapons/pulse.ogg'
+					user << "\red [src.name] is now set to high power sniper mode."
+					projectile_type = "/obj/item/projectile/beam/deathlaser"
+			return
 
 /obj/item/weapon/gun/energy/sniper/verb/scope()
 	set category = "Object"
@@ -71,6 +74,34 @@
 	zoom()
 
 //projectile//
+
+/obj/item/weapon/gun/projectile/automatic/u40ag
+	name = "Carbine Mk2"
+	desc = "Machine gun for civil violence. Used by mercenaries, personal guards. Weapon of last chance. .45 rounds."
+	icon_state = "u40ag"
+	item_state = "c20r"
+	w_class = 3.0
+	max_shells = 8
+	caliber = list(".45" = 1)
+	burst_count = 2
+	m_amt = 3750
+	origin_tech = "combat=5;materials=1"
+	ammo_type = "/obj/item/ammo_casing/c45"
+	mag_type = "/obj/item/ammo_storage/magazine/c45"
+	load_method = 2
+	auto_mag_drop = 1
+
+	update_icon()
+		..()
+		if(stored_magazine)
+			icon_state = "u40ag-full"
+		else
+			icon_state = "u40ag"
+		return
+
+/obj/item/weapon/gun/projectile/automatic/u40ag/isHandgun()
+	return 0
+
 /obj/item/weapon/gun/projectile/automatic/k4m
 	name = "Carbine Mk4"
 	desc = "Hmm.. That reminds me, but what? Uses 5.56 rounds."
@@ -88,7 +119,7 @@
 	load_method = 2
 	auto_mag_drop = 1
 	flags =  USEDELAY
-	fire_delay = 0.5
+	two_handed = 1
 
 	update_icon()
 		..()
@@ -97,6 +128,9 @@
 		else
 			icon_state = "k4m"
 		return
+
+/obj/item/weapon/gun/projectile/automatic/k4m/isHandgun()
+	return 0
 
 /obj/item/weapon/gun/projectile/automatic/mp5
 	name = "Mp5-A2"
@@ -124,6 +158,9 @@
 			icon_state = "mp5a"
 		return
 
+/obj/item/weapon/gun/projectile/automatic/mp5/isHandgun()
+	return 0
+
 /obj/item/weapon/gun/projectile/automatic/G36K
 	name = "G36K"
 	desc = "For a PKS/EXALT fire support"
@@ -140,9 +177,10 @@
 	fire_sound = 'sound/weapons/G36.ogg'
 	load_method = 2
 	auto_mag_drop = 1
+	two_handed = 1
 
 /obj/item/weapon/gun/projectile/automatic/G36K/isHandgun()
-	return 1
+	return 0
 
 /obj/item/weapon/gun/projectile/automatic/assault
 	name = "\improper Assault Rifle"
@@ -171,6 +209,9 @@
 			icon_state = "assaultrifle"
 		return
 
+/obj/item/weapon/gun/projectile/automatic/assault/isHandgun()
+	return 0
+
 /obj/item/weapon/gun/projectile/automatic/advanced
 	name = "High tech assault rifle"
 	desc = "A lightweight gun, made with plastic. Strange, but this rifle have mark with that text: Made from PKS. Uses 12.7 rounds"
@@ -198,8 +239,10 @@
 			icon_state = "pkst1m"
 		return
 
-/////test////
+/obj/item/weapon/gun/projectile/automatic/advanced/isHandgun()
+	return 0
 
+/////test////
 /*
 /obj/item/weapon/gun/projectile/automatic/hkg36c
 	name = "HK-G36c"
@@ -239,25 +282,25 @@
 	return 1
 */
 //scripts//
-/obj/item/weapon/gun/energy/verb/eject_battery(mob/living/user as mob)
-	if (cell_removing)
-		set name = "Eject Battery"
-		set category = "Object"
 
-		if(power_supply)
-			//power_supply.loc = get_turf(src.loc)
-			power_supply.loc = src
-			power_supply.update_icon()
-			user.put_in_hands(power_supply)
-			power_supply = null
-			update_icon()
-			user << "<span class='notice'>You pull the [power_supply] out of \the [src]!</span>"
-			return
+/obj/item/weapon/gun/energy/attack_self(mob/user as mob)
+	if(user.a_intent == "disarm")
+		if (cell_removing)
+
+			if(power_supply)
+				//power_supply.loc = get_turf(src.loc)
+				power_supply.loc = src
+				power_supply.update_icon()
+				user.put_in_hands(power_supply)
+				power_supply = null
+				update_icon()
+				user << "<span class='notice'>You pull the [power_supply] out of \the [src]!</span>"
+				return
+			else
+				user << "<span class='notice'>It has no cell!</span>"
 		else
-			user << "<span class='notice'>It has no cell!</span>"
-	else
-		user << "<span class='notice'>You cant remove cell from that gun</span>"
-	return
+			user << "<span class='notice'>You cant remove cell from that gun</span>"
+		return
 
 /obj/item/weapon/gun/energy/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(istype(A, /obj/item/weapon/cell) && !power_supply)
@@ -338,30 +381,6 @@
 			usr.visible_message("[zoomdevicename ? "[usr] looks up from the [zoomdevicename] of the [src.name]" : "[usr] lowers the [src.name]"].")
 
 	return
-
-/obj/item/weapon/gun/projectile/automatic/u40ag
-	name = "Carbine Mk2"
-	desc = "Machine gun for civil violence. Used by mercenaries, personal guards. Weapon of last chance. .45 rounds."
-	icon_state = "u40ag"
-	item_state = "c20r"
-	w_class = 3.0
-	max_shells = 8
-	caliber = list(".45" = 1)
-	burst_count = 2
-	m_amt = 3750
-	origin_tech = "combat=5;materials=1"
-	ammo_type = "/obj/item/ammo_casing/c45"
-	mag_type = "/obj/item/ammo_storage/magazine/c45"
-	load_method = 2
-	auto_mag_drop = 1
-
-	update_icon()
-		..()
-		if(stored_magazine)
-			icon_state = "u40ag-full"
-		else
-			icon_state = "u40ag"
-		return
 
 //melee//
 /obj/item/weapon/kitchenknife/tento

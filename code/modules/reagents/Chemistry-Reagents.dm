@@ -2331,7 +2331,8 @@ datum
 						M.confused += 2
 						M.drowsyness += 2
 					if(2 to 80)
-						M.sleeping += 1
+						M.Weaken(30)
+						M.sleeping += 4
 					if(81 to INFINITY)
 						M.sleeping += 1
 						M:toxloss += (data - 50)

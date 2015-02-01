@@ -12,3 +12,4 @@
 /obj/item/projectile/rocket/Bump(var/atom/rocket)
 	explosion(rocket, -1, 1, 4, 8)
 	qdel(src)
+

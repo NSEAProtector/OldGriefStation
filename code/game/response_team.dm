@@ -1,4 +1,4 @@
-//STRIKE TEAMS
+//Responsible teams
 //Thanks to Kilakk for the admin-button portion of this code.
 
 var/list/response_team_members = list()
@@ -53,7 +53,7 @@ client/verb/JoinResponseTeam()
 		if(response_team_members.len > 5) usr << "The emergency response team is already full!"
 
 
-		for (var/obj/effect/landmark/L in landmarks_list) if (L.name == "Commando")
+		for (var/obj/effect/landmark/L in landmarks_list) if (L.name == "ERT")
 			L.name = null//Reserving the place.
 			var/new_name = input(usr, "Pick a name","Name") as null|text
 			if(!new_name)//Somebody changed his mind, place is available again.
@@ -283,6 +283,13 @@ proc/trigger_armed_response_team(var/force = 0)
 	camera.network = "CREED"
 	camera.c_tag = real_name
 
+	//Replaced with new ERT uniform
+	equip_to_slot_or_del(new /obj/item/clothing/under/rank/centcom_officer(src), slot_w_uniform)
+	equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(src), slot_shoes)
+	equip_to_slot_or_del(new /obj/item/clothing/gloves/swat(src), slot_gloves)
+	equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(src), slot_glasses)
+	equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(src), slot_back)
+/* //old uniform
 	//Basic Uniform
 	equip_to_slot_or_del(new /obj/item/clothing/under/syndicate/tacticool(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/device/flashlight(src), slot_l_store)
@@ -305,7 +312,7 @@ proc/trigger_armed_response_team(var/force = 0)
 	equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/security(src), slot_back)
 	equip_to_slot_or_del(new /obj/item/weapon/storage/box/engineer(src), slot_in_backpack)
 	equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(src), slot_in_backpack)
-
+*/
 	var/obj/item/weapon/card/id/W = new(src)
 	W.assignment = "Emergency Response Team[leader_selected ? " Leader" : ""]"
 	W.registered_name = real_name
