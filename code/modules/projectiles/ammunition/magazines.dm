@@ -86,13 +86,23 @@
 	name = "magazine (.45) - lethal"
 	icon_state = "45"
 	origin_tech = "combat=2"
-	ammo_type = "/obj/item/ammo_casing/c45"
+	ammo_type = "/obj/item/ammo_casing/c45r"
 	m_amt = 1500
 	max_ammo = 8
 	multiple_sprites = 1
 	sprite_modulo = 1
 
-/obj/item/ammo_storage/magazine/uzi45 //Uzi mag
+/obj/item/ammo_storage/magazine/c45/rubber
+	name = "magazine (.45)"
+	icon_state = "45"
+	origin_tech = "combat=1"
+	ammo_type = "/obj/item/ammo_casing/c45"
+	m_amt = 1000
+	max_ammo = 8
+	multiple_sprites = 1
+	sprite_modulo = 1
+
+/obj/item/ammo_storage/magazine/uzi45
 	name = "magazine (.45)"
 	icon_state = "uzi45"
 	origin_tech = "combat=2"
@@ -110,7 +120,7 @@
 	m_amt = 5000
 	max_ammo = 30
 
-/obj/item/ammo_storage/magazine/c9mmp/empty
+/obj/item/ammo_storage/magazine/c9mmp/empty //twin ammo mags
 	name = "magazine (9mm parabellum)"
 	icon_state = "9x18p-30"
 	ammo_type = "/obj/item/ammo_casing/c9mmp"

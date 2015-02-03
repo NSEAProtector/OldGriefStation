@@ -37,13 +37,13 @@
 	projectile_type = "/obj/item/projectile/bullet/weakbullet"
 	w_type = RECYK_METAL
 
-/* Not entirely ready to be implemented yet. Get a server vote on bringing these in
+//Not entirely ready to be implemented yet. Get a server vote on bringing these in
 /obj/item/ammo_casing/c38/lethal
 	desc = "A .38 bullet casing. This is the lethal variant."
 	caliber = "38"
-	projectile_type = "/obj/item/projectile/bullet" //HAHA, why is this a good idea
+	projectile_type = "/obj/item/projectile/bullet/midbullet" //HAHA, why is this a good idea
 	w_type = RECYK_METAL
-*/
+
 
 /obj/item/ammo_casing/c9mm
 	desc = "A 9mm bullet casing."
@@ -56,6 +56,12 @@
 	desc = "A .45 bullet casing."
 	caliber = ".45"
 	projectile_type = "/obj/item/projectile/bullet/midbullet"
+	w_type = RECYK_METAL
+
+/obj/item/ammo_casing/c45/rubber
+	desc = "A .45 bullet casing."
+	caliber = ".45r"
+	projectile_type = "/obj/item/projectile/bullet/weakbullet"
 	w_type = RECYK_METAL
 
 /obj/item/ammo_casing/a12mm

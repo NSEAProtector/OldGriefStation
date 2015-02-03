@@ -134,7 +134,7 @@
 	toSpawn = list(
 		/obj/item/weapon/gun/energy/ionrifle,
 		/obj/item/weapon/gun/energy/laser,
-		/obj/item/weapon/gun/projectile/automatic/k4m,
+		/obj/item/weapon/gun/projectile/automatic/assault_rifles,
 		/obj/item/weapon/gun/projectile/colt,
 		/obj/item/weapon/gun/projectile/shotgun/pump,
 		/obj/item/weapon/gun/energy/plasma/rifle,
@@ -154,7 +154,7 @@
 		/obj/item/weapon/gun/energy/laser,
 		/obj/item/weapon/gun/projectile/automatic/mini_uzi,
 		/obj/item/weapon/gun/projectile/automatic,
-		/obj/item/weapon/gun/projectile/automatic/l6_saw,
+		/obj/item/weapon/gun/projectile/automatic/assault_rifles/l6_saw,
 		/obj/item/weapon/gun/projectile/deagle,
 		/obj/item/weapon/gun/projectile/mateba,
 		/obj/item/weapon/gun/projectile/pistol,
@@ -714,7 +714,7 @@
 		/obj/item/weapon/rsf,
 		/obj/item/weapon/weldingtool/hugetank,
 		/obj/item/weapon/tank/plasma,
-		/obj/item/weapon/silencer,
+		/obj/item/gun_part/silencer,
 		/obj/item/weapon/storage/backpack/holding
 		)
 

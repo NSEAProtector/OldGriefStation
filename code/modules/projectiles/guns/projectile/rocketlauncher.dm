@@ -5,7 +5,6 @@
 	icon_state = "rpg"
 	item_state = "rpg"
 	max_shells = 1
-	empty_casings = 0
 	w_class = 4.0
 	m_amt = 5000
 	w_type = RECYK_METAL
@@ -16,6 +15,7 @@
 	fire_delay = 5
 	flags =  FPRINT | TABLEPASS | CONDUCT | USEDELAY
 	slot_flags = SLOT_BACK
+	gun_flags = 0
 	caliber = list("rpg" = 1)
 	origin_tech = "combat=4;materials=2;syndicate=2"
 	ammo_type = "/obj/item/ammo_casing/rocket_rpg"

@@ -35,12 +35,31 @@
 	var/fire_delay = 2
 	var/last_fired = 0
 
+	var/two_handed = 0
+	var/wielded = 0
+	var/force_unwielded = 0
+	var/force_wielded = 0
+	var/wieldsound = null
+	var/unwieldsound = null
+
 	proc/ready_to_fire()
 		if(world.time >= last_fired + fire_delay)
 			last_fired = world.time
 			return 1
 		else
 			return 0
+
+	proc/unwield()
+		wielded = 0
+		force = force_unwielded
+		name = "[initial(name)]"
+		update_icon()
+
+	proc/wield()
+		wielded = 1
+		force = force_wielded
+		name = "[initial(name)] (Wielded)"
+		update_icon()
 
 	proc/process_chambered()
 		return 0
@@ -51,6 +70,17 @@
 	emp_act(severity)
 		for(var/obj/O in contents)
 			O.emp_act(severity)
+
+/obj/item/weapon/twohanded/gun
+	w_class = 5.0
+	icon_state = "offhand"
+	name = "offhand"
+
+	unwield()
+		del(src)
+
+	wield()
+		del(src)
 
 /obj/item/weapon/gun/afterattack(atom/A as mob|obj|turf|area, mob/living/user as mob|obj, flag, params)
 	if(flag)	return //we're placing gun on a table or in backpack
@@ -92,6 +122,11 @@
 		if(!a_hand.can_use_advanced_tools())
 			user << "\red Your [a_hand] doesn't have the dexterity to do this!"
 			return
+	if(two_handed)
+		if(!wielded)
+			user << "\red You can not fire this weapon with one hand!"
+			return
+
 
 	add_fingerprint(user)
 	var/turf/curloc = get_turf(user)
@@ -164,13 +199,30 @@
 	else
 		user.update_inv_r_hand()
 
+/obj/item/weapon/gun/mob_can_equip(M as mob, slot)
+	//Cannot equip wielded items.
+	if(wielded)
+		M << "<span class='warning'>Unwield the [initial(name)] first!</span>"
+		return 0
+
+	return ..()
+
+
+
+/obj/item/weapon/gun/update_icon()
+	return
+
+/obj/item/weapon/gun/pickup(mob/living/user)
+	unwield()
+
+
 /obj/item/weapon/gun/proc/can_fire()
 	return process_chambered()
 
 /obj/item/weapon/gun/proc/can_hit(var/mob/living/target as mob, var/mob/living/user as mob)
 	return in_chamber.check_fire(target,user)
 
-/obj/item/weapon/gun/proc/click_empty(mob/user = null)
+/obj/item/weapon/gun/proc/click_empty(mob/living/user = null)
 	if (user)
 		user.visible_message("*click click*", "\red <b>*click*</b>")
 		playsound(user, 'sound/weapons/empty.ogg', 100, 1)
@@ -224,3 +276,72 @@
 			return
 	else
 		return ..() //Pistolwhippin'
+
+/*---------------------------Ak72Ti---------------broken code/
+	attack_self(mob/living/user as mob)
+		if(istype(user,/mob/living/carbon/monkey))
+			user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
+			return
+
+		if(two_handed)
+			if(user.a_intent == "grab")
+				..()
+				if(wielded) //Trying to unwield it
+					unwield()
+					user << "<span class='notice'>You are now carrying the [name] with one hand.</span>"
+					if (src.unwieldsound)
+						playsound(src.loc, unwieldsound, 50, 1)
+
+					var/obj/item/weapon/twohanded/gun/O = user.get_inactive_hand()
+					if(O && istype(O))
+						O.unwield()
+					return
+
+				else //Trying to wield it
+					if(user.get_inactive_hand())
+						user << "<span class='warning'>You need your other hand to be empty</span>"
+						return
+					wield()
+					user << "<span class='notice'>You grab the [initial(name)] with both hands.</span>"
+					if (src.wieldsound)
+						playsound(src.loc, wieldsound, 50, 1)
+
+					var/obj/item/weapon/twohanded/gun/O = new(user) ////Let's reserve his other hand~
+					O.name = "[initial(name)] - offhand"
+					O.desc = "Your second grip on the [initial(name)]"
+					user.put_in_inactive_hand(O)
+					return
+/broken code---------------------Ak72Ti---------------------*/
+/*--------------------------Ak72Ti----------------worked version/
+/obj/item/weapon/gun/projectile/automatic/attack_self(mob/living/user as mob)
+	if( istype(user,/mob/living/carbon/monkey) )
+		user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
+		return
+	..()
+	if(two_handed == 1)
+		if(wielded) //Trying to unwield it
+			unwield()
+			user << "<span class='notice'>You are now carrying the [name] with one hand.</span>"
+			if (src.unwieldsound)
+				playsound(src.loc, unwieldsound, 50, 1)
+
+			var/obj/item/weapon/twohanded/gun/O = user.get_inactive_hand()
+			if(O && istype(O))
+				O.unwield()
+			return
+
+		else //Trying to wield it
+			if(user.get_inactive_hand())
+				user << "<span class='warning'>You need your other hand to be empty</span>"
+				return
+			wield()
+			user << "<span class='notice'>You grab the [initial(name)] with both hands.</span>"
+			if (src.wieldsound)
+				playsound(src.loc, wieldsound, 50, 1)
+
+			var/obj/item/weapon/twohanded/gun/O = new(user) ////Let's reserve his other hand~
+			O.name = "[initial(name)] - offhand"
+			O.desc = "Your second grip on the [initial(name)]"
+			user.put_in_inactive_hand(O)
+			return
+/worked version---------------------Ak72Ti---------------------*/

@@ -33,3 +33,5 @@ config/README feedback.txt
 data/investigate+w
 code/modules/projectilesTG(port in progress).rar
 code/modules/projectiles/guns/energyTG.dm
+code/modules/projectiles/W.I.P/newprojectiles/empty - копия.dm
+code/modules/projectiles/W.I.P/newprojectiles/empty.dm

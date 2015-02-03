@@ -783,7 +783,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 					/obj/item/weapon/melee/energy/sword,
 					/obj/item/weapon/melee/energy/sword,
 					/obj/item/clothing/tie/holster,
-					/obj/item/weapon/gun/projectile/automatic/k4m)
+					/obj/item/weapon/gun/projectile/automatic/assault_rifles)
 	cost = 80
 	containertype = /obj/structure/closet/crate
 	containername = "Special Ops gear x1 crate"
@@ -1282,7 +1282,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 /datum/supply_packs/contraband_military
 	name = "Poison Inc. Military crate"
 	contains = list(/obj/item/clothing/suit/space/space_adv/military,
-					/obj/item/weapon/gun/projectile/automatic/k4m,
+					/obj/item/weapon/gun/projectile/automatic/assault_rifles,
 					/obj/item/clothing/glasses/hud/security,
 					/obj/item/clothing/shoes/jackboots,
 					/obj/item/clothing/tie/storage/black_vest,
@@ -1311,12 +1311,12 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 /datum/supply_packs/randomised/contraband_rando
 	name = "Rando Inc. Gun crate"
 	num_contained = 1
-	contains = list(/obj/item/weapon/gun/projectile/automatic/k4m,
+	contains = list(/obj/item/weapon/gun/projectile/automatic/assault_rifles,
 					/obj/item/toy/gun,
-					/obj/item/weapon/gun/projectile/automatic/mp5,
+					/obj/item/weapon/gun/projectile/automatic/assault_rifles/mp5,
 					/obj/item/toy/gun,
-					/obj/item/weapon/gun/projectile/automatic/c20r,
-					/obj/item/weapon/gun/projectile/automatic/l6_saw,
+					/obj/item/weapon/gun/projectile/automatic/assault_rifles/c20r,
+					/obj/item/weapon/gun/projectile/automatic/assault_rifles/l6_saw,
 					/obj/item/weapon/gun/projectile/automatic,
 					/obj/item/toy/gun,
 					/obj/item/weapon/gun/energy/ionrifle,

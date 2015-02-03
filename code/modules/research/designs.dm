@@ -1663,7 +1663,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list("combat" = 5, "materials" = 3)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 5000, "$glass" = 100)
-	build_path = /obj/item/weapon/gun/projectile/automatic/assault
+	build_path = /obj/item/weapon/gun/projectile/automatic/assault_rifles/assault
 	locked = 0
 
 /datum/design/ammo_a556
@@ -1683,7 +1683,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list("combat" = 6, "materials" = 4)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 1000,"$plastic" = 4000, "$glass" = 200)
-	build_path = /obj/item/weapon/gun/projectile/automatic/assault
+	build_path = /obj/item/weapon/gun/projectile/automatic/assault_rifles/assault
 	locked = 0
 
 /datum/design/ammo_a127
