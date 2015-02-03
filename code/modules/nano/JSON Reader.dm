@@ -117,6 +117,9 @@ json_reader
 
 				var/json_token/S = get_token()
 				check_type(/json_token/symbol)
+				if(!S)
+					die()
+					return
 				switch(S.value)
 					if(",")
 						next_token()

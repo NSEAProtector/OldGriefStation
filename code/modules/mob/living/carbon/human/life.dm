@@ -1097,7 +1097,7 @@ var/global/list/brutefireloss_overlays = list("1" = image("icon" = 'icons/mob/sc
 	proc/handle_regular_hud_updates()
 		if(!client)	return 0
 
-		regular_hud_updates()
+		sight &= ~BLIND
 
 
 		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask/*, global_hud.nvg*/)
