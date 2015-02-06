@@ -67,7 +67,7 @@
 				if (src.unwieldsound)
 					playsound(src.loc, unwieldsound, 50, 1)
 
-				var/obj/item/weapon/twohanded/gun/O = user.get_inactive_hand()
+				var/obj/item/weapon/twohanded/O = user.get_inactive_hand()
 				if(O && istype(O))
 					del(O)
 				return
@@ -81,11 +81,28 @@
 				if (src.wieldsound)
 					playsound(src.loc, wieldsound, 50, 1)
 
-				var/obj/item/weapon/twohanded/gun/O = new(user) ////Let's reserve his other hand~
+				var/obj/item/weapon/twohanded/O = new(user) ////Let's reserve his other hand~
 				O.name = "[initial(name)] - offhand"
 				O.desc = "Your second grip on the [initial(name)]"
 				user.put_in_inactive_hand(O)
 				return
+	if(user.a_intent == "disarm")
+		if (cell_removing)
+
+			if(power_supply)
+				//power_supply.loc = get_turf(src.loc)
+				power_supply.loc = src
+				power_supply.update_icon()
+				user.put_in_hands(power_supply)
+				power_supply = null
+				update_icon()
+				user << "<span class='notice'>You pull the [power_supply] out of \the [src]!</span>"
+				return
+			else
+				user << "<span class='notice'>It has no cell!</span>"
+		else
+			user << "<span class='notice'>You cant remove cell from that gun</span>"
+		return
 
 /obj/item/weapon/gun/energy/dropped(mob/living/user as mob)
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand

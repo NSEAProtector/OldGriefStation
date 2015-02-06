@@ -108,13 +108,15 @@
 				next_move += 5
 			*/
 
-			var/resolved = A.attackby(W,src)
-			if(ismob(A) || istype(A, /obj/mecha) || isturf(A) || istype(W, /obj/item/weapon/grab))
-				changeNext_move(10)
-			if(!resolved && A && W)
-				W.afterattack(A,src,1,params) // 1 indicates adjacency
-			else
-				changeNext_move(10)
+			var/resolved = W.preattack(A, src, 1, params)
+			if(!resolved)
+				resolved = A.attackby(W,src)
+				if(ismob(A) || istype(A, /obj/mecha) || istype(W, /obj/item/weapon/grab))
+					changeNext_move(10)
+				if(!resolved && A && W)
+					W.afterattack(A,src,1,params) // 1 indicates adjacency
+				else
+					changeNext_move(10)
 		else
 			if(ismob(A) || istype(W, /obj/item/weapon/grab))
 				changeNext_move(10)
@@ -129,17 +131,15 @@
 		//next_move = world.time + 10
 		if(A.Adjacent(src)) // see adjacent.dm
 			if(W)
-				/*if(W.flags&USEDELAY)
-					next_move += 5
-				*/
-				// Return 1 in attackby() to prevent afterattack() effects (when safely moving items for example)
-				if(ismob(A) || istype(A, /obj/mecha) || isturf(A) || istype(W, /obj/item/weapon/grab))
-					changeNext_move(10)
-				var/resolved = A.attackby(W,src)
-				if(!resolved && A && W)
-					W.afterattack(A,src,1,params) // 1: clicking something Adjacent
-				else
-					changeNext_move(10)
+				var/resolved = W.preattack(A, src, 1, params)
+				if(!resolved)
+					resolved = A.attackby(W,src)
+					if(ismob(A) || istype(A, /obj/mecha) || istype(W, /obj/item/weapon/grab))
+						changeNext_move(10)
+					if(!resolved && A && W)
+						W.afterattack(A,src,1,params) // 1 indicates adjacency
+					else
+						changeNext_move(10)
 			else
 				if(ismob(A) || istype(W, /obj/item/weapon/grab))
 					changeNext_move(10)

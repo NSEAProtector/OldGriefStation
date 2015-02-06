@@ -4,10 +4,10 @@
 	icon_state = "silenced_pistol"
 	w_class = 3.0
 	max_shells = 8
-	caliber = list(".45"  = 1)
+	caliber = list(".45"  = 1, ".45r" = 1)
 	silenced = 1
 	origin_tech = "combat=2;materials=2;syndicate=8"
-	ammo_type = "/obj/item/ammo_casing/c45"
+	ammo_type = "/obj/item/ammo_casing/c45r"
 	mag_type = "/obj/item/ammo_storage/magazine/c45"
 	load_method = 2
 
@@ -17,10 +17,10 @@
 	icon_state = "colt"
 	w_class = 3.0
 	max_shells = 8
-	caliber = list(".45"  = 1)
+	caliber = list(".45"  = 1, ".45r" = 1)
 	origin_tech = "combat=2;materials=2"
-	ammo_type = "/obj/item/ammo_casing/c45"
-	mag_type = "/obj/item/ammo_storage/magazine/c45"
+	ammo_type = "/obj/item/ammo_casing/c45r"
+	mag_type = "/obj/item/ammo_storage/magazine/c45/rubber"
 	load_method = 2
 
 	update_icon()

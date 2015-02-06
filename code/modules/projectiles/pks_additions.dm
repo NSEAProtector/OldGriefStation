@@ -78,25 +78,6 @@
 /obj/item/weapon/gun/projectile/automatic/assault_rifles/mp5/isHandgun()
 	return 0
 
-/obj/item/weapon/gun/energy/attack_self(mob/user as mob)
-	if(user.a_intent == "disarm")
-		if (cell_removing)
-
-			if(power_supply)
-				//power_supply.loc = get_turf(src.loc)
-				power_supply.loc = src
-				power_supply.update_icon()
-				user.put_in_hands(power_supply)
-				power_supply = null
-				update_icon()
-				user << "<span class='notice'>You pull the [power_supply] out of \the [src]!</span>"
-				return
-			else
-				user << "<span class='notice'>It has no cell!</span>"
-		else
-			user << "<span class='notice'>You cant remove cell from that gun</span>"
-		return
-
 /obj/item/weapon/gun/energy/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(istype(A, /obj/item/weapon/cell) && !power_supply)
 		user.drop_item()
