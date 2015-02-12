@@ -1656,14 +1656,44 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/ammo_storage/box/c9mm
 
 
+/datum/design/k4m
+	name = "Carbine Mk4"
+	desc = "An Assault Rifle."
+	id = "k4m"
+	req_tech = list("combat" = 5, "materials" = 3,  "engineering" = 2)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 7500, "$glass" = 100)
+	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/k4m
+	locked = 0
+
+/datum/design/k4m
+	name = "Carbine Mk4 short"
+	desc = "An Assault Rifle."
+	id = "k4m"
+	req_tech = list("combat" = 6, "materials" = 2,  "engineering" = 4)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 6500, "$glass" = 100)
+	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/k4m
+	locked = 0
+
+/datum/design/g36k
+	name = "G36K"
+	desc = "An Assault Rifle."
+	id = "k4m"
+	req_tech = list("combat" = 5, "materials" = 3,	"syndicate" = 2,  "engineering" = 2)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 7500, "$glass" = 100)
+	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/g36k
+	locked = 0
+
 /datum/design/assault
 	name = "Assault Rifle"
 	desc = "An Assault Rifle."
 	id = "assault"
 	req_tech = list("combat" = 5, "materials" = 3)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 5000, "$glass" = 100)
-	build_path = /obj/item/weapon/gun/projectile/automatic/assault_rifles/assault
+	materials = list("$metal" = 7500, "$glass" = 100)
+	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/assault
 	locked = 0
 
 /datum/design/ammo_a556
@@ -1683,7 +1713,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list("combat" = 6, "materials" = 4)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 1000,"$plastic" = 4000, "$glass" = 200)
-	build_path = /obj/item/weapon/gun/projectile/automatic/assault_rifles/assault
+	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/advanced
 	locked = 0
 
 /datum/design/ammo_a127
@@ -2111,6 +2141,16 @@ other types of metals and chemistry for reagents).
 	req_tech = list("combat" = 4, "materials" = 5)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 1500, "$glass" = 2500, "$diamond" = 3750, "$silver" = 1000, "$uranium" = 500)
+	build_path = /obj/item/clothing/suit/armor/laserproof
+	locked = 0
+
+/datum/design/swat_helm
+	name = "Swat Helmet"
+	desc = "Swat helmet, is good helmet"
+	id = "swat_helmet"
+	req_tech = list("combat" = 2, "materials" = 4)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 4000, "$glass" = 2500)
 	build_path = /obj/item/clothing/suit/armor/laserproof
 	locked = 0
 

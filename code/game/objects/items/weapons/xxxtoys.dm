@@ -6,11 +6,10 @@
 	item_state = "metal_dildo"
 	var/matter = 0
 	w_class = 2.0
-	force = 1
+	force = 7
 	attack_verb = list("disciplined", "plops")
 	flags = FPRINT | TABLEPASS | CONDUCT | BLOOD
-
-	matter = list("metal" = 500,"glass" = 500)
+	m_amt = 3500
 
 /*/obj/item/weapon/dildo/attack_self(mob/user)
 	user << "You insert dildo into your ass."
@@ -30,7 +29,7 @@
 	item_state = "fleshlight"
 	var/matter = 0
 	w_class = 2.0
-	force = 1
+	force = 2
 	attack_verb = list("disciplined", "plops")
 	flags = FPRINT | TABLEPASS | CONDUCT | BLOOD
 

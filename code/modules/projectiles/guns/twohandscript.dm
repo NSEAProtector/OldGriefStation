@@ -53,6 +53,7 @@
 
 /*--------------------Ak72ti------------------energy/
 /energy---------------Ak72ti-----------------------*/
+/*
 /obj/item/weapon/gun/energy/attack_self(mob/living/user as mob)
 	if(istype(user,/mob/living/carbon/monkey))
 		user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
@@ -67,7 +68,7 @@
 				if (src.unwieldsound)
 					playsound(src.loc, unwieldsound, 50, 1)
 
-				var/obj/item/weapon/twohanded/O = user.get_inactive_hand()
+				var/obj/item/weapon/twohanded/offhand/O = user.get_inactive_hand()
 				if(O && istype(O))
 					del(O)
 				return
@@ -81,7 +82,7 @@
 				if (src.wieldsound)
 					playsound(src.loc, wieldsound, 50, 1)
 
-				var/obj/item/weapon/twohanded/O = new(user) ////Let's reserve his other hand~
+				var/obj/item/weapon/twohanded/offhand/O = new(user) ////Let's reserve his other hand~
 				O.name = "[initial(name)] - offhand"
 				O.desc = "Your second grip on the [initial(name)]"
 				user.put_in_inactive_hand(O)
@@ -103,11 +104,11 @@
 		else
 			user << "<span class='notice'>You cant remove cell from that gun</span>"
 		return
-
+*/
 /obj/item/weapon/gun/energy/dropped(mob/living/user as mob)
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
-		var/obj/item/weapon/gun/O = user.get_inactive_hand()
+		var/obj/item/weapon/gun/energy/dropped/O = user.get_inactive_hand()
 		if(istype(O))
 			O.unwield()
 	return	unwield()

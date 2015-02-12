@@ -5,6 +5,7 @@
 /obj/item/weapon/gun/projectile
 	desc = "A classic revolver. Uses 357 ammo"
 	name = "revolver"
+	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "revolver"
 	caliber = list("357" = 1)
 	origin_tech = "combat=2;materials=2"
@@ -12,11 +13,12 @@
 	m_amt = 1000
 	w_type = RECYK_METAL
 	recoil = 1
+	gun_flags = EMPTYCASINGS
+	zoom = 0
 	var/ammo_type = "/obj/item/ammo_casing/a357"
 	var/list/loaded = list()
 	var/max_shells = 7 //only used by guns with no magazine
 	var/load_method = SPEEDLOADER //0 = Single shells or quick loader, 1 = box, 2 = magazine
-	var/gun_flags = EMPTYCASINGS
 	var/obj/item/ammo_storage/magazine/stored_magazine = null
 	var/obj/item/ammo_casing/chambered = null
 	var/mag_type = ""
@@ -109,18 +111,7 @@
 	return 0
 
 /obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user as mob)
-
-	if(istype(A, /obj/item/gun_part/silencer) && src.gun_flags &SILENCECOMP)
-		if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
-			user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
-			return
-		user.drop_item()
-		user << "<span class='notice'>You screw [A] onto [src].</span>"
-		silenced = A	//dodgy?
-		w_class = 3
-		A.loc = src		//put the silencer into the gun
-		update_icon()
-		return 1
+	..()
 
 	var/num_loaded = 0
 	if(istype(A, /obj/item/ammo_storage/magazine))
@@ -156,7 +147,34 @@
 		user << "\blue You load [num_loaded] shell\s into \the [src]!"
 	A.update_icon()
 	update_icon()
-	return
+
+	if(SILENCECOMP)
+		if(istype(A, /obj/item/gun_part/silencer))
+			if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
+				user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
+				return
+			user.drop_item()
+			user << "<span class='notice'>You screw [A] onto [src].</span>"
+			silenced = A	//dodgy?
+			w_class = 3
+			A.loc = src		//put the silencer into the gun
+			update_icon()
+			return 1
+
+	if(zoom_allowed)
+		if(istype(A, /obj/item/gun_part/scope))
+			if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
+				user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
+				return
+			user.drop_item()
+			user << "<span class='notice'>You screw [A] onto [src].</span>"
+			scope_installed = A	//dodgy?
+			w_class = 3
+			A.loc = src	//put the scope into the gun
+			update_icon()
+			return 1
+		else
+			return 1
 
 /obj/item/weapon/gun/projectile/attack_self(mob/user as mob)
 	if (target)
@@ -201,14 +219,14 @@
 
 	if(user.a_intent == "grab")
 		if(two_handed)
-//			..()
+			..()
 			if(wielded) //Trying to unwield it
 				unwield()
 				user << "<span class='notice'>You are now carrying the [name] with one hand.</span>"
 				if (src.unwieldsound)
 					playsound(src.loc, unwieldsound, 50, 1)
 
-				var/obj/item/weapon/twohanded/O = user.get_inactive_hand()
+				var/obj/item/weapon/twohanded/offhand/O = user.get_inactive_hand()
 				if(O && istype(O))
 					O.unwield()
 				return
@@ -222,13 +240,11 @@
 				if (src.wieldsound)
 					playsound(src.loc, wieldsound, 50, 1)
 
-				var/obj/item/weapon/twohanded/O = new(user) ////Let's reserve his other hand~
+				var/obj/item/weapon/twohanded/offhand/O = new(user) ////Let's reserve his other hand~
 				O.name = "[initial(name)] - offhand"
 				O.desc = "Your second grip on the [initial(name)]"
 				user.put_in_inactive_hand(O)
 				return
-	else
-		return
 
 /obj/item/weapon/gun/projectile/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 	..()
@@ -256,4 +272,3 @@
 			if(istype(AC))
 				bullets += 1
 	return bullets
-

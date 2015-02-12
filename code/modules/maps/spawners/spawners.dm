@@ -134,13 +134,14 @@
 	toSpawn = list(
 		/obj/item/weapon/gun/energy/ionrifle,
 		/obj/item/weapon/gun/energy/laser,
-		/obj/item/weapon/gun/projectile/automatic/assault_rifles,
+		/obj/item/weapon/gun/projectile/automatic/arifles/k4m,
+		/obj/item/weapon/gun/projectile/automatic/arifles/g36k,
+		/obj/item/weapon/gun/projectile/automatic/arifles/assault,
 		/obj/item/weapon/gun/projectile/colt,
 		/obj/item/weapon/gun/projectile/shotgun/pump,
 		/obj/item/weapon/gun/energy/plasma/rifle,
 		/obj/item/weapon/gun/energy/plasma/light,
 		/obj/item/weapon/gun/energy/plasma/pistol,
-
 		)
 
 /obj/map/spawner/security/weapons
@@ -154,7 +155,7 @@
 		/obj/item/weapon/gun/energy/laser,
 		/obj/item/weapon/gun/projectile/automatic/mini_uzi,
 		/obj/item/weapon/gun/projectile/automatic,
-		/obj/item/weapon/gun/projectile/automatic/assault_rifles/l6_saw,
+		/obj/item/weapon/gun/projectile/automatic/arifles/l6_saw,
 		/obj/item/weapon/gun/projectile/deagle,
 		/obj/item/weapon/gun/projectile/mateba,
 		/obj/item/weapon/gun/projectile/pistol,

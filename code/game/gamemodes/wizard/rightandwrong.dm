@@ -34,7 +34,7 @@
 				if("detective")
 					new /obj/item/weapon/gun/projectile/detective(get_turf(H))
 				if("smg")
-					new /obj/item/weapon/gun/projectile/automatic/assault_rifles/c20r(get_turf(H))
+					new /obj/item/weapon/gun/projectile/automatic/arifles/c20r(get_turf(H))
 				if("nuclear")
 					new /obj/item/weapon/gun/energy/gun/nuclear(get_turf(H))
 				if("deagle")
@@ -63,7 +63,7 @@
 				if("crossbow")
 					new /obj/item/weapon/gun/energy/crossbow(get_turf(H))
 				if("saw")
-					new /obj/item/weapon/gun/projectile/automatic/assault_rifles/l6_saw(get_turf(H))
+					new /obj/item/weapon/gun/projectile/automatic/arifles/l6_saw(get_turf(H))
 		else
 			switch (randomizemagic)
 				if("fireball")

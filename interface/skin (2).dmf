@@ -1473,7 +1473,7 @@ window "rpane"
 		on-size = ""
 		text = "Server FaQ"
 		image = ""
-		command = "rules"
+		command = "faq"
 		is-flat = false
 		stretch = false
 		is-checked = false

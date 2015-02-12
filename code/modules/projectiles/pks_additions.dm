@@ -5,18 +5,18 @@
 	desc = "A laser pistol issued to high ranking members of a certain shadow corporation."
 	icon_state = "lpistol"
 	projectile_type = /obj/item/projectile/beam
-	cell_type = "/obj/item/weapon/cell/high"
+	cell_type = "/obj/item/weapon/cell/ammo"
 	w_class = 2.0
 	cell_removing = 1
 	fire_delay = 3
-	charge_cost = 1000 // holds less "ammo" then the rifle variant.
+	charge_cost = 1250 // holds less "ammo" then the rifle variant.
 
 /obj/item/weapon/gun/energy/laser/rifle
 	name = "laser rifle"
 	desc = "improper laser rifle, standart shots and ejectable cell"
 	icon_state = "lrifle"
-	projectile_type = /obj/item/projectile/beam
-	cell_type = "/obj/item/weapon/cell/high"
+	projectile_type = /obj/item/projectile/beam/captain
+	cell_type = "/obj/item/weapon/cell/ammo"
 	cell_removing = 1
 	fire_delay = 0.5
 	charge_cost = 500
@@ -28,7 +28,7 @@
 	icon_state = "sniper"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	projectile_type = "/obj/item/projectile/beam"
-	cell_type = "/obj/item/weapon/cell/high"
+	cell_type = "/obj/item/weapon/cell/ammo"
 	fire_sound = 'sound/weapons/pulse.ogg'
 	cell_removing = 1
 	w_class = 4
@@ -36,8 +36,6 @@
 	charge_cost = 250
 	slot_flags = SLOT_BACK
 	var/mode = 1
-	var/zoomdevicename = null //for name of scopes
-	var/zoom = 0 //for items with scopes
 	fire_delay = 5
 	two_handed = 1
 
@@ -67,99 +65,10 @@
 					projectile_type = "/obj/item/projectile/beam/deathlaser"
 			return
 
-/obj/item/weapon/gun/energy/sniper/verb/scope()
-	set category = "Object"
-	set name = "Use Scope"
-	set popup_menu = 1
-	zoom()
-
-//projectile//
-
-/obj/item/weapon/gun/projectile/automatic/assault_rifles/mp5/isHandgun()
-	return 0
-
-/obj/item/weapon/gun/energy/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/weapon/cell) && !power_supply)
-		user.drop_item()
-		power_supply = A
-		power_supply.loc = src
-		user << "<span class='notice'>You load a new [power_supply] into \the [src]!</span>"
-		update_icon()
-	else
-		..()
-	return
-
-/obj/item/weapon/gun/energy/sniper/proc/zoom(var/tileoffset = 11,var/viewsize = 12) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
-
-	var/devicename
-
-	if(zoomdevicename)
-		devicename = zoomdevicename
-	else
-		devicename = src.name
-
-	var/cannotzoom
-
-	if(usr.stat || !(istype(usr,/mob/living/carbon/human)))
-		usr << "You are unable to focus through the [devicename]"
-		cannotzoom = 1
-	else if(!zoom && global_hud.darkMask[1] in usr.client.screen)
-		usr << "Your welding equipment gets in the way of you looking through the [devicename]"
-		cannotzoom = 1
-	else if(!zoom && usr.get_active_hand() != src)
-		usr << "You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better"
-		cannotzoom = 1
-
-	if(!zoom && !cannotzoom)
-		if(!usr.hud_used.hud_shown)
-			usr.button_pressed_F12(1)	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
-		usr.button_pressed_F12(1)
-		usr.client.view = viewsize
-		zoom = 1
-
-		var/tilesize = 32
-		var/viewoffset = tilesize * tileoffset
-
-		switch(usr.dir)
-			if (NORTH)
-				usr.client.pixel_x = 0
-				usr.client.pixel_y = viewoffset
-			if (SOUTH)
-				usr.client.pixel_x = 0
-				usr.client.pixel_y = -viewoffset
-			if (EAST)
-				usr.client.pixel_x = viewoffset
-				usr.client.pixel_y = 0
-			if (WEST)
-				usr.client.pixel_x = -viewoffset
-				usr.client.pixel_y = 0
-
-		usr.visible_message("[usr] peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
-
-		/*
-		if(istype(usr,/mob/living/carbon/human/))
-			var/mob/living/carbon/human/H = usr
-			usr.visible_message("[usr] holds [devicename] up to [H.get_visible_gender() == MALE ? "his" : H.get_visible_gender() == FEMALE ? "her" : "their"] eyes.")
-		else
-			usr.visible_message("[usr] holds [devicename] up to its eyes.")
-		*/
-
-	else
-		usr.client.view = world.view
-		if(!usr.hud_used.hud_shown)
-			usr.button_pressed_F12(1)
-		zoom = 0
-
-		usr.client.pixel_x = 0
-		usr.client.pixel_y = 0
-
-		if(!cannotzoom)
-			usr.visible_message("[zoomdevicename ? "[usr] looks up from the [zoomdevicename] of the [src.name]" : "[usr] lowers the [src.name]"].")
-
-	return
-
 //melee//
 /obj/item/weapon/kitchenknife/tento
+	name = "Tento"
+	desc = "Not just a knife...."
 	force = 20.0
 	throwforce = 15
 	icon_state = "tento"
@@ -185,3 +94,57 @@
 		new	/obj/item/clothing/under/lawyer/female
 		new	/obj/item/clothing/under/lawyer/red
 
+//Combat Power Cells
+/obj/item/weapon/cell/ammo
+	name = "Basic gun energy cell"
+	desc = "Mini gun cell with good capacity, used for most energy weapons. Warning: DONT ATTEMPT FUCKING INSTALL THAT CELL BACKWARDS, YOU BASTARDS!!!"
+	icon = 'icons/obj/guns/gun.dmi'
+	icon_state = "basic_ammocell"
+	item_state = "basic_ammocell"
+	origin_tech = "powerstorage=3"
+	maxcharge = 5000
+	m_amt = 30
+	g_amt = 30
+
+/obj/item/weapon/cell/ammo/syndi
+	name = "Suspicious looking gun energy cell"
+	desc = "Strange gun cell, hm, that cell have super capacity.. and.. syndicate bandge. Wow."
+	icon_state = "syndi_ammocell"
+	item_state = "syndi_ammocell"
+	origin_tech = "powerstorage=5"
+	maxcharge = 10000
+	m_amt = 30
+	g_amt = 30
+
+/obj/item/weapon/cell/ammo/hyper
+	name = "Hyper capacity gun energy cell"
+	desc = "Mini gun cell with hyper capacity, rare."
+	icon_state = "hyper_ammocell"
+	item_state = "hyper_ammocell"
+	origin_tech = "powerstorage=4"
+	maxcharge = 15000
+	m_amt = 30
+	g_amt = 30
+
+/obj/item/weapon/cell/ammo/rechargable
+	name = "Rechargable capacity gun energy cell"
+	desc = "Dont use that cell - Work in progress"
+	icon_state = "rechargable_ammocell"
+	item_state = "rechargable_ammocell"
+	origin_tech = "powerstorage=8"
+	maxcharge = 2500
+	m_amt = 30
+	g_amt = 30
+	var/charge_tick = 0
+/*
+	process()
+		charge_tick++
+		if(charge_tick < 4) return 0
+		charge_tick = 0
+		if(!power_supply) return 0
+		if((power_supply.charge / power_supply.maxcharge) != 1)
+			if(!failcheck())	return 0
+			power_supply.give(100)
+			update_icon()
+		return 1
+*/

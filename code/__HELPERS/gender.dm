@@ -8,7 +8,7 @@ var/global/list/genders=list(
 	"male"   = new /gender("male",      "he",   "him",  "himself",    "his",  "his"),
 	"female" = new /gender("female",    "she",  "her",  "herself",    "her",  "hers"),
 	"neuter" = new /gender("neutral",   "it",   "its",  "itself",     "its",  "its"),
-	"plural" = new /gender("plural",    "they", "them", "themselves", "their","their"), // Not sure about PP - N3X
+//	"plural" = new /gender("plural",    "they", "them", "themselves", "their","their"), // Not sure about PP - N3X
 	// For formatting purposes
 	"you"    = new /gender("you",       "you",  "your", "yourself",   "your", "your", complex=1),
 	"me"     = new /gender("me",        "I",    "me",   "myself",     "my",   "mine", complex=1)

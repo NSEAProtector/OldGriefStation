@@ -1,7 +1,7 @@
 /obj/item/weapon/gun
 	name = "gun"
 	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/gun.dmi'
 	icon_state = "detective"
 	item_state = "gun"
 	flags =  FPRINT | TABLEPASS | CONDUCT |  USEDELAY
@@ -16,11 +16,9 @@
 	origin_tech = "combat=1"
 	attack_verb = list("struck", "hit", "bashed")
 
-
 	var/fire_sound = 'sound/weapons/Gunshot.ogg'
 	var/obj/item/projectile/in_chamber = null
 	var/list/caliber //the ammo the gun will accept. Now multiple types (make sure to set them to =1)
-	var/silenced = 0
 	var/recoil = 0
 	var/ejectshell = 1
 	var/clumsy_check = 1
@@ -34,6 +32,7 @@
 						//1 for keep shooting until aim is lowered
 	var/fire_delay = 2
 	var/last_fired = 0
+	var/gun_flags = null
 
 	var/two_handed = 0
 	var/wielded = 0
@@ -41,6 +40,12 @@
 	var/force_wielded = 0
 	var/wieldsound = null
 	var/unwieldsound = null
+
+	var/zoomdevicename = null //for name of scopes
+	var/zoom_allowed = 0 //for energy guns with scopes <<Projectile weapon use ZOOMCOMP flag
+	var/scope_installed = 0
+	var/zoom = 0
+	var/silenced = 0 //silensers
 
 	proc/ready_to_fire()
 		if(world.time >= last_fired + fire_delay)
@@ -275,73 +280,80 @@
 			src.Fire(M,user,0,0,1) ///Otherwise, shoot!
 			return
 	else
-		return ..() //Pistolwhippin'
+		return ..()
 
-/*---------------------------Ak72Ti---------------broken code/
-	attack_self(mob/living/user as mob)
-		if(istype(user,/mob/living/carbon/monkey))
-			user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
-			return
+/obj/item/weapon/gun/proc/zoom(var/tileoffset = 11,var/viewsize = 12) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
 
-		if(two_handed)
-			if(user.a_intent == "grab")
-				..()
-				if(wielded) //Trying to unwield it
-					unwield()
-					user << "<span class='notice'>You are now carrying the [name] with one hand.</span>"
-					if (src.unwieldsound)
-						playsound(src.loc, unwieldsound, 50, 1)
+	var/devicename
 
-					var/obj/item/weapon/twohanded/gun/O = user.get_inactive_hand()
-					if(O && istype(O))
-						O.unwield()
-					return
+	if(zoomdevicename)
+		devicename = zoomdevicename
+	else
+		devicename = src.name
 
-				else //Trying to wield it
-					if(user.get_inactive_hand())
-						user << "<span class='warning'>You need your other hand to be empty</span>"
-						return
-					wield()
-					user << "<span class='notice'>You grab the [initial(name)] with both hands.</span>"
-					if (src.wieldsound)
-						playsound(src.loc, wieldsound, 50, 1)
+	var/cannotzoom
 
-					var/obj/item/weapon/twohanded/gun/O = new(user) ////Let's reserve his other hand~
-					O.name = "[initial(name)] - offhand"
-					O.desc = "Your second grip on the [initial(name)]"
-					user.put_in_inactive_hand(O)
-					return
-/broken code---------------------Ak72Ti---------------------*/
-/*--------------------------Ak72Ti----------------worked version/
-/obj/item/weapon/gun/projectile/automatic/attack_self(mob/living/user as mob)
-	if( istype(user,/mob/living/carbon/monkey) )
-		user << "<span class='warning'>It's too heavy for you to wield fully.</span>"
-		return
-	..()
-	if(two_handed == 1)
-		if(wielded) //Trying to unwield it
-			unwield()
-			user << "<span class='notice'>You are now carrying the [name] with one hand.</span>"
-			if (src.unwieldsound)
-				playsound(src.loc, unwieldsound, 50, 1)
+	if(usr.stat || !(istype(usr,/mob/living/carbon/human)))
+		usr << "You are unable to focus through the [devicename]"
+		cannotzoom = 1
+	else if(!zoom && global_hud.darkMask[1] in usr.client.screen)
+		usr << "Your welding equipment gets in the way of you looking through the [devicename]"
+		cannotzoom = 1
+	else if(!zoom && usr.get_active_hand() != src)
+		usr << "You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better"
+		cannotzoom = 1
 
-			var/obj/item/weapon/twohanded/gun/O = user.get_inactive_hand()
-			if(O && istype(O))
-				O.unwield()
-			return
+	if(!zoom && !cannotzoom)
+		if(!usr.hud_used.hud_shown)
+			usr.button_pressed_F12(1)	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
+		usr.button_pressed_F12(1)
+		usr.client.view = viewsize
+		zoom = 1
 
-		else //Trying to wield it
-			if(user.get_inactive_hand())
-				user << "<span class='warning'>You need your other hand to be empty</span>"
-				return
-			wield()
-			user << "<span class='notice'>You grab the [initial(name)] with both hands.</span>"
-			if (src.wieldsound)
-				playsound(src.loc, wieldsound, 50, 1)
+		var/tilesize = 32
+		var/viewoffset = tilesize * tileoffset
 
-			var/obj/item/weapon/twohanded/gun/O = new(user) ////Let's reserve his other hand~
-			O.name = "[initial(name)] - offhand"
-			O.desc = "Your second grip on the [initial(name)]"
-			user.put_in_inactive_hand(O)
-			return
-/worked version---------------------Ak72Ti---------------------*/
+		switch(usr.dir)
+			if (NORTH)
+				usr.client.pixel_x = 0
+				usr.client.pixel_y = viewoffset
+			if (SOUTH)
+				usr.client.pixel_x = 0
+				usr.client.pixel_y = -viewoffset
+			if (EAST)
+				usr.client.pixel_x = viewoffset
+				usr.client.pixel_y = 0
+			if (WEST)
+				usr.client.pixel_x = -viewoffset
+				usr.client.pixel_y = 0
+
+		usr.visible_message("[usr] peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
+
+		/*
+		if(istype(usr,/mob/living/carbon/human/))
+			var/mob/living/carbon/human/H = usr
+			usr.visible_message("[usr] holds [devicename] up to [H.get_visible_gender() == MALE ? "his" : H.get_visible_gender() == FEMALE ? "her" : "their"] eyes.")
+		else
+			usr.visible_message("[usr] holds [devicename] up to its eyes.")
+		*/
+
+	else
+		usr.client.view = world.view
+		if(!usr.hud_used.hud_shown)
+			usr.button_pressed_F12(1)
+		zoom = 0
+
+		usr.client.pixel_x = 0
+		usr.client.pixel_y = 0
+
+		if(!cannotzoom)
+			usr.visible_message("[zoomdevicename ? "[usr] looks up from the [zoomdevicename] of the [src.name]" : "[usr] lowers the [src.name]"].")
+
+	return
+
+/obj/item/weapon/gun/verb/scope()
+	if(scope_installed)
+		set category = "Object"
+		set name = "Use Scope"
+		set popup_menu = 1
+		zoom()

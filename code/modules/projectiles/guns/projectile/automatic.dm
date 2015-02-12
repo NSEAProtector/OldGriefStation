@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/automatic //Hopefully someone will find a way to make these fire in bursts or something. --Superxpdude
 	name = "submachine gun"
-	desc = "A lightweight, fast firing gun. Uses 9mm rounds."
+	desc = "A lightweight, fast firing gun. Uses 9mm rounds.That gun have module slots for - Tactical silenser, Flashlight."
 	icon_state = "saber"	//ugly
 	w_class = 3.0
 	max_shells = 18
@@ -8,7 +8,7 @@
 	origin_tech = "combat=4;materials=2"
 	ammo_type = "/obj/item/ammo_casing/c9mm"
 	automatic = 1
-	flags =  USEDELAY
+	gun_flags = SILENCECOMP
 	var/burstfire = 0 //Whether or not the gun fires multiple bullets at once
 	var/burst_count = 3
 	load_method = 2
@@ -32,15 +32,37 @@
 		return
 
 /obj/item/weapon/gun/projectile/automatic/update_icon()
-	..()
+ ..()
 	if(stored_magazine)
-		icon_state = "saber-full"
-	else
-		icon_state = "saber"
-	return
+		icon_state = "[initial(icon_state)].full"
 
-/obj/item/weapon/gun/projectile/automatic/isHandgun()
-	return 0
+		if(scope_installed && !silenced)
+			icon_state = "[initial(icon_state)].full.scope"
+			return
+
+		if(!scope_installed && silenced)
+			icon_state = "[initial(icon_state)].full.silencer"
+			return
+
+		if(scope_installed && silenced)
+			icon_state = "[initial(icon_state)].full.scope.silencer"
+			return
+
+	if(!stored_magazine)
+		icon_state = "[initial(icon_state)]"
+
+		if(zoom && !silenced)
+			icon_state = "[initial(icon_state)].scope"
+			return
+
+		if(!zoom && silenced)
+			icon_state = "[initial(icon_state)].silencer"
+			return
+
+		if(zoom && silenced)
+			icon_state = "[initial(icon_state)].scope.silencer"
+			return
+	return
 
 
 /obj/item/weapon/gun/projectile/automatic/verb/ToggleFire()
@@ -73,34 +95,9 @@
 	else
 		..()
 
-
-/obj/item/weapon/gun/projectile/automatic/mini_uzi
-	name = "Uzi"
-	desc = "A lightweight, fast firing gun, for when you want someone dead. Uses .45 rounds."
-	icon_state = "mini-uzi"
-	w_class = 3.0
-	max_shells = 10
-	burst_count = 3
-	caliber = list(".45" = 1)
-	origin_tech = "combat=5;materials=2;syndicate=8"
-	ammo_type = "/obj/item/ammo_casing/c45m"
-	mag_type = "/obj/item/ammo_storage/magazine/uzi45"
-	m_amt = 4000
-	update_icon()
-		..()
-		if(stored_magazine)
-			icon_state = "mini-uzi-loaded"
-		else
-			icon_state = "mini-uzi"
-		return
-
-
-/obj/item/weapon/gun/projectile/automatic/mini_uzi/isHandgun()
-	return 1
-
 /obj/item/weapon/gun/projectile/automatic/u40ag
 	name = "Carbine Mk2"
-	desc = "Machine gun for civil violence. Used by mercenaries, personal guards. Weapon of last chance. .45 rounds."
+	desc = "Machine gun for civil violence. Used by mercenaries, personal guards. Weapon of last chance. .45 rounds. That gun have module slots for - Tactical flashlight."
 	icon_state = "u40ag"
 	item_state = "c20r"
 	w_class = 3.0
@@ -114,20 +111,29 @@
 	load_method = 2
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 
-	update_icon()
-		..()
-		if(stored_magazine)
-			icon_state = "u40ag-full"
-		else
-			icon_state = "u40ag"
-		return
-
 /obj/item/weapon/gun/projectile/automatic/u40ag/isHandgun()
 	return 0
 
+/obj/item/weapon/gun/projectile/automatic/mini_uzi
+	name = "Uzi"
+	desc = "A lightweight, fast firing gun, for when you want someone dead. Uses .45 rounds. That gun have module slots for - Tactical silenser."
+	icon_state = "mini-uzi"
+	w_class = 3.0
+	max_shells = 10
+	burst_count = 3
+	caliber = list(".45" = 1)
+	origin_tech = "combat=5;materials=2;syndicate=8"
+	ammo_type = "/obj/item/ammo_casing/c45m"
+	mag_type = "/obj/item/ammo_storage/magazine/uzi45"
+	m_amt = 4000
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP
+
+/obj/item/weapon/gun/projectile/automatic/mini_uzi/isHandgun()
+	return 1
+
 /obj/item/weapon/gun/projectile/automatic/mp5
 	name = "Mp5-A2"
-	desc = "A lightweight, fast firing gun, used by Corp. special ops. Uses 9mm rounds."
+	desc = "A lightweight, fast firing gun, used by special ops. Uses 9mm rounds. That gun have module slots for - Tactical silenser, Flashlight."
 	icon_state = "mp5a"
 	w_class = 3.0
 	max_shells = 30
@@ -139,15 +145,40 @@
 	ammo_type = "/obj/item/ammo_casing/c9mmp"
 	mag_type = "/obj/item/ammo_storage/magazine/c9mmp"
 	load_method = 2
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS
-
-	update_icon()
-		..()
-		if(stored_magazine)
-			icon_state = "mp5a-full"
-		else
-			icon_state = "mp5a"
-		return
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP
 
 /obj/item/weapon/gun/projectile/automatic/mp5/isHandgun()
 	return 0
+
+/obj/item/weapon/gun/projectile/automatic/k4me
+	name = "\improper Carbine Mk4 short"
+	desc = "Short version of Carbine Mk4, for elite of elite, Uses 5.56 rounds. That gun have module slots for - Tactical silenser, Scope, Flashlight."
+	icon_state = "k4me"
+	item_state = "c20r"
+	max_shells = 30
+	burst_count = 3
+	m_amt = 7500
+	caliber = list("5.56" = 1)
+	silenced = 0
+	zoom_allowed = 1
+	origin_tech = "combat=4;materials=4"
+	ammo_type = "/obj/item/ammo_casing/a556"
+	mag_type = "/obj/item/ammo_storage/magazine/a556"
+	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
+	load_method = 2
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP
+	zoom_allowed = 1
+	var/cooldown = 0
+
+
+
+/obj/item/weapon/gun/projectile/automatic/k4me/isHandgun()
+	return 0
+
+//unused//
+/*
+/obj/item/weapon/gun/projectile/automatic/update_icon()
+	..()
+	icon_state = "[initial(icon_state)][stored_magazine ? ".Full" : ""][silenced ? ".silencer" : ""][zoom ? ".scope" : ""]"
+	return
+*/

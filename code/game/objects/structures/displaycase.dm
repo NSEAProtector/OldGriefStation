@@ -87,6 +87,12 @@
 	req_access=list(access_rd)
 	update_icon()
 
+/obj/structure/displaycase/hos_k4me/New()
+	occupant=new /obj/item/weapon/gun/projectile/automatic/k4me(src)
+	locked=1
+	req_access=list(access_hos)
+	update_icon()
+
 /obj/structure/displaycase/examine()
 	..()
 	usr << "\blue Peering through the glass, you see that it contains:"

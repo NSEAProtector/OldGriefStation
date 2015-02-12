@@ -1,20 +1,25 @@
-/obj/item/weapon/gun/projectile/silenced
+/obj/item/weapon/gun/projectile/syndi
 	name = "silenced pistol"
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."
 	icon_state = "silenced_pistol"
 	w_class = 3.0
 	max_shells = 8
 	caliber = list(".45"  = 1, ".45r" = 1)
-	silenced = 1
 	origin_tech = "combat=2;materials=2;syndicate=8"
 	ammo_type = "/obj/item/ammo_casing/c45r"
 	mag_type = "/obj/item/ammo_storage/magazine/c45"
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP
 	load_method = 2
+
+/obj/item/weapon/gun/projectile/syndi/update_icon()
+	..()
+	icon_state = "[initial(icon_state)][chambered ? ".full" : ""][silenced ? ".silencer" : ""]"
+	return
 
 /obj/item/weapon/gun/projectile/colt
 	name = "improper Colt M1911"
 	desc = "A cheap Martian knock-off of a Colt M1911. Uses less-than-lethal .45 rounds."
-	icon_state = "colt"
+	icon_state = "m1911"
 	w_class = 3.0
 	max_shells = 8
 	caliber = list(".45"  = 1, ".45r" = 1)
@@ -23,13 +28,11 @@
 	mag_type = "/obj/item/ammo_storage/magazine/c45/rubber"
 	load_method = 2
 
-	update_icon()
-		..()
-		if(stored_magazine)
-			icon_state = "colt-full"
-		else
-			icon_state = "colt"
-		return
+/obj/item/weapon/gun/projectile/colt/update_icon()
+	..()
+	icon_state = "[initial(icon_state)][chambered ? ".full" : ""]"
+	return
+
 
 /obj/item/weapon/gun/projectile/deagle
 	name = "desert eagle"
@@ -47,8 +50,6 @@
 	desc = "A gold plated gun folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
 	icon_state = "deagleg"
 	item_state = "deagleg"
-
-
 
 /obj/item/weapon/gun/projectile/deagle/camo
 	desc = "A Deagle brand Deagle for operators operating operationally. Uses .50 AE ammo."
@@ -70,13 +71,10 @@
 	load_method = 2
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 
-	update_icon()
-		..()
-		if(stored_magazine)
-			icon_state = "gyropistolloaded"
-		else
-			icon_state = "gyropistol"
-		return
+/obj/item/weapon/gun/projectile/gyropistol/update_icon()
+	..()
+	icon_state = "[initial(icon_state)][chambered ? ".full" : ""]"
+	return
 
 /obj/item/weapon/gun/projectile/pistol
 	name = "\improper Stechtkin pistol"
@@ -94,5 +92,5 @@
 
 /obj/item/weapon/gun/projectile/pistol/update_icon()
 	..()
-	icon_state = "[initial(icon_state)][silenced ? "-silencer" : ""][chambered ? "" : "-e"]"
+	icon_state = "[initial(icon_state)][chambered ? ".full" : ""][silenced ? ".silencer" : ""]"
 	return

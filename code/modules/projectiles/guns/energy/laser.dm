@@ -20,7 +20,7 @@ obj/item/weapon/gun/energy/laser/retro
 	name ="retro laser"
 	icon_state = "retro"
 	desc = "An older model of the basic lasergun, no longer used by Nanotrasen's security or military forces. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws, power cell integrated and cannot be injected."
-	charge_cost = 250
+	charge_cost = 1500
 
 /obj/item/weapon/gun/energy/laser/captain
 	icon_state = "caplaser"
@@ -98,7 +98,7 @@ obj/item/weapon/gun/energy/laser/retro
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	origin_tech = "combat=4;materials=3;powerstorage=3"
 	projectile_type = "/obj/item/projectile/beam/heavylaser"
-
+	two_handed = 1
 	fire_delay = 6 //Balancing stuff
 
 	isHandgun()
@@ -122,7 +122,7 @@ obj/item/weapon/gun/energy/laser/retro
 	fire_sound = 'sound/weapons/laser3.ogg'
 	origin_tech = "combat=5;materials=3;magnets=2;syndicate=2"
 	projectile_type = "/obj/item/projectile/beam/xray"
-	charge_cost = 50
+	charge_cost = 250
 
 
 /obj/item/weapon/gun/energy/plasma
@@ -132,42 +132,46 @@ obj/item/weapon/gun/energy/laser/retro
 	fire_sound = 'sound/weapons/elecfire.ogg'
 	origin_tech = "combat=5;materials=3;magnets=2"
 	projectile_type = /obj/item/projectile/energy/plasma
-	charge_cost = 50
+	charge_cost = 250
 
 /obj/item/weapon/gun/energy/plasma/pistol
 	name = "plasma pistol"
 	desc = "Plasma pistol that is given to members of an unknown shadow organization."
 	icon_state = "alienpistol"
 	projectile_type = /obj/item/projectile/energy/plasma/pistol
-	charge_cost = 50
+	charge_cost = 250
 
 /obj/item/weapon/gun/energy/plasma/light
 	name = "light plasma rifle"
 	desc = "Light plasma rifle that is given to members of an unknown shadow organization."
 	icon_state = "lightalienrifle"
 	projectile_type = /obj/item/projectile/energy/plasma/light
-	charge_cost = 100
+	two_handed = 1
+	charge_cost = 500
 
 /obj/item/weapon/gun/energy/plasma/rifle
 	name = "plasma rifle"
 	desc = "Plasma rifle that is given to members of an unknown shadow organization."
 	icon_state = "alienrifle"
 	projectile_type = /obj/item/projectile/energy/plasma/rifle
-	charge_cost = 150
+	two_handed = 1
+	charge_cost = 1000
 
 /obj/item/weapon/gun/energy/plasma/MP40k
 	name = "Plasma MP40k"
 	desc = "A plasma MP40k. Ich liebe den geruch von plasma am morgen."
 	icon_state = "PlasMP"
 	projectile_type = /obj/item/projectile/energy/plasma/MP40k
-	charge_cost = 75
+	two_handed = 1
+	charge_cost = 250
 
 /obj/item/weapon/gun/energy/laser/LaserAK
 	name = "Laser AK470"
 	desc = "A laser AK. Death solves all problems -- No man, no problem."
 	icon_state = "LaserAK"
 	projectile_type = /obj/item/projectile/beam
-	charge_cost = 75
+	two_handed = 1
+	charge_cost = 250
 
 ////////Laser Tag////////////////////
 

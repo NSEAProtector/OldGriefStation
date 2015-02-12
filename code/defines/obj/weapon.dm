@@ -168,7 +168,6 @@
 /obj/item/weapon/legcuffs
 	name = "legcuffs"
 	desc = "Use this to keep prisoners in line."
-	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
 	icon_state = "handcuff"
 	flags = FPRINT | TABLEPASS | CONDUCT

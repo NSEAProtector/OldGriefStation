@@ -7,9 +7,10 @@
 	fire_sound = 'sound/weapons/pulse.ogg'
 	charge_cost = 1000
 	projectile_type = "/obj/item/projectile/beam/pulse"
-	cell_type = "/obj/item/weapon/cell/super"
-	var/mode = 2
+	cell_type = "/obj/item/weapon/cell/ammo/hyper"
 	fire_delay = 6
+	two_handed = 1
+	var/mode = 2
 
 	attack_self(mob/living/user as mob)
 		if(user.a_intent == "help")

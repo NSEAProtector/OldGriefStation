@@ -14,6 +14,35 @@
 	heat_protection = HEAD
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECITON_TEMPERATURE
 	canremove = 1
+	var/brightness_on = 4 //luminosity when on
+	var/on = 0
+	var/no_light=0
+	action_button_name = "Toggle Helmet Light"
+
+	attack_self(mob/user)
+		if(!isturf(user.loc))
+			user << "You cannot turn the light on while in this [user.loc]" //To prevent some lighting anomalities.
+			return
+		if(no_light)
+			return
+		on = !on
+		icon_state = "rig[on]-[_color]"
+//		item_state = "rig[on]-[_color]"
+
+		if(on)	user.SetLuminosity(user.luminosity + brightness_on)
+		else	user.SetLuminosity(user.luminosity - brightness_on)
+
+	pickup(mob/user)
+		if(on)
+			user.SetLuminosity(user.luminosity + brightness_on)
+//			user.UpdateLuminosity()
+			SetLuminosity(0)
+
+	dropped(mob/user)
+		if(on)
+			user.SetLuminosity(user.luminosity - brightness_on)
+//			user.UpdateLuminosity()
+			SetLuminosity(brightness_on)
 
 /obj/item/clothing/suit/space/space_adv
 	name = "Space working hardsuit"
@@ -48,8 +77,8 @@
 			affecting = usr
 			depl = 1
 			canremove = 0
-			if(istype(usr:wear_suit, /obj/item/clothing/suit/space/space_adv/rig))
-				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/space_adv/rig, slot_head)//military
+			if(istype(usr:wear_suit, /obj/item/clothing/suit/space/rig))
+				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/rig, slot_head)//military
 			if(istype(usr:wear_suit, /obj/item/clothing/suit/space/space_adv/military))
 				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/space_adv/military, slot_head)//military
 			if(istype(usr:wear_suit, /obj/item/clothing/suit/space/space_adv/swat))
@@ -215,104 +244,4 @@
 	item_state = "fracrig"
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 10, bomb = 45, bio = 100, rad = 80)
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/melee/baton)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//RIG NORM (Need to make other versions)
-
-/obj/item/clothing/head/helmet/space/space_adv/rig
-	name = "engineering hardsuit helmet"
-	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
-	icon_state = "rig0-engineering"
-	item_state = "eng_helm"
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 80)
-	allowed = list(/obj/item/device/flashlight)
-	var/brightness_on = 4 //luminosity when on
-	var/on = 0
-	var/no_light=0 // Disable the light on the atmos suit
-	_color = "engineering" //Determines used sprites: rig[on]-[_color] and rig[on]-[_color]2 (lying down sprite)
-	action_button_name = "Toggle Helmet Light"
-	heat_protection = HEAD
-	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECITON_TEMPERATURE
-
-	attack_self(mob/user)
-		if(!isturf(user.loc))
-			user << "You cannot turn the light on while in this [user.loc]" //To prevent some lighting anomalities.
-			return
-		if(no_light)
-			return
-		on = !on
-		icon_state = "rig[on]-[_color]"
-//		item_state = "rig[on]-[_color]"
-
-		if(on)	user.SetLuminosity(user.luminosity + brightness_on)
-		else	user.SetLuminosity(user.luminosity - brightness_on)
-
-	pickup(mob/user)
-		if(on)
-			user.SetLuminosity(user.luminosity + brightness_on)
-//			user.UpdateLuminosity()
-			SetLuminosity(0)
-
-	dropped(mob/user)
-		if(on)
-			user.SetLuminosity(user.luminosity - brightness_on)
-//			user.UpdateLuminosity()
-			SetLuminosity(brightness_on)
-
-
-
-/obj/item/clothing/suit/space/space_adv/rig
-	name = "engineering hardsuit"
-	desc = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding."
-	icon_state = "rig-engineering"
-	item_state = "eng_hardsuit"
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 80)
-	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECITON_TEMPERATURE
-
-
-
-
 //Code by vert1881/Lilorien Vert

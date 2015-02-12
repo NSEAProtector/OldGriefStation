@@ -5,19 +5,19 @@
 	icon_state = "taser"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
-	charge_cost = 100
+	charge_cost = 1250
 	fire_delay = 6 //учитесь стрелять наконец!!
 	projectile_type = "/obj/item/projectile/energy/electrode"
-	cell_type = "/obj/item/weapon/cell/crap"
+	cell_type = "/obj/item/weapon/cell/ammo"
 
 /obj/item/weapon/gun/energy/taser/cyborg
 	name = "taser gun"
 	desc = "A small, low capacity gun used for non-lethal takedowns."
 	icon_state = "taser"
 	fire_sound = 'sound/weapons/Taser.ogg'
-	charge_cost = 100
+	charge_cost = 500
 	projectile_type = "/obj/item/projectile/energy/electrode"
-	cell_type = "/obj/item/weapon/cell/secborg"
+	cell_type = "/obj/item/weapon/cell/ammo"
 	var/charge_tick = 0
 	var/recharge_time = 10 //Time it takes for shots to recharge (in ticks)
 
@@ -52,10 +52,9 @@
 	icon_state = "stunrevolver"
 	fire_sound = 'sound/weapons/Gunshot.ogg'
 	origin_tech = "combat=3;materials=3;powerstorage=2"
-	charge_cost = 125
+	charge_cost = 500
 	fire_delay = 4 //учитесь стрелять наконец!!
 	projectile_type = "/obj/item/projectile/energy/electrode"
-	cell_type = "/obj/item/weapon/cell"
 
 
 
@@ -71,7 +70,7 @@
 	silenced = 1
 	fire_sound = 'sound/weapons/ebow.ogg'
 	projectile_type = "/obj/item/projectile/energy/bolt"
-	cell_type = "/obj/item/weapon/cell/crap"
+	cell_type = "/obj/item/weapon/cell/ammo/syndi"
 	var/charge_tick = 0
 
 
@@ -104,7 +103,8 @@
 	desc = "A weapon favored by syndicate infiltration teams."
 	w_class = 4.0
 	force = 10
-	m_amt = 200000
+	m_amt = 20000
+	two_handed = 1
 	w_type = RECYK_ELECTRONIC
 	projectile_type = "/obj/item/projectile/energy/bolt/large"
 

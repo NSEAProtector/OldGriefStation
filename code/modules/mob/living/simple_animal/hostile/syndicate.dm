@@ -111,7 +111,7 @@
 	projectilesound = 'sound/weapons/Gunshot_smg.ogg'
 	projectiletype = /obj/item/projectile/bullet/midbullet2
 
-	weapon1 = /obj/item/weapon/gun/projectile/automatic/assault_rifles/c20r
+	weapon1 = /obj/item/weapon/gun/projectile/automatic/arifles/c20r
 
 /mob/living/simple_animal/hostile/syndicate/ranged/space
 	icon_state = "syndicaterangedpsace"

@@ -80,6 +80,8 @@ var/global/list/autolathe_recipes_hidden = list( \
 		new /obj/item/clothing/head/helmet(), \
 		new /obj/item/weapon/gun/projectile/pistol(), \
 		new /obj/item/gun_part/silencer(), \
+		new /obj/item/gun_part/scope(), \
+
 			)
 
 /obj/machinery/autolathe

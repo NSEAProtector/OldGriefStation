@@ -316,6 +316,15 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	containername = "Metal sheets crate"
 	group = "Supplies"
 
+/datum/supply_packs/plastic50
+	name = "50 Plastic Sheets"
+	contains = list(/obj/item/stack/sheet/mineral/plastic)
+	amount = 50
+	cost = 200
+	containertype = /obj/structure/closet/crate/engi
+	containername = "Plastic sheets crate"
+	group = "Supplies"
+
 /datum/supply_packs/glass50
 	name = "50 Glass Sheets"
 	contains = list(/obj/item/stack/sheet/glass)
@@ -783,7 +792,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 					/obj/item/weapon/melee/energy/sword,
 					/obj/item/weapon/melee/energy/sword,
 					/obj/item/clothing/tie/holster,
-					/obj/item/weapon/gun/projectile/automatic/assault_rifles)
+					/obj/item/weapon/gun/projectile/automatic/arifles/k4m)
 	cost = 80
 	containertype = /obj/structure/closet/crate
 	containername = "Special Ops gear x1 crate"
@@ -1267,7 +1276,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 /datum/supply_packs/rig
 	name = "Engineering hardsuit"
 	cost = 100
-	contains = list(/obj/item/clothing/suit/space/space_adv/rig,
+	contains = list(/obj/item/clothing/suit/space/rig,
 					/obj/item/weapon/tank/air,
 					/obj/item/clothing/mask/breath)
 
@@ -1282,14 +1291,14 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 /datum/supply_packs/contraband_military
 	name = "Poison Inc. Military crate"
 	contains = list(/obj/item/clothing/suit/space/space_adv/military,
-					/obj/item/weapon/gun/projectile/automatic/assault_rifles,
+					/obj/item/weapon/gun/projectile/automatic/arifles/advanced,
 					/obj/item/clothing/glasses/hud/security,
 					/obj/item/clothing/shoes/jackboots,
 					/obj/item/clothing/tie/storage/black_vest,
 					/obj/item/clothing/under/color/black,
-					/obj/item/ammo_storage/magazine/a556,
-					/obj/item/ammo_storage/magazine/a556,
-					/obj/item/ammo_storage/magazine/a556)
+					/obj/item/ammo_storage/magazine/a127s,
+					/obj/item/ammo_storage/magazine/a127s,
+					/obj/item/ammo_storage/magazine/a127s)
 	cost = 1330
 	contraband = 1 //Easy cargo mode ON
 	containertype = /obj/structure/closet/crate
@@ -1311,19 +1320,31 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 /datum/supply_packs/randomised/contraband_rando
 	name = "Rando Inc. Gun crate"
 	num_contained = 1
-	contains = list(/obj/item/weapon/gun/projectile/automatic/assault_rifles,
-					/obj/item/toy/gun,
-					/obj/item/weapon/gun/projectile/automatic/assault_rifles/mp5,
-					/obj/item/toy/gun,
-					/obj/item/weapon/gun/projectile/automatic/assault_rifles/c20r,
-					/obj/item/weapon/gun/projectile/automatic/assault_rifles/l6_saw,
+	contains = list(/obj/item/weapon/gun/projectile/automatic/arifles/k4m,
+					/obj/item/weapon/gun/projectile/automatic/arifles/assault,
+					/obj/item/weapon/gun/projectile/automatic/arifles/advanced,
+					/obj/item/weapon/gun/projectile/automatic/arifles/g36k,
+					/obj/item/weapon/gun/projectile/automatic/mp5,
+					/obj/item/weapon/gun/projectile/automatic/k4me,
+					/obj/item/weapon/gun/projectile/automatic/arifles/c20r,
+					/obj/item/weapon/gun/projectile/automatic/arifles/l6_saw,
 					/obj/item/weapon/gun/projectile/automatic,
-					/obj/item/toy/gun,
 					/obj/item/weapon/gun/energy/ionrifle,
+					/obj/item/weapon/gun/energy/gun,
+					/obj/item/weapon/gun/energy/laser,
+					/obj/item/weapon/gun/energy/lasercannon,
+					/obj/item/weapon/gun/energy/plasma/light,
+					/obj/item/weapon/gun/energy/plasma/rifle,
+					/obj/item/weapon/gun/energy/plasma/MP40k,
+					/obj/item/weapon/gun/energy/laser/LaserAK,
+					/obj/item/weapon/gun/energy/taser,
+					/obj/item/weapon/gun/energy/stunrevolver,
+					/obj/item/weapon/gun/energy/crossbow/largecrossbow,
+					/obj/item/weapon/gun/projectile/colt,
 					/obj/item/weapon/gun/projectile/shotgun/pump/combat,
 					/obj/item/weapon/gun/grenadelauncher,
 					/obj/item/weapon/gun/projectile/rocketlauncher,
-					/obj/item/weapon/gun/projectile/silenced,
+					/obj/item/weapon/gun/projectile/syndi,
 					/obj/item/toy/gun)
 	cost = 160
 	contraband = 1 //Easy cargo mode ON

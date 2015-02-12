@@ -877,3 +877,6 @@ var/list/RESTRICTED_CAMERA_NETWORKS = list( //Those networks can only be accesse
 #define SILENCECOMP 1 		//Silencer-compatible
 #define AUTOMAGDROP 2		//Does the mag drop when it's empty?
 #define EMPTYCASINGS 4		//Does the gun eject empty casings?
+#define ZOOMCOMP 5       	//Scope-compatible
+//#define FLASHLIGHTCOMP  6
+//#define UNDERBARRELCOMP  7
