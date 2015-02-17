@@ -42,7 +42,7 @@
 	var/unwieldsound = null
 
 	var/zoomdevicename = null //for name of scopes
-	var/zoom_allowed = 0 //for energy guns with scopes <<Projectile weapon use ZOOMCOMP flag
+	var/scope_allowed = 0 //for guns with scopes
 	var/scope_installed = 0
 	var/zoom = 0
 	var/silenced = 0 //silensers
@@ -54,18 +54,6 @@
 		else
 			return 0
 
-	proc/unwield()
-		wielded = 0
-		force = force_unwielded
-		name = "[initial(name)]"
-		update_icon()
-
-	proc/wield()
-		wielded = 1
-		force = force_wielded
-		name = "[initial(name)] (Wielded)"
-		update_icon()
-
 	proc/process_chambered()
 		return 0
 
@@ -76,16 +64,17 @@
 		for(var/obj/O in contents)
 			O.emp_act(severity)
 
-/obj/item/weapon/twohanded/gun
-	w_class = 5.0
-	icon_state = "offhand"
-	name = "offhand"
+/obj/item/weapon/gun/proc/unwield()
+	wielded = 0
+	force = force_unwielded
+	name = "[initial(name)]"
+	update_icon()
 
-	unwield()
-		del(src)
-
-	wield()
-		del(src)
+/obj/item/weapon/gun/proc/wield()
+	wielded = 1
+	force = force_wielded
+	name = "[initial(name)] (Wielded)"
+	update_icon()
 
 /obj/item/weapon/gun/afterattack(atom/A as mob|obj|turf|area, mob/living/user as mob|obj, flag, params)
 	if(flag)	return //we're placing gun on a table or in backpack
@@ -357,3 +346,4 @@
 		set name = "Use Scope"
 		set popup_menu = 1
 		zoom()
+	return

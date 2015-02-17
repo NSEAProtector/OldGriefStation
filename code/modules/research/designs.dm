@@ -1270,8 +1270,6 @@ other types of metals and chemistry for reagents).
 	reliability_base = 75
 	build_path = /obj/item/weapon/stock_parts/matter_bin/super
 
-
-
 /datum/design/subspace_ansible
 	name = "Subspace Ansible"
 	desc = "A compact module capable of sensing extradimensional activity."
@@ -1389,6 +1387,39 @@ other types of metals and chemistry for reagents).
 	build_type = PROTOLATHE
 	materials = list("$metal" = 1500, "$silver" = 150, "$glass" = 3000)
 	build_path = /obj/item/device/lightreplacer
+
+/datum/design/gun_cell
+	name = "Basic gun energy cell"
+	desc = "Mini gun cell with good capacity, used for most energy weapons."
+	id = "gun_cell"
+	req_tech = list("powerstorage" = 3, "materials" = 2, "combat" = 2, "magnets" = 2)
+	reliability_base = 100
+	build_type = PROTOLATHE | MECHFAB
+	materials = list("$metal" = 400, "$glass" = 70)
+	build_path = /obj/item/weapon/cell/ammo
+	category = "Misc"
+
+/datum/design/hyper_gun_cell
+	name = "Hyper capacity gun energy cell"
+	desc = "Mini gun cell with good capacity, used for most energy weapons."
+	id = "hyper_gun_cell"
+	req_tech = list("powerstorage" = 4, "materials" = 3, "combat" = 2, "magnets" = 3, "syndicate" = 3)
+	reliability_base = 90
+	build_type = PROTOLATHE | MECHFAB
+	materials = list("$metal" = 200, "$gold" = 25, "$silver" = 75, "$glass" = 10)
+	build_path = /obj/item/weapon/cell/ammo/hyper
+	category = "Misc"
+
+/datum/design/syndi_gun_cell
+	name = "Hyper capacity gun energy cell"
+	desc = "Mini gun cell with good capacity, used for most energy weapons."
+	id = "syndi_gun_cell"
+	req_tech = list("powerstorage" = 4, "materials" = 3, "combat" = 2, "magnets" = 3)
+	reliability_base = 100
+	build_type = PROTOLATHE | MECHFAB
+	materials = list("$metal" = 200, "$gold" = 25, "$glass" = 10)
+	build_path = /obj/item/weapon/cell/ammo/syndi
+	category = "Misc"
 
 ////////////////////////////////////////
 //////////////MISC Boards///////////////
@@ -1660,20 +1691,40 @@ other types of metals and chemistry for reagents).
 	name = "Carbine Mk4"
 	desc = "An Assault Rifle."
 	id = "k4m"
-	req_tech = list("combat" = 5, "materials" = 3,  "engineering" = 2)
+	req_tech = list("combat" = 4, "materials" = 2,  "engineering" = 2)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 7500, "$glass" = 100)
 	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/k4m
 	locked = 0
 
-/datum/design/k4m
+/datum/design/k4me
 	name = "Carbine Mk4 short"
 	desc = "An Assault Rifle."
-	id = "k4m"
-	req_tech = list("combat" = 6, "materials" = 2,  "engineering" = 4)
+	id = "k4me"
+	req_tech = list("combat" = 5, "materials" = 2,  "engineering" = 3)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 6500, "$glass" = 100)
-	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/k4m
+	build_path = /obj/item/weapon/gun/projectile/automatic/k4me
+	locked = 0
+
+/datum/design/c20r
+	name = "C-20r SMG"
+	desc = "A lightweight, fast firing gun."
+	id = "c20r"
+	req_tech = list("combat" = 5, "materials" = 2,  "syndicate" = 4)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 10000, "$glass" = 500, "$gold" = 20, "$silver" = 100)
+	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/c20r
+	locked = 0
+
+/datum/design/a12mm
+	name = "magazine (12mm)"
+	desc = "magazine (12mm)"
+	id = "a12mm"
+	req_tech = list("combat" = 5, "materials" = 2)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 2000)
+	build_path = /obj/item/ammo_storage/magazine/a12mm
 	locked = 0
 
 /datum/design/g36k
@@ -1725,7 +1776,7 @@ other types of metals and chemistry for reagents).
 	materials = list("$metal" = 2500)
 	build_path = /obj/item/ammo_storage/magazine/a556
 	locked = 0
-
+/*
 /datum/design/nuclear_gun
 	name = "Advanced Energy Gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
@@ -1735,7 +1786,7 @@ other types of metals and chemistry for reagents).
 	materials = list("$metal" = 5000, "$glass" = 1000, "$uranium" = 500)
 	reliability_base = 76
 	build_path = /obj/item/weapon/gun/energy/gun/nuclear
-
+*/
 /datum/design/stunrevolver
 	name = "Stun Revolver"
 	desc = "The prize of the Head of Security."
@@ -1903,6 +1954,15 @@ other types of metals and chemistry for reagents).
 	build_type = PROTOLATHE
 	materials = list("$metal" = 4000)
 	build_path = /obj/item/ammo_casing/shotgun/stunshell
+
+/datum/design/explodinghell
+	name = "Explosive Shell"
+	desc = "Boom!"
+	id = "explosiveshell"
+	req_tech = list("combat" = 4, "materials" = 3, "plasma" = 2)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 4000, "$plasma" = 200)
+	build_path = /obj/item/ammo_casing/shotgun/explosiveshell
 
 /datum/design/pneumatic
 	name = "Pneumatic Cannon"
@@ -2151,7 +2211,7 @@ other types of metals and chemistry for reagents).
 	req_tech = list("combat" = 2, "materials" = 4)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 4000, "$glass" = 2500)
-	build_path = /obj/item/clothing/suit/armor/laserproof
+	build_path = /obj/item/clothing/head/helmet/swat
 	locked = 0
 
 /datum/design/advanced_armor
@@ -2163,6 +2223,19 @@ other types of metals and chemistry for reagents).
 	materials = list("$metal" = 15000, "$glass" = 500, "$silver" = 2000, "$uranium" = 2000)
 	build_path = /obj/item/clothing/suit/armor/advanced
 
+/////////////////////////////////////////
+//////////////////ILLEGAl///////////////////
+/////////////////////////////////////////
+
+/datum/design/chameleon_projector
+	name = "chameleon projector"
+	desc = "A vest that excels in protecting the wearer against energy projectiles."
+	id = "chameleon"
+	req_tech = list("syndicate" = 5, "magnets" = 5)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 1500, "$glass" = 2500, "$uranium" = 500, "$gold" = 100)
+	build_path = /obj/item/device/chameleon
+	locked = 0
 
 /////////////////////////////////////////
 //////////////////Test///////////////////

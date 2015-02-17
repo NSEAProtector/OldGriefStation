@@ -1,15 +1,16 @@
 /obj/item/weapon/gun/projectile/syndi
-	name = "silenced pistol"
+	name = "\improper silenced pistol"
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."
-	icon_state = "silenced_pistol"
+	icon_state = "syndi"
 	w_class = 3.0
 	max_shells = 8
 	caliber = list(".45"  = 1, ".45r" = 1)
 	origin_tech = "combat=2;materials=2;syndicate=8"
 	ammo_type = "/obj/item/ammo_casing/c45r"
 	mag_type = "/obj/item/ammo_storage/magazine/c45"
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 	load_method = 2
+	silencer_allowed = 1//modules
 
 /obj/item/weapon/gun/projectile/syndi/update_icon()
 	..()
@@ -35,7 +36,7 @@
 
 
 /obj/item/weapon/gun/projectile/deagle
-	name = "desert eagle"
+	name = "\improper desert eagle"
 	desc = "A robust handgun that uses .50 AE ammo"
 	icon_state = "deagle"
 	force = 14.0
@@ -44,7 +45,7 @@
 	ammo_type ="/obj/item/ammo_casing/a50"
 	mag_type = "/obj/item/ammo_storage/magazine/a50"
 	load_method = 2
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+	gun_flags = AUTOMAGDROP
 
 /obj/item/weapon/gun/projectile/deagle/gold
 	desc = "A gold plated gun folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
@@ -59,7 +60,7 @@
 
 
 /obj/item/weapon/gun/projectile/gyropistol
-	name = "gyrojet pistol"
+	name = "\improper gyrojet pistol"
 	desc = "A bulky pistol designed to fire self propelled rounds"
 	icon_state = "gyropistol"
 	max_shells = 8
@@ -88,7 +89,9 @@
 	ammo_type = "/obj/item/ammo_casing/c9mm"
 	mag_type = "/obj/item/ammo_storage/magazine/mc9mm"
 	load_method = 2
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP
+	gun_flags = AUTOMAGDROP
+	//modules
+	silencer_allowed = 1
 
 /obj/item/weapon/gun/projectile/pistol/update_icon()
 	..()

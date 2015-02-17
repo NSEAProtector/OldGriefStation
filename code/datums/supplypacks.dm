@@ -802,9 +802,9 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 /datum/supply_packs/expenergy
 	name = "Experimental energy gear x2 crate"
 	contains = list(/obj/item/clothing/suit/armor/laserproof,
-					/obj/item/weapon/gun/energy/gun,
+					/obj/item/weapon/gun/energy/xray,
 					/obj/item/weapon/gun/energy/ionrifle)
-	cost = 120
+	cost = 220
 	containertype = /obj/structure/closet/crate/secure
 	containername = "Experimental energy gear x2 crate"
 	//access = access_armory //Easy cargo mode ON
@@ -815,11 +815,11 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	contains = list(/obj/item/clothing/suit/armor/laserproof,
 					/obj/item/clothing/suit/armor/laserproof,
 					/obj/item/weapon/gun/energy/ionrifle,
-					/obj/item/weapon/gun/energy/gun,
-					/obj/item/weapon/gun/energy/gun,
+					/obj/item/weapon/gun/energy/xray,
+					/obj/item/weapon/gun/energy/xray,
 					/obj/item/weapon/gun/energy/ionrifle,
 					/obj/item/weapon/storage/box/emps)
-	cost = 240
+	cost = 340
 	containertype = /obj/structure/closet/crate/secure
 	containername = "Experimental energy gear x2 crate"
 	//access = access_armory //Easy cargo mode ON
@@ -1305,12 +1305,11 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	containername = "Unlabeled crate"
 	group = "Misc"
 
-/datum/supply_packs/contraband_markman
-	name = "Poison Inc. Markman crate"
+/datum/supply_packs/contraband_marksman
+	name = "Poison Inc. Marksman crate"
 	contains = list(/obj/item/weapon/gun/energy/sniper,
 					/obj/item/clothing/glasses/hud/security,
-					/obj/item/clothing/head/helmet,
-					/obj/item/clothing/glasses/sunglasses)
+					/obj/item/clothing/head/helmet)
 	cost = 380
 	contraband = 1 //Easy cargo mode ON
 	containertype = /obj/structure/closet/crate
@@ -1330,7 +1329,6 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 					/obj/item/weapon/gun/projectile/automatic/arifles/l6_saw,
 					/obj/item/weapon/gun/projectile/automatic,
 					/obj/item/weapon/gun/energy/ionrifle,
-					/obj/item/weapon/gun/energy/gun,
 					/obj/item/weapon/gun/energy/laser,
 					/obj/item/weapon/gun/energy/lasercannon,
 					/obj/item/weapon/gun/energy/plasma/light,

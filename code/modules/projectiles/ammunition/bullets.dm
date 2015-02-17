@@ -77,7 +77,7 @@
 	icon_state = "gshell"
 	caliber = "shotgun"
 	projectile_type = "/obj/item/projectile/bullet"
-	m_amt = 12500
+	m_amt = 5000
 	w_type = RECYK_METAL
 
 	update_icon()
@@ -120,12 +120,20 @@
 	m_amt = 2500
 	w_type = RECYK_METAL
 
+/obj/item/ammo_casing/shotgun/explosiveshell
+	name = "explosive shell"
+	desc = "A Explosive shell"
+	icon_state = "explosiveshell"
+	projectile_type = "/obj/item/projectile/bullet/explodingshot"
+	m_amt = 6000
+	w_type = RECYK_METAL
+
 /obj/item/ammo_casing/shotgun/dart
 	name = "shotgun darts"
 	desc = "A dart for use in shotguns."
 	icon_state = "blshell"
 	projectile_type = "/obj/item/projectile/energy/dart"
-	m_amt = 12500
+	m_amt = 5000
 	w_type = RECYK_METAL
 
 /obj/item/ammo_casing/a762

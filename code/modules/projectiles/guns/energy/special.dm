@@ -5,9 +5,10 @@
 	fire_sound = 'sound/weapons/ion.ogg'
 	origin_tech = "combat=2;magnets=4"
 	w_class = 4.0
+	two_handed = 1
 	flags =  FPRINT | TABLEPASS | CONDUCT | USEDELAY
 	slot_flags = SLOT_BACK
-	charge_cost = 100
+	charge_cost = 500
 	projectile_type = "/obj/item/projectile/ion"
 
 /obj/item/weapon/gun/energy/ionrifle/emp_act(severity)
@@ -23,7 +24,7 @@
 	icon_state = "decloner"
 	fire_sound = 'sound/weapons/pulse3.ogg'
 	origin_tech = "combat=5;materials=4;powerstorage=3"
-	charge_cost = 100
+	charge_cost = 500
 	projectile_type = "/obj/item/projectile/energy/declone"
 
 var/available_staff_transforms=list("monkey","robot","slime","xeno","human","cluwne")
@@ -39,7 +40,7 @@ var/available_staff_transforms=list("monkey","robot","slime","xeno","human","clu
 	flags =  FPRINT | TABLEPASS | CONDUCT | USEDELAY
 	slot_flags = SLOT_BACK
 	w_class = 4.0
-	charge_cost = 200
+	charge_cost = 1000
 	projectile_type = "/obj/item/projectile/change"
 	origin_tech = null
 	clumsy_check = 0
@@ -95,7 +96,7 @@ var/available_staff_transforms=list("monkey","robot","slime","xeno","human","clu
 	name = "staff of animation"
 	desc = "An artefact that spits bolts of life-force which causes objects which are hit by it to animate and come to life! This magic doesn't affect machines."
 	projectile_type = "/obj/item/projectile/animate"
-	charge_cost = 100
+	charge_cost = 500
 
 /obj/item/weapon/gun/energy/floragun
 	name = "floral somatoray"
@@ -103,7 +104,7 @@ var/available_staff_transforms=list("monkey","robot","slime","xeno","human","clu
 	icon_state = "floramut100"
 	item_state = "obj/item/gun.dmi"
 	fire_sound = 'sound/effects/stealthoff.ogg'
-	charge_cost = 100
+	charge_cost = 500
 	projectile_type = "/obj/item/projectile/energy/floramut"
 	origin_tech = "materials=2;biotech=3;powerstorage=3"
 	modifystate = "floramut"
@@ -152,6 +153,7 @@ var/available_staff_transforms=list("monkey","robot","slime","xeno","human","clu
 	icon_state = "riotgun"
 	item_state = "c20r"
 	w_class = 4
+	two_handed = 1
 	projectile_type = "/obj/item/projectile/meteor"
 	charge_cost = 100
 	cell_type = "/obj/item/weapon/cell/potato"
@@ -220,8 +222,8 @@ obj/item/weapon/gun/energy/staff/focus
 	icon_state = "kineticgun"
 	item_state = "kineticgun"
 	projectile_type = "/obj/item/projectile/kinetic"
-	cell_type = "/obj/item/weapon/cell/crap"
-	charge_cost = 50
+	cell_type = "/obj/item/weapon/cell/ammo/crap"
+	charge_cost = 250
 	var/overheat = 0
 	var/recent_reload = 1
 /*
@@ -251,7 +253,7 @@ obj/item/weapon/gun/energy/staff/focus
 	desc = "An experimental energy gun that fires radioactive projectiles that deal toxin damage, irradiate, and scramble DNA, giving the victim a different appearance and name, and potentially harmful or beneficial mutations. Recharges automatically."
 	icon_state = "radgun"
 	fire_sound = 'sound/weapons/radgun.ogg'
-	charge_cost = 100
+	charge_cost = 500
 	var/charge_tick = 0
 	projectile_type = "/obj/item/projectile/energy/rad"
 

@@ -150,7 +150,7 @@
 	chance = 15
 	jiggle = 4
 	toSpawn = list(
-		/obj/item/weapon/gun/energy/gun,
+		/obj/item/weapon/gun/energy/laser/pistol,
 		/obj/item/weapon/gun/energy/ionrifle,
 		/obj/item/weapon/gun/energy/laser,
 		/obj/item/weapon/gun/projectile/automatic/mini_uzi,
@@ -742,7 +742,7 @@
 		/obj/item/clothing/tie/storage/webbing,
 		/obj/item/clothing/tie/storage/brown_vest,
 		/obj/item/clothing/suit/space/space_adv/swat,
-		/obj/item/clothing/suit/space/space_adv/frac,
+		/obj/item/clothing/suit/space/space_adv/faction,
 		/obj/item/clothing/suit/space/space_adv/military
 		)
 

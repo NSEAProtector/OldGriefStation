@@ -68,6 +68,19 @@
 	starting_ammo = 0
 	m_amt = 1000
 
+/obj/item/ammo_storage/magazine/a75e
+	name = "bolter magazine (.75)"
+	icon_state = "75"
+	ammo_type = "/obj/item/ammo_casing/a75"
+	multiple_sprites = 1
+	m_amt = 24000
+	max_ammo = 30
+	sprite_modulo = 8
+
+/obj/item/ammo_storage/magazine/a75e/empty
+	starting_ammo = 0
+	m_amt = 4000
+
 /obj/item/ammo_storage/magazine/a762
 	name = "magazine (a762)"
 	icon_state = "a762"

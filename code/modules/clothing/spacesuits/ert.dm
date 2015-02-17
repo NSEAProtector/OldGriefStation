@@ -56,14 +56,15 @@
 	var/obj/machinery/camera/camera
 
 /obj/item/clothing/head/helmet/space/rig/ert/attack_self(mob/user)
-	if(camera)
-		..(user)
-	else
-		camera = new /obj/machinery/camera(src)
-		camera.network = list("ERT")
-		cameranet.removeCamera(camera)
-		camera.c_tag = user.name
-		user << "\blue User scanned as [camera.c_tag]. Camera activated."
+	if(cam_mod)
+		if(camera)
+			..(user)
+		else
+			camera = new /obj/machinery/camera(src)
+			camera.network = list("ERT")
+			cameranet.removeCamera(camera)
+			camera.c_tag = user.name
+			user << "\blue User scanned as [camera.c_tag]. Camera activated."
 
 /obj/item/clothing/head/helmet/space/rig/ert/examine()
 	..()

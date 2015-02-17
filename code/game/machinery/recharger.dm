@@ -16,7 +16,7 @@
 /obj/machinery/recharger/attackby(obj/item/weapon/G, mob/user)
 	if(istype(user,/mob/living/silicon))
 		return
-	if(istype(G, /obj/item/weapon/gun/energy) || istype(G, /obj/item/weapon/melee/baton))
+	if(istype(G, /obj/item/weapon/gun/energy) || istype(G, /obj/item/weapon/melee/baton || /obj/item/weapon/cell/ammo))
 		if(charging)
 			return
 
@@ -26,9 +26,9 @@
 			user << "<span class='notice'>[src] blinks red as you try to insert [G].</span>"
 			return
 
-		if (istype(G, /obj/item/weapon/gun/energy/gun/nuclear) || istype(G, /obj/item/weapon/gun/energy/crossbow))
-			user << "<span class='notice'>Your gun's recharge port was removed to make room for a miniaturized reactor.</span>"
-			return
+//		if (istype(G, /obj/item/weapon/gun/energy/gun/nuclear) || istype(G, /obj/item/weapon/gun/energy/crossbow))
+//			user << "<span class='notice'>Your gun's recharge port was removed to make room for a miniaturized reactor.</span>"
+//			return
 		if (istype(G, /obj/item/weapon/gun/energy/staff))
 			return
 		user.drop_item()

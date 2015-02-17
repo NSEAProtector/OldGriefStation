@@ -237,11 +237,11 @@
 ////////////////////////////////
 /datum/objective/steal/special
 	target_category = "special"
-
+/*
 /datum/theft_objective/special/nuke_gun
 	name = "nuclear gun"
 	typepath = /obj/item/weapon/gun/energy/gun/nuclear
-
+*/
 /datum/theft_objective/special/diamond_drill
 	name = "diamond drill"
 	typepath = /obj/item/weapon/pickaxe/diamonddrill

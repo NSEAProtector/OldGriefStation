@@ -1,7 +1,7 @@
 
 //energy guns//
 /obj/item/weapon/gun/energy/laser/pistol
-	name = "laser pistol"
+	name = "Laser pistol"
 	desc = "A laser pistol issued to high ranking members of a certain shadow corporation."
 	icon_state = "lpistol"
 	projectile_type = /obj/item/projectile/beam
@@ -12,7 +12,7 @@
 	charge_cost = 1250 // holds less "ammo" then the rifle variant.
 
 /obj/item/weapon/gun/energy/laser/rifle
-	name = "laser rifle"
+	name = "Laser rifle"
 	desc = "improper laser rifle, standart shots and ejectable cell"
 	icon_state = "lrifle"
 	projectile_type = /obj/item/projectile/beam/captain
@@ -38,8 +38,11 @@
 	var/mode = 1
 	fire_delay = 5
 	two_handed = 1
+	scope_allowed = 1
 
 	attack_self(mob/living/user as mob)
+		..()
+
 		if(user.a_intent == "help")
 			switch(mode)
 				if(2)
@@ -64,6 +67,26 @@
 					user << "\red [src.name] is now set to high power sniper mode."
 					projectile_type = "/obj/item/projectile/beam/deathlaser"
 			return
+
+	update_icon()
+		if(power_supply)
+			var/ratio = power_supply.charge / power_supply.maxcharge
+			ratio = round(ratio, 0.25) * 100
+			if(scope_installed)
+				if(modifystate)
+					icon_state = "[modifystate][ratio].scope"
+				else
+					icon_state = "[initial(icon_state)][ratio].scope"
+			else
+				if(modifystate)
+					icon_state = "[modifystate][ratio]"
+				else
+					icon_state = "[initial(icon_state)][ratio]"
+		else
+			icon_state = "[initial(icon_state)]-empty"
+			if(scope_installed)
+				icon_state = "[initial(icon_state)]-empty.scope"
+		return
 
 //melee//
 /obj/item/weapon/kitchenknife/tento
@@ -94,6 +117,27 @@
 		new	/obj/item/clothing/under/lawyer/female
 		new	/obj/item/clothing/under/lawyer/red
 
+
+/obj/structure/closet/syndicate/pks
+	desc = "It's a storage unit for operative gear. - FUCK YOU, That is for PKS, Hhahahaha."
+
+/obj/structure/closet/syndicate/pks/New()
+	..()
+	sleep(2)
+	new /obj/item/weapon/tank/jetpack/oxygen(src)
+	new /obj/item/clothing/mask/gas/syndicate(src)
+	new /obj/item/clothing/under/syndicate(src)
+	new /obj/item/clothing/head/helmet/space/rig/syndi(src)
+	new /obj/item/clothing/suit/space/space_adv/faction(src)
+	new /obj/item/weapon/crowbar/red(src)
+	new /obj/item/weapon/cell/ammo/syndi(src)
+	new	/obj/item/weapon/cell/ammo/syndi(src)
+	new	/obj/item/weapon/cell/ammo/syndi(src)
+	new /obj/item/weapon/card/id/syndicate(src)
+	new /obj/item/device/multitool(src)
+	new /obj/item/weapon/shield/energy(src)
+	new /obj/item/clothing/shoes/magboots(src)
+
 //Combat Power Cells
 /obj/item/weapon/cell/ammo
 	name = "Basic gun energy cell"
@@ -103,8 +147,14 @@
 	item_state = "basic_ammocell"
 	origin_tech = "powerstorage=3"
 	maxcharge = 5000
+	w_class = 1
 	m_amt = 30
 	g_amt = 30
+
+/obj/item/weapon/cell/ammo/crap
+	name = "Crap gun energy cell"
+	desc = "First model of Gun energy cells.. Stupid and very unstable, but easy to find.."
+	maxcharge = 2500
 
 /obj/item/weapon/cell/ammo/syndi
 	name = "Suspicious looking gun energy cell"
@@ -128,23 +178,19 @@
 
 /obj/item/weapon/cell/ammo/rechargable
 	name = "Rechargable capacity gun energy cell"
-	desc = "Dont use that cell - Work in progress"
+	desc = "Rechargable cell, thats is great step for all energy technologies"
 	icon_state = "rechargable_ammocell"
 	item_state = "rechargable_ammocell"
-	origin_tech = "powerstorage=8"
+	origin_tech = "powerstorage=6"
 	maxcharge = 2500
 	m_amt = 30
 	g_amt = 30
 	var/charge_tick = 0
-/*
+
 	process()
 		charge_tick++
 		if(charge_tick < 4) return 0
 		charge_tick = 0
-		if(!power_supply) return 0
-		if((power_supply.charge / power_supply.maxcharge) != 1)
-			if(!failcheck())	return 0
-			power_supply.give(100)
-			update_icon()
+		src.give(250)
+		update_icon()
 		return 1
-*/

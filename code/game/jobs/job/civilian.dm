@@ -301,7 +301,7 @@
 	title = "Janitor"
 	flag = JANITOR
 	department_flag = CIVILIAN
-	//faction = "Station"
+	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the head of personnel"

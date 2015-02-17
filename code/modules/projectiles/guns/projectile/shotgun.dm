@@ -21,69 +21,43 @@
 	isHandgun()
 		return 0
 
-	attack_self(mob/living/user as mob)
-		if (user.a_intent == "disarm")
-			if(recentpump)	return
-			pump(user)
-			recentpump = 1
-			spawn(10)
-				recentpump = 0
-			return
-		if(user.a_intent == "grab") //twohanded shotguuunss!!..
-			if(two_handed)
-				..()
-				if(wielded) //Trying to unwield it
-					unwield()
-					user << "<span class='notice'>You are now carrying the [name] with one hand.</span>"
-					if (src.unwieldsound)
-						playsound(src.loc, unwieldsound, 50, 1)
+/obj/item/weapon/gun/projectile/shotgun/pump/attack_self(mob/living/user as mob)
+	if(user.a_intent == "disarm")
+		if(recentpump)	return
+		pump(user)
+		recentpump = 1
+		spawn(10)//
+			recentpump = 0
+		return
 
-					var/obj/item/weapon/twohanded/offhand/O = user.get_inactive_hand()
-					if(O && istype(O))
-						O.unwield()
-					return
+	..()
 
-				else //Trying to wield it
-					if(user.get_inactive_hand())
-						user << "<span class='warning'>You need your other hand to be empty</span>"
-						return
-					wield()
-					user << "<span class='notice'>You grab the [initial(name)] with both hands.</span>"
-					if (src.wieldsound)
-						playsound(src.loc, wieldsound, 50, 1)
-
-					var/obj/item/weapon/twohanded/offhand/O = new(user) ////Let's reserve his other hand~
-					O.name = "[initial(name)] - offhand"
-					O.desc = "Your second grip on the [initial(name)]"
-					user.put_in_inactive_hand(O)
-					return
-
-	process_chambered()
-		if(in_chamber)
-			return 1
-		else if(current_shell && current_shell.BB)
-			in_chamber = current_shell.BB //Load projectile into chamber.
-			current_shell.BB.loc = src //Set projectile loc to gun.
-			current_shell.BB = null
-			current_shell.update_icon()
-			return 1
-		return 0
-
-	proc/pump(mob/M as mob)
-		playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
-		pumped = 0
-		if(current_shell)//We have a shell in the chamber
-			current_shell.loc = get_turf(src)//Eject casing
-			current_shell = null
-			if(in_chamber)
-				in_chamber = null
-		if(!getAmmo())
-			return 0
-		var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
-		loaded -= AC //Remove casing from loaded list.
-		current_shell = AC
-		update_icon()	//I.E. fix the desc
+/obj/item/weapon/gun/projectile/shotgun/pump/process_chambered()
+	if(in_chamber)
 		return 1
+	else if(current_shell && current_shell.BB)
+		in_chamber = current_shell.BB //Load projectile into chamber.
+		current_shell.BB.loc = src //Set projectile loc to gun.
+		current_shell.BB = null
+		current_shell.update_icon()
+		return 1
+	return
+
+/obj/item/weapon/gun/projectile/shotgun/pump/proc/pump(mob/M as mob)
+	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
+	pumped = 0
+	if(current_shell)//We have a shell in the chamber
+		current_shell.loc = get_turf(src)//Eject casing
+		current_shell = null
+		if(in_chamber)
+			in_chamber = null
+	if(!getAmmo())
+		return 0
+	var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
+	loaded -= AC //Remove casing from loaded list.
+	current_shell = AC
+	update_icon()	//I.E. fix the desc
+	return
 
 /obj/item/weapon/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"

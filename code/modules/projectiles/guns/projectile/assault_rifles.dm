@@ -1,4 +1,6 @@
 /obj/item/weapon/gun/projectile/automatic/arifles
+	name = "\improper UNKNOWN IMPORSIBLE SHIT"
+	desc = "THAT IS SHIT, WHY YOU SPAWN SHIT?"
 	item_state = "c20r"
 	icon_state = "k4m"
 	m_amt = 7500
@@ -6,6 +8,7 @@
 	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 	origin_tech = "combat=4;materials=2"
 	two_handed = 1
+	recoil = 0.2
 	var/melee_cooldown = 0
 
 /obj/item/weapon/gun/projectile/automatic/arifles/attack(mob/living/M as mob, mob/living/user as mob, def_zone)//
@@ -92,9 +95,8 @@
 	name = "\improper Carbine Mk4"
 	desc = "Hmm.. That reminds me, but what? Uses 5.56 rounds."
 	icon_state = "k4m"
-	item_state = "k4m"
-	lefthand_file = 'icons/mob/guns_lefthand.dmi'
-	righthand_file = 'icons/mob/guns_righthand.dmi'
+	item_state = "c20r"
+	w_class = 4.0
 	max_shells = 30
 	caliber = list("5.56" = 1)
 	origin_tech = "combat=4;materials=4"
@@ -102,8 +104,9 @@
 	mag_type = "/obj/item/ammo_storage/magazine/a556"
 	load_method = 2
 	slot_flags = SLOT_BACK
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP | ZOOMCOMP
-
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+	silencer_allowed = 1//modules
+	scope_allowed = 1//modules
 
 /obj/item/weapon/gun/projectile/automatic/arifles/k4m/isHandgun()
 	return 1
@@ -152,8 +155,9 @@
 	mag_type = "/obj/item/ammo_storage/magazine/a556"
 	fire_sound = 'sound/weapons/G36.ogg'
 	load_method = 2
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP | ZOOMCOMP
-	zoom_allowed = 1
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+	silencer_allowed = 1//modules
+	scope_allowed = 1//modules
 
 /obj/item/weapon/gun/projectile/automatic/arifles/g36k/isHandgun()
 	return 0
@@ -164,8 +168,7 @@
 	icon_state = "assaultrifle"
 	origin_tech = "combat=5;materials=2"
 	m_amt = 1800
-	item_state = "assaultrifle"
-	w_class = 3.0
+	w_class = 4.0
 	max_shells = 30
 	burst_count = 6
 	caliber = list("5.56" = 1)
@@ -173,19 +176,20 @@
 	mag_type = "/obj/item/ammo_storage/magazine/a556"
 	fire_sound = 'sound/weapons/Gunshot_c20.ogg'
 	load_method = 2
+	slot_flags = SLOT_BACK
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 
 /obj/item/weapon/gun/projectile/automatic/arifles/assault/isHandgun()
 	return 0
 
 /obj/item/weapon/gun/projectile/automatic/arifles/advanced
-	name = "High tech assault rifle"
+	name = "\improper High tech assault rifle"
 	desc = "A lightweight gun, made with plastic. Strange, but this rifle have mark with that text: Made from PKS. Uses 12.7 rounds"
 	icon_state = "pkst1m"
 	lefthand_file = 'icons/mob/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/guns_righthand.dmi'
 	origin_tech = "combat=5;materials=2;syndicate=2"
-	item_state = "c20r"
+	item_state = "pkst1m"
 	w_class = 4.0
 	max_shells = 15
 	m_amt = 400
@@ -199,6 +203,70 @@
 
 /obj/item/weapon/gun/projectile/automatic/arifles/advanced/isHandgun()
 	return 0
+
+/obj/item/weapon/gun/projectile/automatic/arifles/bolter
+	name = "Bolter"
+	desc = "To a Space Marine, the boltgun is far more than a weapon; it is an instrument of Mankind's divinity, the bringer of death to his foes. Its howling blast is a prayer to the gods of battle."
+	icon_state = "boltrilfe"
+	lefthand_file = 'icons/mob/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/guns_righthand.dmi'
+	origin_tech = "combat=8;materials=4"
+	item_state = "c20r"
+	w_class = 4.0
+	max_shells = 30
+	m_amt = 10000
+	burst_count = 4
+	caliber = list("75" = 1)
+	ammo_type = "/obj/item/ammo_casing/a75"
+	mag_type = "/obj/item/ammo_storage/magazine/a72e"
+	fire_sound = 'sound/weapons/G36.ogg'
+	load_method = 2
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+
+/obj/item/weapon/gun/projectile/automatic/arifles/bolter/isHandgun()
+	return 0
+
+/obj/item/weapon/gun/projectile/automatic/assault_rifles/b80b
+	name = "b80b"
+	desc = "If you want to be a really great sniper. Uses 0.50S rounds."
+	icon_state = "b80b"
+	w_class = 4.0
+	max_shells = 9
+	burst_count = 3
+	caliber = list("5.56" = 1)
+	origin_tech = "combat=4;materials=4"
+	ammo_type = "/obj/item/ammo_casing/a50s"
+	mag_type = "/obj/item/ammo_storage/magazine/a50s"
+	fire_sound = 'sound/weapons/G36.ogg'
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+
+/obj/item/weapon/gun/projectile/automatic/assault_rifles/b80b/isHandgun()
+	return 1
+
+/obj/item/weapon/gun/projectile/automatic/arifles/u40ag
+	name = "\improper Carbine Mk1"
+	desc = "Machine gun for civil violence. Used by mercenaries, personal guards. Weapon of last chance. .45 rounds. That gun have module slots for - Tactical flashlight. Can be crafted on tables from any stuff or metal!!"
+	icon_state = "u40ag"
+	item_state = "c20r"
+	w_class = 3.0
+	max_shells = 8
+	caliber = list("9mm" = 1)
+	automatic = 0
+	m_amt = 3750
+	origin_tech = "combat=3;materials=1"
+	ammo_type = "/obj/item/ammo_casing/c9mm"
+	mag_type = "/obj/item/ammo_storage/magazine/mc9mm"
+	load_method = 2
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+	silencer_allowed = 1//modules
+	scope_allowed = 1//modules
+
+/obj/item/weapon/gun/projectile/automatic/u40ag/isHandgun()
+	return 0
+
+/obj/item/weapon/gun/projectile/automatic/arifles/u40ag/crafted/New()//for crafted version of that carbine.
+	for(var/ammo in loaded)
+		loaded -= ammo
 
 /obj/item/weapon/gun/projectile/automatic/arifles/l6_saw
 	name = "\improper L6 SAW"
@@ -219,12 +287,12 @@
 	var/cover_open = 0
 
 /obj/item/weapon/gun/projectile/automatic/arifles/l6_saw/attack_self(mob/user as mob)
-	..()
-
-	if (user.a_intent == "disarm")
+	if (user.a_intent == "harm")
 		cover_open = !cover_open
 		user << "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>"
 		update_icon()
+
+	..()
 
 
 /obj/item/weapon/gun/projectile/automatic/arifles/l6_saw/update_icon()
@@ -302,7 +370,7 @@
 	load_method = 2
 	auto_mag_drop = 1
 
-/obj/item/weapon/gun/projectile/automatic/assault_rifles/hkg36c/isHandgun()
+/obj/item/weapon/gun/projectile/automatic/assault_rifles/b80b/isHandgun()
 	return 1
 */
 //scripts//

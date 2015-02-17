@@ -15,6 +15,7 @@
 	recoil = 1
 	gun_flags = EMPTYCASINGS
 	zoom = 0
+	var/silencer_allowed = 0
 	var/ammo_type = "/obj/item/ammo_casing/a357"
 	var/list/loaded = list()
 	var/max_shells = 7 //only used by guns with no magazine
@@ -48,7 +49,7 @@
 		return 1
 	return 0
 
-/obj/item/weapon/gun/projectile/proc/RemoveMag(var/mob/user)
+/obj/item/weapon/gun/projectile/proc/RemoveMag(var/mob/user (src))
 	if(stored_magazine)
 		stored_magazine.loc = get_turf(src.loc)
 		if(user)
@@ -145,10 +146,8 @@
 
 	if(num_loaded)
 		user << "\blue You load [num_loaded] shell\s into \the [src]!"
-	A.update_icon()
-	update_icon()
 
-	if(SILENCECOMP)
+	if(silencer_allowed)
 		if(istype(A, /obj/item/gun_part/silencer))
 			if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
 				user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
@@ -161,7 +160,7 @@
 			update_icon()
 			return 1
 
-	if(zoom_allowed)
+	if(scope_allowed)
 		if(istype(A, /obj/item/gun_part/scope))
 			if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
 				user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
@@ -173,19 +172,22 @@
 			A.loc = src	//put the scope into the gun
 			update_icon()
 			return 1
-		else
-			return 1
+//		else
+//			return 1
+
+	A.update_icon()
+	update_icon()
 
 /obj/item/weapon/gun/projectile/attack_self(mob/user as mob)
 	if (target)
 		return ..()
 
 	if(istype(user,/mob/living/carbon/monkey))
-		user << "<span class='warning'>It's too heavy for you to reload magazine.</span>"
+		user << "<span class='warning'>It's too heavy for you.</span>"
 		return
 
 	if (user.a_intent == "disarm")
-		if (loaded.len || stored_magazine)
+		if (stored_magazine || loaded.len)
 			if (load_method == SPEEDLOADER)
 				var/obj/item/ammo_casing/AC = loaded[1]
 				loaded -= AC
@@ -194,7 +196,7 @@
 				update_icon()
 				return
 			if (load_method == MAGAZINE && stored_magazine)
-				RemoveMag(user)
+				RemoveMag(src.loc)//(user) broke that code
 			else if(loc == user)
 				if(silenced)
 					if(user.l_hand != src && user.r_hand != src)
@@ -206,16 +208,16 @@
 					w_class = 2
 					update_icon()
 					return
-		else
-			if(chambered)
-				var/obj/item/ammo_casing/AC = chambered
-				AC.loc = get_turf(src) //Eject casing onto ground.
-				chambered = null
-				user << "\blue You unload \the [AC] from \the [src]!"
-				update_icon()
-				return
 			else
-				user << "\red Nothing loaded in \the [src]!"
+				if(chambered)
+					var/obj/item/ammo_casing/AC = chambered
+					AC.loc = get_turf(src) //Eject casing onto ground.
+					chambered = null
+					user << "\blue You unload \the [AC] from \the [src]!"
+					update_icon()
+					return
+				else
+					user << "\red Nothing loaded in \the [src]!"
 
 	if(user.a_intent == "grab")
 		if(two_handed)

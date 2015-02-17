@@ -118,7 +118,7 @@
 		user << "<span class='notice'>You load a new [power_supply] into \the [src]!</span>"
 		update_icon()
 
-	if(istype(A, /obj/item/gun_part/scope) && zoom_allowed && !scope_installed)  //if(zoom_allowed)
+	if(istype(A, /obj/item/gun_part/scope) && scope_allowed && !scope_installed)  //if(zoom_allowed)
 		if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
 			user << "<span class='notice'>You'll need [src] in your hands to do that.</span>"
 			return

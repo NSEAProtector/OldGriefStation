@@ -1831,8 +1831,8 @@ window "window1"
 		on-close = ""
 	elem "input2"
 		type = INPUT
-		pos = 0,455
-		size = 634x17
+		pos = 0,456
+		size = 634x16
 		anchor1 = 0,100
 		anchor2 = 100,100
 		font-family = ""

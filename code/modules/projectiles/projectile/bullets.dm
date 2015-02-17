@@ -68,9 +68,13 @@
 	damage = 40
 	damage_type = TOX
 
-/obj/item/projectile/bullet/burstbullet//I think this one needs something for the on hit
+/obj/item/projectile/bullet/explodingshot//I think this one needs something for the on hit
 	name = "exploding bullet"
-	damage = 20
+	damage = 30
+
+	on_hit(var/atom/target, var/blocked = 0)
+		explosion(target, -1, 0, 2)
+		return 1
 
 /obj/item/projectile/bullet/stunshot
 	name = "stunshot"

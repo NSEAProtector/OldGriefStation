@@ -8,12 +8,13 @@
 	origin_tech = "combat=4;materials=2"
 	ammo_type = "/obj/item/ammo_casing/c9mm"
 	automatic = 1
-	gun_flags = SILENCECOMP
 	var/burstfire = 0 //Whether or not the gun fires multiple bullets at once
 	var/burst_count = 3
 	load_method = 2
 	mag_type = "/obj/item/ammo_storage/magazine/smg9mm"
 	m_amt = 3500
+	//modules
+	silencer_allowed = 1
 
 /obj/item/weapon/gun/projectile/automatic/attack_self(mob/living/user as mob)
 
@@ -95,24 +96,7 @@
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/automatic/u40ag
-	name = "Carbine Mk2"
-	desc = "Machine gun for civil violence. Used by mercenaries, personal guards. Weapon of last chance. .45 rounds. That gun have module slots for - Tactical flashlight."
-	icon_state = "u40ag"
-	item_state = "c20r"
-	w_class = 3.0
-	max_shells = 8
-	caliber = list(".45" = 1,".45r" = 1)
-	burst_count = 2
-	m_amt = 3750
-	origin_tech = "combat=5;materials=1"
-	ammo_type = "/obj/item/ammo_casing/c45"
-	mag_type = "/obj/item/ammo_storage/magazine/c45"
-	load_method = 2
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 
-/obj/item/weapon/gun/projectile/automatic/u40ag/isHandgun()
-	return 0
 
 /obj/item/weapon/gun/projectile/automatic/mini_uzi
 	name = "Uzi"
@@ -126,7 +110,9 @@
 	ammo_type = "/obj/item/ammo_casing/c45m"
 	mag_type = "/obj/item/ammo_storage/magazine/uzi45"
 	m_amt = 4000
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+	//modules
+	silencer_allowed = 1
 
 /obj/item/weapon/gun/projectile/automatic/mini_uzi/isHandgun()
 	return 1
@@ -145,7 +131,9 @@
 	ammo_type = "/obj/item/ammo_casing/c9mmp"
 	mag_type = "/obj/item/ammo_storage/magazine/c9mmp"
 	load_method = 2
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+	//modules
+	silencer_allowed = 1
 
 /obj/item/weapon/gun/projectile/automatic/mp5/isHandgun()
 	return 0
@@ -160,17 +148,16 @@
 	m_amt = 7500
 	caliber = list("5.56" = 1)
 	silenced = 0
-	zoom_allowed = 1
 	origin_tech = "combat=4;materials=4"
 	ammo_type = "/obj/item/ammo_casing/a556"
 	mag_type = "/obj/item/ammo_storage/magazine/a556"
 	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 	load_method = 2
-	gun_flags = AUTOMAGDROP | EMPTYCASINGS | SILENCECOMP
-	zoom_allowed = 1
-	var/cooldown = 0
-
-
+	recoil = 2
+	gun_flags = AUTOMAGDROP | EMPTYCASINGS
+	//modules
+	silencer_allowed = 1
+	scope_allowed = 1
 
 /obj/item/weapon/gun/projectile/automatic/k4me/isHandgun()
 	return 0

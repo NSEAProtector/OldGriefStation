@@ -13,6 +13,8 @@
 	var/mode = 2
 
 	attack_self(mob/living/user as mob)
+		..()
+
 		if(user.a_intent == "help")
 			switch(mode)
 				if(2)
@@ -65,9 +67,10 @@
 
 /obj/item/weapon/gun/energy/pulse_rifle/M1911
 	name = "m1911-P"
-	desc = "It's not the size of the gun, it's the size of the hole it puts through people."
+	desc = "Basic pulse pistol, for some reason, that pistol uses m1911 frame"
 	icon_state = "m1911-p"
-	cell_type = "/obj/item/weapon/cell/infinite"
+	cell_type = "/obj/item/weapon/cell/ammo"
+	two_handed = 0
 
 	isHandgun()
 		return 1
