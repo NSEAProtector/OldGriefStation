@@ -328,9 +328,11 @@ var/list/beam_master = list()
 
 /obj/item/projectile/beam/xsniper
 	name = "shock beam"
-	icon_state = "xray"
+	icon_state = "stun"
 	damage = 10
-	agony = 70
+	stun = 12
+	weaken = 15
+	stutter = 12
 
 /obj/item/projectile/beam/pulse
 	name = "pulse"

@@ -42,6 +42,7 @@
 		zsay += "AAARRAAAGGGGHHHHHH"
 		zsay += "FFFFEEEEERRAAAAG"
 		zsay += "bbbb-bbb-ainnnnnns"
+		zsay += "aaaadd-mmm-iiiinn-aaaaabbb-uuuu-ssss"
 
 		src.contract_disease(new/datum/disease/z_virus)
 

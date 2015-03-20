@@ -1620,7 +1620,7 @@
 #include "code\ZAS\Turf.dm"
 #include "code\ZAS\Zone.dm"
 #include "interface\interface.dm"
-#include "interface\skin (2).dmf"
+#include "interface\skin.dmf"
 #include "maps\tgstation_griefstation2.dmm"
 #include "maps\RandomZLevels\Academy.dm"
 #include "maps\RandomZLevels\challenge.dm"

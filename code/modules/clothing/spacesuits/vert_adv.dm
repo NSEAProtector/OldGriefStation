@@ -8,7 +8,7 @@
 /obj/item/clothing/head/helmet/space/space_adv
 	name = "Space working hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
-	icon_state = "rig0_rd"
+	icon_state = "rig.0.rd"
 	item_state = "rdhelm"
 	armor = list(melee = 60, bullet = 20, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 80)
 	heat_protection = HEAD
@@ -20,16 +20,19 @@
 	var/no_light=0
 	action_button_name = "Toggle Helmet Light"
 
-	emp_act(severity)
-		if(istype(src.loc, /mob/living/carbon/human))
-			var/mob/living/carbon/human/M = src.loc
-			M << "\red Your helmet overloads and blinds you!"
-			if(M.glasses == src)
-				M.eye_blind = 3
-				M.eye_blurry = 5
-				M.disabilities |= NEARSIGHTED
-				spawn(100)
-					M.disabilities &= ~NEARSIGHTED
+	attack_self(mob/user)
+		if(!isturf(user.loc))
+			user << "You cannot turn the light on while in this [user.loc]" //To prevent some lighting anomalities.
+			return
+		if(no_light)
+			return
+		on = !on
+		icon_state = "rig.[on].[_color]"
+//		item_state = "rig[on].[_color]"
+		update_icon()
+
+		if(on)	user.SetLuminosity(user.luminosity + brightness_on)
+		else	user.SetLuminosity(user.luminosity - brightness_on)
 
 	pickup(mob/user)
 		if(on)
@@ -43,19 +46,16 @@
 //			user.UpdateLuminosity()
 			SetLuminosity(brightness_on)
 
-	attack_self(mob/user)
-		if(!isturf(user.loc))
-			user << "You cannot turn the light on while in this [user.loc]" //To prevent some lighting anomalities.
-			return
-		if(no_light)
-			return
-		if(user.a_intent == "help")
-			on = !on
-			icon_state = "rig[on]-[_color]"
-	//		item_state = "rig[on]-[_color]"
-
-		if(on)	user.SetLuminosity(user.luminosity + brightness_on)
-		else	user.SetLuminosity(user.luminosity - brightness_on)
+	emp_act(severity)
+		if(istype(src.loc, /mob/living/carbon/human))
+			var/mob/living/carbon/human/M = src.loc
+			M << "\red Your helmet overloads and blinds you!"
+			if(M.glasses == src)
+				M.eye_blind = 3
+				M.eye_blurry = 5
+				M.disabilities |= NEARSIGHTED
+				spawn(100)
+					M.disabilities &= ~NEARSIGHTED
 
 /obj/item/clothing/suit/space/space_adv
 	name = "Space working hardsuit"
@@ -98,6 +98,8 @@
 				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/space_adv/swat, slot_head)//swat
 			if(istype(usr:wear_suit, /obj/item/clothing/suit/space/space_adv/faction))
 				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/space_adv/faction, slot_head)//frac
+			if(istype(usr:wear_suit, /obj/item/clothing/suit/space/space_adv/roaper))
+				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/space_adv/roaper, slot_head)//roaper//ported from Bay12//
 			if(istype(usr:wear_suit, /obj/item/clothing/suit/space/space_adv))
 				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/space_adv, slot_head)
 
@@ -202,13 +204,32 @@
 
 
 
-	                 //____OTHER SUITS_____//
+	                 //____OTHER SUITS____//
+/obj/item/clothing/head/helmet/space/space_adv/black
+	name = "suspicius looking advanced hardsuit helmet"
+	desc = "It's a reinforced engineering hardsuit helmet inspiring fear in the ordinary people."
+	icon_state = "rig.0.black"
+	item_state = "black.helm"
+	_color = "black"
+	armor = list(melee = 30, bullet = 40, laser = 30, energy = 10, bomb = 50, bio = 100, rad = 100)
+	species_restricted = list("exclude","Vox")
+	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECITON_TEMPERATURE
+
+/obj/item/clothing/suit/space/space_adv/black
+	icon_state = "rig-black"
+	name = "suspicius looking advanced hardsuit"
+	species_restricted = list("exclude","Vox")
+	desc = "It's a reinforced engineering hardsuit inspiring fear in the ordinary people."
+	item_state = "black_hardsuit"
+	icon_state = "black_hardsuit"
+	armor = list(melee = 40, bullet = 40, laser = 30, energy = 15, bomb = 50, bio = 100, rad = 100)
+	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECITON_TEMPERATURE
 
 ///Military // Cargo color suits
 /obj/item/clothing/head/helmet/space/space_adv/military
 	name = "Military space hardsuit helmet"
 	desc = "A special helmet designed for military forces"
-	icon_state = "rig0_military"
+	icon_state = "rig.0.military"
 	item_state = "militaryhelm"
 	armor = list(melee = 60, bullet = 50, laser = 50, energy = 60, bomb = 75, bio = 100, rad = 80)
 	_color = "military"
@@ -226,10 +247,10 @@
 /obj/item/clothing/head/helmet/space/space_adv/swat
 	name = "Swat space hardsuit helmet"
 	desc = "A special helmet designed for SWAT, armored with close combat kewlar layers"
-	icon_state = "rig0_swat"
+	icon_state = "rig.0.swat"
 	item_state = "secswatrig"
 	_color = "swat"
-	armor = list(melee = 80, bullet = 50, laser = 30, energy = 20, bomb = 45, bio = 100, rad = 80)
+	armor = list(melee = 75, bullet = 50, laser = 30, energy = 20, bomb = 45, bio = 100, rad = 80)
 	/obj/item/clothing/glasses/hud/security/process_hud
 
 /obj/item/clothing/suit/space/space_adv/swat
@@ -237,25 +258,60 @@
 	desc = "A special suit designed for SWAT, armored with close combat kewlar layers"
 	icon_state = "swatrig"
 	item_state = "swatrig"
-	armor = list(melee = 70, bullet = 50, laser = 30, energy = 10, bomb = 45, bio = 100, rad = 80)
+	armor = list(melee = 75, bullet = 50, laser = 30, energy = 10, bomb = 45, bio = 100, rad = 80)
 	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/melee/baton)
 
 // //Rare suits
 /obj/item/clothing/head/helmet/space/space_adv/faction
 	name = "Suspicious looking special space hardsuit helmet"
 	desc = "Heavy modifed SWAT space suit helmet, armored with close combat kewlar layers, bullet armor layer, advanced anti radiation suit hat. "
-	icon_state = "rig0_frac"
+	icon_state = "rig.0.frac"
 	item_state = "fracrig"
 	_color = "frac"
 	brightness_on = 6
-	armor = list(melee = 75, bullet = 50, laser = 30, energy = 20, bomb = 45, bio = 100, rad = 99)
+	armor = list(melee = 80, bullet = 50, laser = 60, energy = 20, bomb = 45, bio = 100, rad = 100)
+	var/vision_mode = 0
+
+	attack_self(mob/living/user as mob)
+		if(user.a_intent == "harm")
+			switch(vision_mode)
+				if(0)
+					vision_mode = 0
+					user << "\red [src.name] you force switch stupid vision mode to sec hud"
+					/obj/item/clothing/glasses/hud/security/process_hud
+				if(1)
+					vision_mode = 1
+					/obj/item/clothing/glasses/thermal
+					user << "\red [src.name] you force switch stupid vision mode to thermal"
+			return
+
+		..()
+
 
 /obj/item/clothing/suit/space/space_adv/faction
 	name = "Suspicious looking SWAT space hardsuit"
 	desc = "Heavy modifed SWAT space suit, armored with close combat kewlar layers, bullet armor layer, advanced anti radiation suit."
 	icon_state = "fracrig"
 	item_state = "fracrig"
-	armor = list(melee = 80, bullet = 70, laser = 60, energy = 30, bomb = 45, bio = 100, rad = 100)
-	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/melee/baton)
+	armor = list(melee = 70, bullet = 70, laser = 60, energy = 25, bomb = 45, bio = 100, rad = 100)
+	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/melee)
+
+/obj/item/clothing/head/helmet/space/space_adv/roaper
+	name = "Roaper space space hardsuit"
+	desc = "Unknown suit"
+	icon_state = "rig.0.roaper"
+	item_state = "roaper"
+	_color = "roaper"
+	brightness_on = 6
+	armor = list(melee = 40, bullet = 60, laser = 40, energy = 15, bomb = 45, bio = 100, rad = 100)
+	var/vision_mode = 0
+
+/obj/item/clothing/suit/space/space_adv/roaper
+	name = "Roaper space hardsuit"
+	desc = "unknown suit"
+	icon_state = "roaper"
+	item_state = "roaper"
+	armor = list(melee = 40, bullet = 60, laser = 40, energy = 15, bomb = 45, bio = 100, rad = 100)
+	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/melee)
 
 //Code by vert1881/Lilorien Vert && Viton/Ak72ti

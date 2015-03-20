@@ -53,7 +53,7 @@
 
 /obj/item/projectile/energy/plasma
 	name = "plasma"
-	icon_state = "declone"
+	icon_state = "plasma"
 
 /obj/item/projectile/energy/plasma/pistol
 	damage = 10

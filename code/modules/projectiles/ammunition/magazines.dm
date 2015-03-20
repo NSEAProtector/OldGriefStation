@@ -23,14 +23,14 @@
 	origin_tech = "combat=2"
 	ammo_type = "/obj/item/ammo_casing/a12mm"
 	max_ammo = 20
-	m_amt = 3000
+	m_amt = 30000
 	multiple_sprites = 1
 	sprite_modulo = 2
 
 
 /obj/item/ammo_storage/magazine/a12mm/empty
 	starting_ammo = 0
-	m_amt = 500
+	m_amt = 5000
 
 /obj/item/ammo_storage/magazine/smg9mm
 	name = "magazine (9mm)"
@@ -47,7 +47,7 @@
 	origin_tech = "combat=2"
 	ammo_type = "/obj/item/ammo_casing/a50"
 	max_ammo = 7
-	m_amt = 1000
+	m_amt = 10000
 	multiple_sprites = 1
 	sprite_modulo = 1
 
@@ -60,20 +60,20 @@
 	icon_state = "75"
 	ammo_type = "/obj/item/ammo_casing/a75"
 	multiple_sprites = 1
-	m_amt = 7000
+	m_amt = 70000
 	max_ammo = 8
 	sprite_modulo = 8
 
 /obj/item/ammo_storage/magazine/a75/empty
 	starting_ammo = 0
-	m_amt = 1000
+	m_amt = 10000
 
 /obj/item/ammo_storage/magazine/a75e
 	name = "bolter magazine (.75)"
 	icon_state = "75"
 	ammo_type = "/obj/item/ammo_casing/a75"
 	multiple_sprites = 1
-	m_amt = 24000
+	m_amt = 140000
 	max_ammo = 30
 	sprite_modulo = 8
 
@@ -86,21 +86,21 @@
 	icon_state = "a762"
 	origin_tech = "combat=2"
 	ammo_type = "/obj/item/ammo_casing/a762"
-	m_amt = 15000
+	m_amt = 150000
 	max_ammo = 50
 	multiple_sprites = 1
 	sprite_modulo = 10
 
 /obj/item/ammo_storage/magazine/a762/empty
 	starting_ammo = 0
-	m_amt = 3000
+	m_amt = 30000
 
 /obj/item/ammo_storage/magazine/c45
 	name = "magazine (.45)-lethal"
 	icon_state = "45"
 	origin_tech = "combat=2"
 	ammo_type = "/obj/item/ammo_casing/c45"
-	m_amt = 1500
+	m_amt = 15000
 	max_ammo = 8
 	multiple_sprites = 1
 	sprite_modulo = 1
@@ -110,7 +110,7 @@
 	icon_state = "45"
 	origin_tech = "combat=1"
 	ammo_type = "/obj/item/ammo_casing/c45/rubber"
-	m_amt = 1000
+	m_amt = 10000
 	max_ammo = 8
 	multiple_sprites = 1
 	sprite_modulo = 1
@@ -130,42 +130,42 @@
 	icon_state = "9x18p-60"
 	origin_tech = "combat=2"
 	ammo_type = "/obj/item/ammo_casing/c9mmp"
-	m_amt = 5000
+	m_amt = 50000
 	max_ammo = 30
 
 /obj/item/ammo_storage/magazine/c9mmp/empty //twin ammo mags
 	name = "magazine (9mm parabellum)"
 	icon_state = "9x18p-30"
 	ammo_type = "/obj/item/ammo_casing/c9mmp"
-	m_amt = 2700
+	m_amt = 27000
 	max_ammo = 30
 
 /obj/item/ammo_storage/magazine/c9mmp/empty/empty
 	name = "magazines,(9mm parabellum) empry"
 	starting_ammo = 0
 	icon_state = "9x18p-0"
-	m_amt = 200
+	m_amt = 2000
 
 /obj/item/ammo_storage/magazine/a556
 	name = "magazine (5.56)"
 	icon_state = "5.56"
 	origin_tech = "combat=2"
 	ammo_type = "/obj/item/ammo_casing/a556"
-	m_amt = 2500
+	m_amt = 25000
 	max_ammo = 30
 
 /obj/item/ammo_storage/magazine/a556/empty
 	starting_ammo = 0
-	m_amt = 400
+	m_amt = 4000
 
 /obj/item/ammo_storage/magazine/a127s
 	name = "magazine (12.7)"
 	icon_state = "0.50s"
 	origin_tech = "combat=3"
 	ammo_type = "/obj/item/ammo_casing/a127s"
-	m_amt = 2000
+	m_amt = 20000
 	max_ammo = 15
 
 /obj/item/ammo_storage/magazine/a127s/empty
 	starting_ammo = 0
-	m_amt = 500
+	m_amt = 5000

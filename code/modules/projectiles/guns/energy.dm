@@ -111,7 +111,7 @@
 		return
 
 /obj/item/weapon/gun/energy/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/weapon/cell) && !power_supply)
+	if(istype(A, /obj/item/weapon/cell/ammo) && !power_supply)
 		user.drop_item()
 		power_supply = A
 		power_supply.loc = src

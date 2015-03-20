@@ -52,8 +52,9 @@
 	icon_state = "stunrevolver"
 	fire_sound = 'sound/weapons/Gunshot.ogg'
 	origin_tech = "combat=3;materials=3;powerstorage=2"
+	cell_type = "/obj/item/weapon/cell/crap"
 	charge_cost = 500
-	fire_delay = 4 //учитесь стрелять наконец!!
+	fire_delay = 2 //учитесь стрелять наконец!!
 	projectile_type = "/obj/item/projectile/energy/electrode"
 
 

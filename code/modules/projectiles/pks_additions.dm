@@ -22,23 +22,95 @@
 	charge_cost = 500
 	two_handed = 1
 
+/obj/item/weapon/gun/energy/plasma/pistol
+	name = "Plasma pistol"
+	desc = "Plasma pistol that is given to members of an unknown shadow organization."
+	icon_state = "ppistol"
+	item_state = null
+	lefthand_file = 'icons/mob/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/guns_righthand.dmi'
+	projectile_type = /obj/item/projectile/energy/plasma/pistol
+	charge_cost = 750
+	w_class = 2.0
+	cell_removing = 1
+
+/obj/item/weapon/gun/energy/plasma/light
+	name = "light plasma rifle"
+	desc = "Light plasma rifle that is given to members of an unknown shadow organization."
+	icon_state = "plightrifle"
+	item_state = null
+	lefthand_file = 'icons/mob/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/guns_righthand.dmi'
+	projectile_type = /obj/item/projectile/energy/plasma/light
+	two_handed = 1
+	charge_cost = 500
+	cell_removing = 1
+
+/obj/item/weapon/gun/energy/plasma/rifle
+	name = "plasma rifle"
+	desc = "Plasma rifle that is given to members of an unknown shadow organization."
+	icon_state = "prifle"
+	item_state = null
+	lefthand_file = 'icons/mob/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/guns_righthand.dmi'
+	projectile_type = /obj/item/projectile/energy/plasma/rifle
+	slot_flags = SLOT_BACK
+	two_handed = 1
+	w_class = 4
+	charge_cost = 500
+	cell_removing = 1
+
+/obj/item/weapon/gun/energy/erttaser
+	name = "Advanced taser gun"
+	desc = "A small, low capacity gun used for non-lethal takedowns. Used by E.R.T. That taser have compact plasma reactor. Reactor fuel indicator shows that.. the fuel runs out in a year or two."
+	icon_state = "erttaser"
+	lefthand_file = 'icons/mob/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/guns_righthand.dmi'
+	item_state = null	//so the human update icon uses the icon_state instead.
+	fire_sound = 'sound/weapons/Taser.ogg'
+	charge_cost = 1250
+	fire_delay = 6 //учитесь стрелять наконец!!
+	projectile_type = "/obj/item/projectile/energy/electrode"
+	cell_type = "/obj/item/weapon/cell/ammo/hyper"
+	origin_tech = "combat=2;materials=5;plasma=5"
+	var/charge_tick = 0
+
+	New()
+		..()
+		processing_objects.Add(src)
+
+
+	Destroy()
+		processing_objects.Remove(src)
+		..()
+
+	process()
+		charge_tick++
+		if(charge_tick < 4) return 0
+		charge_tick = 0
+		if(!power_supply) return 0
+		power_supply.give(100)
+		update_icon()
+		return 1
+
 /obj/item/weapon/gun/energy/sniper //Самое мощное летальное энерго оружие, что должно быть на станции. от него баланс.
 	name = "P.E.S.R. Mk80"
 	desc = "pulse-based energy sniper rifle, stable model - Mark 80"
 	icon_state = "sniper"
 	item_state = null	//so the human update icon uses the icon_state instead.
-	projectile_type = "/obj/item/projectile/beam"
 	cell_type = "/obj/item/weapon/cell/ammo"
-	fire_sound = 'sound/weapons/pulse.ogg'
+	slot_flags = SLOT_BACK
+	scope_allowed = 1
+	two_handed = 1
 	cell_removing = 1
 	w_class = 4
 	force = 10
-	charge_cost = 250
-	slot_flags = SLOT_BACK
-	var/mode = 1
-	fire_delay = 5
-	two_handed = 1
-	scope_allowed = 1
+//mode settings
+	charge_cost = 500
+	fire_delay = 20
+	projectile_type = "/obj/item/projectile/beam"
+	fire_sound = 'sound/weapons/pulse.ogg'
+	var/mode = 2
 
 	attack_self(mob/living/user as mob)
 		..()
@@ -49,7 +121,7 @@
 					mode = 0
 					charge_cost = 500
 					fire_delay = 10 //учитесь стрелять наконец!!
-					fire_sound = 'sound/weapons/Taser.ogg'
+					fire_sound = 'sound/weapons/pulse.ogg'
 					user << "\red [src.name] is now set to shock beam mode."
 					projectile_type = "/obj/item/projectile/beam/xsniper"
 				if(0)
@@ -137,6 +209,16 @@
 	new /obj/item/device/multitool(src)
 	new /obj/item/weapon/shield/energy(src)
 	new /obj/item/clothing/shoes/magboots(src)
+
+
+/obj/item/weapon/storage/belt/faction //Пояс для каргорембо, четких триторов, и других странных личностей, может хранить любые вещи, потому что имеет универсальные магнитные крепления для них.
+	name = "Universal suspicious looking belt"
+	desc = "Can hold any gear. Used by military enginers, pirates, or other NonNT formations and Factions, like a syndicate. For storage - use magnite and activate when you attach item to magnite."
+	icon_state = "factionbelt"
+	item_state = "faction"//Could likely use a better one.
+	storage_slots = 8 //Основной ограничитель это Max_combined_w_class
+	max_w_class = 3 //Это что бы туда нельзя было положить пулемет
+	max_combined_w_class = 10 //Основной ограничитель для того, что бы нельзя было положить туда десять вещей размера 3
 
 //Combat Power Cells
 /obj/item/weapon/cell/ammo

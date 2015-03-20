@@ -8,6 +8,7 @@
 	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 	origin_tech = "combat=4;materials=2"
 	two_handed = 1
+	force = 5
 	recoil = 0.2
 	var/melee_cooldown = 0
 
@@ -103,6 +104,7 @@
 	ammo_type = "/obj/item/ammo_casing/a556"
 	mag_type = "/obj/item/ammo_storage/magazine/a556"
 	load_method = 2
+	force = 15
 	slot_flags = SLOT_BACK
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 	silencer_allowed = 1//modules
@@ -127,6 +129,7 @@
 	mag_type = "/obj/item/ammo_storage/magazine/a12mm"
 	fire_sound = 'sound/weapons/Gunshot_c20.ogg'
 	load_method = 2
+	force = 6
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 
 /obj/item/weapon/gun/projectile/automatic/arifles/c20r/update_icon()
@@ -155,6 +158,7 @@
 	mag_type = "/obj/item/ammo_storage/magazine/a556"
 	fire_sound = 'sound/weapons/G36.ogg'
 	load_method = 2
+	force = 10
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 	silencer_allowed = 1//modules
 	scope_allowed = 1//modules
@@ -176,6 +180,7 @@
 	mag_type = "/obj/item/ammo_storage/magazine/a556"
 	fire_sound = 'sound/weapons/Gunshot_c20.ogg'
 	load_method = 2
+	force = 7
 	slot_flags = SLOT_BACK
 	gun_flags = AUTOMAGDROP | EMPTYCASINGS
 
@@ -194,6 +199,7 @@
 	max_shells = 15
 	m_amt = 400
 	burst_count = 3
+	force = 12
 	caliber = list("12.7" = 1)
 	ammo_type = "/obj/item/ammo_casing/a127s"
 	mag_type = "/obj/item/ammo_storage/magazine/a127s"
@@ -216,6 +222,7 @@
 	max_shells = 30
 	m_amt = 10000
 	burst_count = 4
+	force = 10
 	caliber = list("75" = 1)
 	ammo_type = "/obj/item/ammo_casing/a75"
 	mag_type = "/obj/item/ammo_storage/magazine/a72e"
@@ -233,6 +240,7 @@
 	w_class = 4.0
 	max_shells = 9
 	burst_count = 3
+	force = 10
 	caliber = list("5.56" = 1)
 	origin_tech = "combat=4;materials=4"
 	ammo_type = "/obj/item/ammo_casing/a50s"
@@ -253,6 +261,7 @@
 	caliber = list("9mm" = 1)
 	automatic = 0
 	m_amt = 3750
+	force = 6
 	origin_tech = "combat=3;materials=1"
 	ammo_type = "/obj/item/ammo_casing/c9mm"
 	mag_type = "/obj/item/ammo_storage/magazine/mc9mm"
@@ -277,6 +286,7 @@
 	slot_flags = 0
 	max_shells = 50
 	burst_count = 10
+	force = 9
 	m_amt = 15000
 	caliber = list("a762" = 1)
 	origin_tech = "combat=5;materials=1;syndicate=2"

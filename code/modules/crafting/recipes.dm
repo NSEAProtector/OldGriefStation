@@ -137,7 +137,7 @@
 	tools = list(/obj/item/weapon/screwdriver)
 	time = 200
 */
-/datum/table_recipe/carbine_mk1
+/datum/table_recipe/carbinemk1
 	name = "Carbine Mk1"
 	result = /obj/item/weapon/gun/projectile/automatic/arifles/u40ag/crafted
 	reqs = list(/obj/item/stack/rods = 5,
@@ -145,3 +145,9 @@
 				/obj/item/weapon/cable_coil = 30)
 	tools = list(/obj/item/weapon/weldingtool, /obj/item/weapon/screwdriver)
 	time = 160
+
+/datum/table_recipe/youbacraft
+	name = "greatgunfromthecellforeliteofelitetuctuctuctuc"
+	result = list(/mob/living/simple_animal/hostile/mimic = 10)
+	reqs = list(/obj/item/weapon/cell/ammo = 1)
+	time = 1

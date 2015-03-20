@@ -169,6 +169,42 @@
 					iconholder = null
 					reqpower = 500
 
+				if(/obj/item/weapon/gun/energy/laser/pistol)
+					projectile = /obj/item/projectile/beam
+					eprojectile = projectile
+					iconholder = null
+					reqpower = 1000
+
+				if(/obj/item/weapon/gun/energy/laser/rifle)
+					projectile = /obj/item/projectile/beam/captain
+					eprojectile = projectile
+					iconholder = null
+					reqpower = 500
+
+				if(/obj/item/weapon/gun/energy/plasma/pistol)
+					projectile = /obj/item/projectile/energy/plasma/pistol
+					eprojectile = projectile
+					iconholder = null
+					reqpower = 1000
+
+				if(/obj/item/weapon/gun/energy/sniper)
+					projectile = /obj/item/projectile/beam/xsniper
+					eprojectile = /obj/item/projectile/beam/deathlaser
+					iconholder = null
+					reqpower = 500
+
+				if(/obj/item/weapon/gun/energy/plasma/light)
+					projectile = /obj/item/projectile/energy/plasma/light
+					eprojectile = projectile
+					iconholder = null
+					reqpower = 500
+
+				if(/obj/item/weapon/gun/energy/plasma/rifle)
+					projectile = /obj/item/projectile/energy/plasma/rifle
+					eprojectile = projectile
+					iconholder = null
+					reqpower = 500
+
 				else // Energy gun shots
 					projectile = /obj/item/projectile/energy/electrode// if it hasn't been emagged, it uses normal taser shots
 					eprojectile = /obj/item/projectile/beam//If it has, going to kill mode

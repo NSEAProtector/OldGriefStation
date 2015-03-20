@@ -15,8 +15,7 @@
 		new /obj/item/clothing/suit/space/rig/ert/commander(src)
 		new /obj/item/weapon/plastique(src)
 		new /obj/item/weapon/storage/belt/security(src)
-		new /obj/item/weapon/gun/energy/ionrifle(src)
-		new /obj/item/weapon/gun/energy/laser/pistol(src)
+		new /obj/item/weapon/gun/energy/erttaser(src)
 		new /obj/item/clothing/glasses/thermal(src)
 		new /obj/item/weapon/lighter/zippo(src)
 		new /obj/item/weapon/pinpointer(src)
@@ -39,7 +38,7 @@
 		new /obj/item/clothing/suit/space/rig/ert/security(src)
 		new /obj/item/weapon/plastique(src)
 		new /obj/item/weapon/storage/belt/security(src)
-		new /obj/item/weapon/gun/energy/laser/rifle(src)
+		new /obj/item/weapon/gun/energy/erttaser(src)
 		new /obj/item/weapon/gun/energy/laser/pistol(src)
 		new /obj/item/clothing/glasses/thermal(src)
 		return
@@ -65,6 +64,7 @@
 		new /obj/item/weapon/storage/backpack/industrial(src)
 		new /obj/item/device/t_scanner(src)
 		new /obj/item/clothing/glasses/meson(src)
+		new /obj/item/weapon/gun/energy/erttaser(src)
 		return
 
 /obj/structure/closet/secure_closet/ert/medical
@@ -86,4 +86,5 @@
 		new /obj/item/weapon/storage/backpack/medic(src)
 		new /obj/item/weapon/storage/belt/medical(src)
 		new /obj/item/clothing/glasses/hud/health(src)
+		new /obj/item/weapon/gun/energy/erttaser(src)
 		return

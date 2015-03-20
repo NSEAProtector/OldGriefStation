@@ -100,6 +100,7 @@ obj/item/weapon/gun/energy/laser/retro
 	projectile_type = "/obj/item/projectile/beam/heavylaser"
 	two_handed = 1
 	fire_delay = 6 //Balancing stuff
+	cell_removing = 1
 
 	isHandgun()
 		return 0
@@ -134,36 +135,13 @@ obj/item/weapon/gun/energy/laser/retro
 	projectile_type = /obj/item/projectile/energy/plasma
 	charge_cost = 250
 
-/obj/item/weapon/gun/energy/plasma/pistol
-	name = "plasma pistol"
-	desc = "Plasma pistol that is given to members of an unknown shadow organization."
-	icon_state = "alienpistol"
-	projectile_type = /obj/item/projectile/energy/plasma/pistol
-	charge_cost = 250
-
-/obj/item/weapon/gun/energy/plasma/light
-	name = "light plasma rifle"
-	desc = "Light plasma rifle that is given to members of an unknown shadow organization."
-	icon_state = "lightalienrifle"
-	projectile_type = /obj/item/projectile/energy/plasma/light
-	two_handed = 1
-	charge_cost = 500
-
-/obj/item/weapon/gun/energy/plasma/rifle
-	name = "plasma rifle"
-	desc = "Plasma rifle that is given to members of an unknown shadow organization."
-	icon_state = "alienrifle"
-	projectile_type = /obj/item/projectile/energy/plasma/rifle
-	two_handed = 1
-	charge_cost = 1000
-
 /obj/item/weapon/gun/energy/plasma/MP40k
 	name = "Plasma MP40k"
 	desc = "A plasma MP40k. Ich liebe den geruch von plasma am morgen."
 	icon_state = "PlasMP"
 	projectile_type = /obj/item/projectile/energy/plasma/MP40k
 	two_handed = 1
-	charge_cost = 250
+	charge_cost = 600
 
 /obj/item/weapon/gun/energy/laser/LaserAK
 	name = "Laser AK470"
@@ -171,7 +149,7 @@ obj/item/weapon/gun/energy/laser/retro
 	icon_state = "LaserAK"
 	projectile_type = /obj/item/projectile/beam
 	two_handed = 1
-	charge_cost = 250
+	charge_cost = 600
 
 ////////Laser Tag////////////////////
 

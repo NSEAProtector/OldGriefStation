@@ -1,5 +1,5 @@
 /obj/item/weapon/gun/projectile/syndi
-	name = "\improper silenced pistol"
+	name = "\improper syndicate pistol"
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."
 	icon_state = "syndi"
 	w_class = 3.0

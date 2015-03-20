@@ -137,7 +137,7 @@ macro "macro"
 		is-disabled = false
 	elem 
 		name = "F2+REP"
-		command = ".screenshot auto"
+		command = "ooc"
 		is-disabled = false
 	elem 
 		name = "SHIFT+F2+REP"
@@ -153,7 +153,7 @@ macro "macro"
 		is-disabled = false
 	elem 
 		name = "F5"
-		command = "Aghost"
+		command = "asay"
 		is-disabled = false
 	elem 
 		name = "F6"
@@ -378,8 +378,8 @@ macro "hotkeymode"
 		command = ".options"
 		is-disabled = false
 	elem 
-		name = "F2+REP"
-		command = ".screenshot auto"
+		name = "F2"
+		command = "ooc"
 		is-disabled = false
 	elem 
 		name = "SHIFT+F2+REP"
@@ -395,7 +395,7 @@ macro "hotkeymode"
 		is-disabled = false
 	elem 
 		name = "F5"
-		command = "Aghost"
+		command = "asay"
 		is-disabled = false
 	elem 
 		name = "F6"
@@ -1061,15 +1061,15 @@ window "mainwindow"
 		on-close = ""
 	elem "oocbutton"
 		type = BUTTON
-		pos = 440,420
+		pos = 416,420
 		size = 40x20
 		anchor1 = 100,100
 		anchor2 = none
 		font-family = ""
 		font-size = 0
-		font-style = ""
-		text-color = #000000
-		background-color = none
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #4d4d4d
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1089,15 +1089,15 @@ window "mainwindow"
 		button-type = pushbox
 	elem "mebutton"
 		type = BUTTON
-		pos = 480,420
+		pos = 504,420
 		size = 40x20
 		anchor1 = 100,100
 		anchor2 = none
 		font-family = ""
 		font-size = 0
-		font-style = ""
-		text-color = #000000
-		background-color = none
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #4d4d4d
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1117,15 +1117,15 @@ window "mainwindow"
 		button-type = pushbox
 	elem "hotkey_toggle"
 		type = BUTTON
-		pos = 560,420
-		size = 80x20
+		pos = 544,420
+		size = 96x20
 		anchor1 = 100,100
 		anchor2 = none
 		font-family = ""
 		font-size = 0
-		font-style = ""
-		text-color = #000000
-		background-color = none
+		font-style = "bold"
+		text-color = #6b184f
+		background-color = #d3b5b5
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1172,14 +1172,14 @@ window "mainwindow"
 	elem "input"
 		type = INPUT
 		pos = 3,420
-		size = 437x20
+		size = 413x20
 		anchor1 = 0,100
 		anchor2 = 100,100
 		font-family = ""
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #d3b5b5
+		background-color = #efefef
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1195,15 +1195,15 @@ window "mainwindow"
 		no-command = false
 	elem "saybutton"
 		type = BUTTON
-		pos = 520,420
-		size = 40x20
+		pos = 456,420
+		size = 48x20
 		anchor1 = 100,100
 		anchor2 = none
 		font-family = ""
 		font-size = 0
-		font-style = ""
-		text-color = #000000
-		background-color = none
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #4d4d4d
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1213,7 +1213,7 @@ window "mainwindow"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "Chat"
+		text = "IC(say)"
 		image = ""
 		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\"\"saybutton.is-checked=true?mebutton.is-checked=false\"\"saybutton.is-checked=true?oocbutton.is-checked=false\""
 		is-flat = false
@@ -1423,17 +1423,17 @@ window "rpane"
 		splitter = 50
 		show-splitter = true
 		lock = none
-	elem "map"
+	elem "faq"
 		type = BUTTON
-		pos = 386,0
-		size = 67x16
+		pos = 344,16
+		size = 48x16
 		anchor1 = none
 		anchor2 = none
-		font-family = ""
+		font-family = "Gisha"
 		font-size = 0
 		font-style = ""
-		text-color = #000000
-		background-color = none
+		text-color = #fbf40d
+		background-color = #4d4d4d
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1443,13 +1443,97 @@ window "rpane"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "MapName"
+		text = "FaQ"
 		image = ""
-		command = "MapRender"
+		command = "faq"
 		is-flat = false
 		stretch = false
 		is-checked = false
-		group = ""
+		group = "rpanemode"
+		button-type = pushbutton
+	elem "helpb"
+		type = BUTTON
+		pos = 296,16
+		size = 48x16
+		anchor1 = none
+		anchor2 = none
+		font-family = "Gisha"
+		font-size = 0
+		font-style = ""
+		text-color = #ffffff
+		background-color = #4d4d4d
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "is-checked"
+		on-size = ""
+		text = "Help!"
+		image = ""
+		command = "adminhelp"
+		is-flat = false
+		stretch = false
+		is-checked = false
+		group = "rpanemode"
+		button-type = pushbutton
+	elem "ghostb"
+		type = BUTTON
+		pos = 192,16
+		size = 48x16
+		anchor1 = none
+		anchor2 = none
+		font-family = "Gisha"
+		font-size = 0
+		font-style = ""
+		text-color = #ffffff
+		background-color = #4d4d4d
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "is-checked"
+		on-size = ""
+		text = "Ghost"
+		image = ""
+		command = "ghost"
+		is-flat = false
+		stretch = false
+		is-checked = false
+		group = "rpanemode"
+		button-type = pushbutton
+	elem "respawnb"
+		type = BUTTON
+		pos = 240,16
+		size = 56x16
+		anchor1 = none
+		anchor2 = none
+		font-family = "Gisha"
+		font-size = 0
+		font-style = ""
+		text-color = #fffdd0
+		background-color = #4d4d4d
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "is-checked"
+		on-size = ""
+		text = "Respawn"
+		image = ""
+		command = "respawn"
+		is-flat = false
+		stretch = false
+		is-checked = false
+		group = "rpanemode"
 		button-type = pushbutton
 	elem "hosttracker"
 		type = BROWSER
@@ -1479,15 +1563,15 @@ window "rpane"
 		on-hide = ""
 	elem "rulesb"
 		type = BUTTON
-		pos = 253,0
-		size = 60x16
+		pos = 272,0
+		size = 72x16
 		anchor1 = none
 		anchor2 = none
-		font-family = ""
+		font-family = "Gisha"
 		font-size = 0
 		font-style = ""
-		text-color = #000000
-		background-color = none
+		text-color = #fbf40d
+		background-color = #4d4d4d
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1497,7 +1581,7 @@ window "rpane"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "Rules"
+		text = "Server rules"
 		image = ""
 		command = "rules"
 		is-flat = false
@@ -1507,15 +1591,15 @@ window "rpane"
 		button-type = pushbutton
 	elem "changelog"
 		type = BUTTON
-		pos = 316,0
-		size = 67x16
+		pos = 344,0
+		size = 48x16
 		anchor1 = none
 		anchor2 = none
-		font-family = ""
+		font-family = "Gisha"
 		font-size = 0
 		font-style = ""
-		text-color = #000000
-		background-color = none
+		text-color = #fbf40d
+		background-color = #4d4d4d
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1525,7 +1609,7 @@ window "rpane"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "Changelog"
+		text = "Credits"
 		image = ""
 		command = "Changelog"
 		is-flat = false
@@ -1535,15 +1619,15 @@ window "rpane"
 		button-type = pushbutton
 	elem "forumb"
 		type = BUTTON
-		pos = 190,0
-		size = 60x16
+		pos = 192,0
+		size = 80x16
 		anchor1 = none
 		anchor2 = none
-		font-family = ""
+		font-family = "Gisha"
 		font-size = 0
 		font-style = ""
-		text-color = #000000
-		background-color = none
+		text-color = #fbf40d
+		background-color = #4d4d4d
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1553,7 +1637,7 @@ window "rpane"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "Forum"
+		text = "NSEA Forum"
 		image = ""
 		command = "forum"
 		is-flat = false
@@ -1561,17 +1645,17 @@ window "rpane"
 		is-checked = false
 		group = "rpanemode"
 		button-type = pushbutton
-	elem "wikib"
+	elem "Wiki"
 		type = BUTTON
-		pos = 127,0
+		pos = 128,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
-		font-family = ""
+		font-family = "Gisha"
 		font-size = 0
 		font-style = ""
-		text-color = #000000
-		background-color = none
+		text-color = #fbf40d
+		background-color = #4d4d4d
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1581,7 +1665,7 @@ window "rpane"
 		right-click = false
 		saved-params = "is-checked"
 		on-size = ""
-		text = "Wiki"
+		text = "VG Wiki"
 		image = ""
 		command = "wiki"
 		is-flat = false
@@ -1599,7 +1683,7 @@ window "rpane"
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = none
+		background-color = #d3b5b5
 		is-visible = false
 		is-disabled = false
 		is-transparent = false
@@ -1647,7 +1731,7 @@ window "rpane"
 		button-type = pushbox
 	elem "infob"
 		type = BUTTON
-		pos = 64,0
+		pos = 60,0
 		size = 60x16
 		anchor1 = none
 		anchor2 = none
@@ -1655,7 +1739,7 @@ window "rpane"
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = none
+		background-color = #d3b5b5
 		is-visible = false
 		is-disabled = false
 		is-transparent = false
@@ -1763,11 +1847,11 @@ window "infowindow"
 		saved-params = "pos;size;is-minimized;is-maximized"
 		on-size = ""
 		title = "Info"
-		titlebar = true
-		statusbar = true
-		can-close = true
-		can-minimize = true
-		can-resize = true
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
 		is-pane = true
 		is-minimized = false
 		is-maximized = false
@@ -1783,15 +1867,15 @@ window "infowindow"
 		on-close = ""
 	elem "info"
 		type = INFO
-		pos = 0,0
-		size = 638x475
+		pos = 0,8
+		size = 636x443
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = ""
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #ffffff
+		background-color = #efefef
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
@@ -1801,7 +1885,7 @@ window "infowindow"
 		right-click = false
 		saved-params = ""
 		on-size = ""
-		highlight-color = #00aa00
+		highlight-color = #368518
 		tab-text-color = #000000
 		tab-background-color = none
 		tab-font-family = ""

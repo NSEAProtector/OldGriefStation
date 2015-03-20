@@ -740,10 +740,7 @@
 		/obj/item/clothing/head/helmet/space/syndicate/black/engie,
 		/obj/item/clothing/suit/space/syndicate/black/engie,
 		/obj/item/clothing/tie/storage/webbing,
-		/obj/item/clothing/tie/storage/brown_vest,
-		/obj/item/clothing/suit/space/space_adv/swat,
-		/obj/item/clothing/suit/space/space_adv/faction,
-		/obj/item/clothing/suit/space/space_adv/military
+		/obj/item/clothing/tie/storage/brown_vest
 		)
 
 /obj/map/spawner/space/supply

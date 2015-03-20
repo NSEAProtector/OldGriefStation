@@ -618,39 +618,6 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 //Hydroponics/////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////Security//
 
-/datum/supply_packs/beanbagammo
-	name = "Beanbag  shells x10 Crate"
-	contains = list(/obj/item/ammo_casing/shotgun/beanbag,
-					/obj/item/ammo_casing/shotgun/beanbag,
-					/obj/item/ammo_casing/shotgun/beanbag,
-					/obj/item/ammo_casing/shotgun/beanbag,
-					/obj/item/ammo_casing/shotgun/beanbag,
-					/obj/item/ammo_casing/shotgun/beanbag,
-					/obj/item/ammo_casing/shotgun/beanbag,
-					/obj/item/ammo_casing/shotgun/beanbag,
-					/obj/item/ammo_casing/shotgun/beanbag,
-					/obj/item/ammo_casing/shotgun/beanbag)
-	cost = 20
-	containertype = /obj/structure/closet/crate
-	containername = "Beanbag shells"
-	group = "Security"
-
-/datum/supply_packs/secstun
-	name = "Security NonLethal gear crate"
-	contains = list(/obj/item/weapon/melee/baton/loaded,
-					/obj/item/weapon/melee/baton/loaded,
-					/obj/item/weapon/gun/energy/taser,
-					/obj/item/weapon/gun/energy/taser,
-					/obj/item/weapon/storage/box/flashbangs,
-					/obj/item/weapon/storage/box/flashbangs,
-					/obj/item/clothing/suit/armor/vest/security,
-					/obj/item/clothing/suit/armor/vest/security)
-	cost = 100
-	containertype = /obj/structure/closet/crate/secure/weapon
-	containername = "Weapons crate"
-	//access = access_security //Easy cargo mode ON
-	group = "Security"
-
 /datum/supply_packs/riot
 	name = "Riot gear crate"
 	contains = list(/obj/item/weapon/melee/baton/loaded,
@@ -750,6 +717,23 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	//access = access_armory //Easy cargo mode ON
 	group = "Security"
 
+/datum/supply_packs/beanbagammo
+	name = "Beanbag  shells x10 Crate"
+	contains = list(/obj/item/ammo_casing/shotgun/beanbag,
+					/obj/item/ammo_casing/shotgun/beanbag,
+					/obj/item/ammo_casing/shotgun/beanbag,
+					/obj/item/ammo_casing/shotgun/beanbag,
+					/obj/item/ammo_casing/shotgun/beanbag,
+					/obj/item/ammo_casing/shotgun/beanbag,
+					/obj/item/ammo_casing/shotgun/beanbag,
+					/obj/item/ammo_casing/shotgun/beanbag,
+					/obj/item/ammo_casing/shotgun/beanbag,
+					/obj/item/ammo_casing/shotgun/beanbag)
+	cost = 20
+	containertype = /obj/structure/closet/crate
+	containername = "Beanbag shells"
+	group = "Security"
+
 /datum/supply_packs/shotgunammo
 	name = "Shotgun shells x10 crate"
 	contains = list(/obj/item/ammo_casing/shotgun,
@@ -800,13 +784,15 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	hidden = 1
 
 /datum/supply_packs/expenergy
-	name = "Experimental energy gear x2 crate"
+	name = "Experimental energy gear x1 crate"
 	contains = list(/obj/item/clothing/suit/armor/laserproof,
 					/obj/item/weapon/gun/energy/xray,
-					/obj/item/weapon/gun/energy/ionrifle)
+					/obj/item/weapon/gun/energy/ionrifle,
+					/obj/item/weapon/cell/ammo,
+					/obj/item/weapon/cell/ammo)
 	cost = 220
 	containertype = /obj/structure/closet/crate/secure
-	containername = "Experimental energy gear x2 crate"
+	containername = "Experimental energy gear x1 crate"
 	//access = access_armory //Easy cargo mode ON
 	group = "Security"
 
@@ -815,10 +801,14 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	contains = list(/obj/item/clothing/suit/armor/laserproof,
 					/obj/item/clothing/suit/armor/laserproof,
 					/obj/item/weapon/gun/energy/ionrifle,
-					/obj/item/weapon/gun/energy/xray,
-					/obj/item/weapon/gun/energy/xray,
+					/obj/item/weapon/gun/energy/laser/pistol,
+					/obj/item/weapon/gun/energy/laser/pistol,
 					/obj/item/weapon/gun/energy/ionrifle,
-					/obj/item/weapon/storage/box/emps)
+					/obj/item/weapon/storage/box/emps,
+					/obj/item/weapon/cell/ammo,
+					/obj/item/weapon/cell/ammo,
+					/obj/item/weapon/cell/ammo,
+					/obj/item/weapon/cell/ammo)
 	cost = 340
 	containertype = /obj/structure/closet/crate/secure
 	containername = "Experimental energy gear x2 crate"
@@ -848,23 +838,48 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	containername = "Security Barriers crate"
 	group = "Security"
 
-/datum/supply_packs/lasergun
-	name = "Laser gun x4 crate"
-	contains = list(/obj/item/weapon/gun/energy/laser,
-					/obj/item/weapon/gun/energy/laser,
-					/obj/item/weapon/gun/energy/laser,
-					/obj/item/weapon/gun/energy/laser)
+/datum/supply_packs/laserpistol
+	name = "Laser pistol x1 crate"
+	contains = list(/obj/item/weapon/gun/energy/laser/pistol)
+	cost = 30
+	containertype = /obj/structure/closet/crate/secure/gear
+	containername = "Security laser gun crate"
+	//access = access_armory //Easy cargo mode ON
+	group = "Security"
+
+/datum/supply_packs/laserpistols
+	name = "Laser pistol x4 crate"
+	contains = list(/obj/item/weapon/gun/energy/laser/pistol,
+					/obj/item/weapon/gun/energy/laser/pistol,
+					/obj/item/weapon/gun/energy/laser/pistol,
+					/obj/item/weapon/gun/energy/laser/pistol)
 	cost = 100
 	containertype = /obj/structure/closet/crate/secure/gear
 	containername = "Security laser gun crate"
 	//access = access_armory //Easy cargo mode ON
 	group = "Security"
 
-/*
+/datum/supply_packs/secstuns
+	name = "Security NonLethal gear crate"
+	contains = list(/obj/item/weapon/melee/baton/loaded,
+					/obj/item/weapon/melee/baton/loaded,
+					/obj/item/weapon/gun/energy/taser,
+					/obj/item/weapon/gun/energy/taser,
+					/obj/item/weapon/storage/box/flashbangs,
+					/obj/item/weapon/storage/box/flashbangs,
+					/obj/item/clothing/suit/armor/vest/security,
+					/obj/item/clothing/suit/armor/vest/security)
+	cost = 100
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "Weapons crate"
+	//access = access_security //Easy cargo mode ON
+	group = "Security"
+
+
 /datum/supply_packs/erteng
 	name = "ERT Enginering Equipment"
-	contains = list(/obj/item/clothing/suit/space/ert/engineer,
-					/obj/item/clothing/head/helmet/space/ert/engineer,
+	contains = list(/obj/item/clothing/suit/space/rig/ert/engineer,
+					/obj/item/clothing/head/helmet/space/rig/ert/engineer,
 					/obj/item/clothing/shoes/magboots/elite,
 					/obj/item/clothing/gloves/combat,
 					/obj/item/clothing/mask/gas/swat,
@@ -877,18 +892,19 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 					/obj/item/weapon/rcd_ammo,
 					/obj/item/weapon/rcd_ammo,
 					/obj/item/weapon/rcd_ammo,
-					/obj/item/weapon/gun/energy/gun/nuclear)
+					/obj/item/weapon/gun/energy/laser/pistol)
 	cost = 1860
 	containertype = /obj/structure/closet/crate/secure
 	containername = "ERT Enginering Equipment x1"
 	//access = access_armory //Easy cargo mode ON
 	group = "Security"
+	hidden = 1
 
 /datum/supply_packs/ertsec
 	name = "ERT Security Equipment"
-	contains = list(/obj/item/clothing/head/helmet/space/ert/security,
-					/obj/item/clothing/suit/space/ert/security,
-					/obj/item/weapon/gun/energy/gun/nuclear,
+	contains = list(/obj/item/clothing/head/helmet/space/rig/ert/security,
+					/obj/item/clothing/suit/space/rig/ert/security,
+					/obj/item/weapon/gun/energy/laser/pistol,
 					/obj/item/clothing/gloves/swat,
 					/obj/item/clothing/mask/gas/swat,
 					/obj/item/clothing/shoes/swat,
@@ -905,6 +921,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	containername = "ERT Security Equipment x1"
 	//access = access_armory //Easy cargo mode ON
 	group = "Security"
+	hidden = 1
 
 
 /datum/supply_packs/ertgear
@@ -921,8 +938,8 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 
 /datum/supply_packs/ertmed
 	name = "ERT Medical Equipment"
-	contains = list(/obj/item/clothing/head/helmet/space/ert/medical,
-					/obj/item/clothing/suit/space/ert/medical,
+	contains = list(/obj/item/clothing/head/helmet/space/rig/ert/medical,
+					/obj/item/clothing/suit/space/rig/ert/medical,
 					/obj/item/clothing/gloves/latex/cmo,
 					/obj/item/clothing/mask/gas/swat,
 					/obj/item/clothing/shoes/swat,
@@ -945,7 +962,8 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	containername = "ERT Medical Equipment x1"
 	//access = access_armory //Easy cargo mode ON
 	group = "Security"
-*/
+	hidden = 1
+
 
 //Security/////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////Science//
@@ -1275,7 +1293,7 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 	           //RIG//
 /datum/supply_packs/rig
 	name = "Engineering hardsuit"
-	cost = 100
+	cost = 50
 	contains = list(/obj/item/clothing/suit/space/rig,
 					/obj/item/weapon/tank/air,
 					/obj/item/clothing/mask/breath)
@@ -1288,25 +1306,55 @@ var/list/all_supply_groups = list("Supplies","Clothing","Security","Hospitality"
 
 //Science/////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////CrimeScumContraband//
-/datum/supply_packs/contraband_military
-	name = "Poison Inc. Military crate"
+/datum/supply_packs/contraband_military_lagre
+	name = "Poison Inc. great request crate"
 	contains = list(/obj/item/clothing/suit/space/space_adv/military,
-					/obj/item/weapon/gun/projectile/automatic/arifles/advanced,
 					/obj/item/clothing/glasses/hud/security,
-					/obj/item/clothing/shoes/jackboots,
+					/obj/item/clothing/shoes/magboots,
 					/obj/item/clothing/tie/storage/black_vest,
 					/obj/item/clothing/under/color/black,
-					/obj/item/ammo_storage/magazine/a127s,
-					/obj/item/ammo_storage/magazine/a127s,
-					/obj/item/ammo_storage/magazine/a127s)
-	cost = 1330
+					/obj/item/ammo_casing/rocket_rpg,
+					/obj/item/ammo_casing/rocket_rpg,
+					/obj/item/ammo_casing/rocket_rpg,
+					/obj/item/weapon/gun/projectile/rocketlauncher,
+					/obj/item/weapon/gun/energy/laser/pistol)
+	cost = 990
+	contraband = 1 //Easy cargo mode ON
+	containertype = /obj/structure/closet/crate
+	containername = "Unlabeled crate"
+	group = "Misc"
+
+/datum/supply_packs/contraband_military_litle
+	name = "Poison Inc. basic request crate"
+	contains = list(/obj/item/clothing/suit/armor/vest,
+					/obj/item/weapon/gun/projectile/automatic/arifles/g36k,
+					/obj/item/clothing/glasses/thermal/eyepatch,
+					/obj/item/clothing/suit/armor/vest,
+					/obj/item/weapon/storage/belt/faction)
+	cost = 200
+	contraband = 1 //Easy cargo mode ON
+	containertype = /obj/structure/closet/crate
+	containername = "Unlabeled crate"
+	group = "Misc"
+
+/datum/supply_packs/contraband_military_medium
+	name = "Poison Inc. request crate"
+	contains = list(/obj/item/clothing/suit/armor/advanced,
+					/obj/item/clothing/head/helmet/swat,
+					/obj/item/weapon/gun/energy/plasma/rifle,
+					/obj/item/weapon/gun/energy/laser/pistol,
+					/obj/item/weapon/gun/projectile/automatic/arifles/g36k,
+					/obj/item/clothing/glasses/thermal/eyepatch,
+					/obj/item/clothing/suit/armor/vest,
+					/obj/item/weapon/storage/belt/faction)
+	cost = 500
 	contraband = 1 //Easy cargo mode ON
 	containertype = /obj/structure/closet/crate
 	containername = "Unlabeled crate"
 	group = "Misc"
 
 /datum/supply_packs/contraband_marksman
-	name = "Poison Inc. Marksman crate"
+	name = "Poison Inc. Marksman request crate"
 	contains = list(/obj/item/weapon/gun/energy/sniper,
 					/obj/item/clothing/glasses/hud/security,
 					/obj/item/clothing/head/helmet)

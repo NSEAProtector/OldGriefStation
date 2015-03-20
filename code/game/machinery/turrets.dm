@@ -62,6 +62,9 @@
 		// 4 = change (HONK)
 		// 5 = bluetag
 		// 6 = redtag
+		// 7 = plasma pistols
+		// 8 = plasma light rilfes
+		// 9 = plasma rifles
 	var/health = 80
 	var/obj/machinery/turretcover/cover = null
 	var/popping = 0
@@ -247,6 +250,14 @@
 				A = getFromPool(/obj/item/projectile/beam/lastertag/blue, loc)
 			if(6)
 				A = getFromPool(/obj/item/projectile/beam/lastertag/red, loc)
+			if(7)
+				A = getFromPool(/obj/item/projectile/energy/plasma/light, loc)
+			if(8)
+				A = getFromPool(/obj/item/projectile/energy/plasma/rifle, loc)
+			if(9)
+				A = getFromPool(/obj/item/projectile/energy/plasma/pistol, loc)
+			if(10)
+				A = getFromPool(/obj/item/projectile/beam/captain, loc)
 		A.original = target
 		use_power(500)
 	else
