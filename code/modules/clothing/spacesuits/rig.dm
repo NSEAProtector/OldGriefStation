@@ -151,6 +151,7 @@
 	unacidable = 1
 	species_restricted = list("exclude","Vox")
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
+	allowed = list(/obj/item/weapon/scrying)
 	siemens_coefficient = 0.7
 
 	wizard_garb = 1

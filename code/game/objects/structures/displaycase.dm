@@ -75,6 +75,12 @@
 	req_access=list(access_captain)
 	update_icon()
 
+/obj/structure/displaycase/spell_book/New()
+	occupant=new /obj/item/weapon/spellbook(src)
+	locked=1
+	req_access=list(access_syndicate)
+	update_icon()
+
 /obj/structure/displaycase/gooncode/New()
 	occupant=new /obj/item/toy/gooncode(src)
 	locked=1

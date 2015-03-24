@@ -84,6 +84,7 @@
 	desc = "An incandescent orb of otherworldly energy, staring into it gives you vision beyond mortal means."
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state ="bluespace"
+	w_class = 3.0
 	throw_speed = 7
 	throw_range = 15
 	throwforce = 15

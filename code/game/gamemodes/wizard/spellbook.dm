@@ -363,7 +363,7 @@
 /obj/item/weapon/spellbook/oneuse/fireball
 	spell = /obj/effect/proc_holder/spell/dumbfire/fireball
 	spellname = "fireball"
-	icon_state ="bookfireball"
+	icon_state ="book"
 	desc = "This book feels warm to the touch."
 
 /obj/item/weapon/spellbook/oneuse/fireball/recoil(mob/user as mob)
@@ -374,7 +374,7 @@
 /obj/item/weapon/spellbook/oneuse/smoke
 	spell = /obj/effect/proc_holder/spell/targeted/smoke
 	spellname = "smoke"
-	icon_state ="booksmoke"
+	icon_state ="book"
 	desc = "This book is overflowing with the dank arts."
 
 /obj/item/weapon/spellbook/oneuse/smoke/recoil(mob/user as mob)
@@ -388,7 +388,7 @@
 /obj/item/weapon/spellbook/oneuse/blind
 	spell = /obj/effect/proc_holder/spell/targeted/trigger/blind
 	spellname = "blind"
-	icon_state ="bookblind"
+	icon_state ="book"
 	desc = "This book looks blurry, no matter how you look at it."
 
 /obj/item/weapon/spellbook/oneuse/blind/recoil(mob/user as mob)
@@ -399,7 +399,7 @@
 /obj/item/weapon/spellbook/oneuse/mindswap
 	spell = /obj/effect/proc_holder/spell/targeted/mind_transfer
 	spellname = "mindswap"
-	icon_state ="bookmindswap"
+	icon_state ="book"
 	desc = "This book's cover is pristine, though its pages look ragged and torn."
 	var/mob/stored_swap = null //Used in used book recoils to store an identity for mindswaps
 
@@ -454,7 +454,7 @@
 /obj/item/weapon/spellbook/oneuse/forcewall
 	spell = /obj/effect/proc_holder/spell/aoe_turf/conjure/forcewall
 	spellname = "forcewall"
-	icon_state ="bookforcewall"
+	icon_state ="book"
 	desc = "This book has a dedication to mimes everywhere inside the front cover."
 
 /obj/item/weapon/spellbook/oneuse/forcewall/recoil(mob/user as mob)
@@ -468,7 +468,7 @@
 /obj/item/weapon/spellbook/oneuse/knock
 	spell = /obj/effect/proc_holder/spell/aoe_turf/knock
 	spellname = "knock"
-	icon_state ="bookknock"
+	icon_state ="book"
 	desc = "This book is hard to hold closed properly."
 
 /obj/item/weapon/spellbook/oneuse/knock/recoil(mob/user as mob)
@@ -479,7 +479,7 @@
 /obj/item/weapon/spellbook/oneuse/horsemask
 	spell = /obj/effect/proc_holder/spell/targeted/horsemask
 	spellname = "horses"
-	icon_state ="bookhorses"
+	icon_state ="book"
 	desc = "This book is more horse than your mind has room for."
 
 /obj/item/weapon/spellbook/oneuse/horsemask/recoil(mob/living/carbon/user as mob)
@@ -498,7 +498,7 @@
 /obj/item/weapon/spellbook/oneuse/charge
 	spell = /obj/effect/proc_holder/spell/targeted/charge
 	spellname = "charging"
-	icon_state ="bookcharge"
+	icon_state ="book"
 	desc = "This book is made of 100% post-consumer wizard."
 
 /obj/item/weapon/spellbook/oneuse/charge/recoil(mob/user as mob)
