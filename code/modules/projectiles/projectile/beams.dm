@@ -339,6 +339,10 @@ var/list/beam_master = list()
 	icon_state = "u_laser"
 	damage = 50
 
+/obj/item/projectile/beam/heavypulse
+	name = "pulse"
+	icon_state = "advpulse"
+	damage = 110
 
 /obj/item/projectile/beam/deathlaser
 	name = "death laser"

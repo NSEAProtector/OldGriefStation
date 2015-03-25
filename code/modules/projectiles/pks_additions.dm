@@ -112,9 +112,9 @@
 		update_icon()
 		return 1
 
-/obj/item/weapon/gun/energy/sniper //Самое мощное летальное энерго оружие, что должно быть на станции. от него баланс.
-	name = "P.E.S.R. Mk80"
-	desc = "pulse-based energy sniper rifle, stable model - Mark 80"
+/obj/item/weapon/gun/energy/sniper
+	name = "Sniper Rifle"
+	desc = "pulse-based energy sniper rifle, stable model - Mark 8"
 	icon_state = "sniper"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	cell_type = "/obj/item/weapon/cell/ammo"
@@ -124,7 +124,6 @@
 	cell_removing = 1
 	w_class = 4
 	force = 10
-//mode settings
 	charge_cost = 500
 	fire_delay = 20
 	projectile_type = "/obj/item/projectile/beam"
@@ -199,19 +198,36 @@
 		if(user.a_intent == "help")
 			switch(mode)
 				if(0)
-					mode = 0
+					mode = 1
 					charge_cost = 500
 					fire_delay = 3
 					fire_sound = 'sound/weapons/laser2.ogg'
 					user << "\red [src.name] is now set to shock beam mode."
 					projectile_type = "/obj/item/projectile/beam/xsniper"
 				if(1)
-					mode = 1
+					mode = 0
 					charge_cost = 500
 					fire_delay = 3
 					fire_sound = 'sound/weapons/Taser.ogg'
 					user << "\red [src.name] is now set to taser mode."
 					projectile_type = "/obj/item/projectile/energy/electrode"
+
+/obj/item/weapon/gun/energy/pulsesniper
+	name = "Sniper Rifle"
+	desc = "Pulse Energy Sniper Rifle (PESR) stable model - Mark 11"
+	icon_state = "psniper"
+	item_state = null	//so the human update icon uses the icon_state instead.
+	cell_type = "/obj/item/weapon/cell/ammo"
+	slot_flags = SLOT_BACK
+	scope_installed = 1
+	two_handed = 1
+	cell_removing = 1
+	w_class = 4
+	force = 10
+	charge_cost = 500
+	fire_delay = 30
+	projectile_type = "/obj/item/projectile/beam/heavypulse"
+	fire_sound = 'sound/weapons/pulse.ogg'
 
 //melee//
 /obj/item/weapon/kitchenknife/tento
