@@ -968,4 +968,75 @@
 		/obj/item/seeds/whitebeetseed
 		)
 
+// Trash ////////////////////////////////////////////////////
 
+/obj/map/spawner/misc/trash
+	name = "Trash spawner"
+	icon_state = "trash"
+	chance = 80
+	toSpawn = list(
+	/obj/item/trash/bowl,
+	/obj/item/trash/bustanuts,
+	/obj/item/trash/candle,
+	/obj/item/trash/cheesie,
+	/obj/item/trash/chips,
+	/obj/item/trash/danitos,
+	/obj/item/trash/discountchocolate,
+	/obj/item/trash/liquidfood,
+	/obj/item/trash/pistachios,
+	/obj/item/trash/popcorn,
+//	/obj/item/trash/raisis,
+	/obj/item/trash/semki,
+	/obj/item/trash/snack_bowl,
+	/obj/item/trash/sosjerky,
+	/obj/item/trash/syndi_cakes
+	)
+
+//Atmos//////////////////////////////////////////////////////////
+
+/obj/map/spawner/atmos
+	name = "Atmos spawner"
+	icon_state = "atmos"
+	chance = 70
+	toSpawn = list(
+	/obj/item/clothing/suit/space/rig/atmos,
+	/obj/item/clothing/head/helmet/space/rig/atmos,
+	/obj/item/clothing/mask/breath,
+	/obj/item/clothing/suit/fire/firefighter,
+	/obj/item/clothing/mask/gas,
+	/obj/item/weapon/tank/oxygen/red,
+	/obj/item/weapon/extinguisher,
+	/obj/item/clothing/head/hardhat/red,
+	/obj/item/weapon/tank/oxygen,
+	/obj/item/clothing/mask/breath/vox,
+	/obj/item/weapon/tank/nitrogen,
+	/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+	/obj/machinery/portable_atmospherics/canister/nitrogen,
+	/obj/machinery/portable_atmospherics/canister/oxygen,
+	/obj/machinery/portable_atmospherics/canister/toxins,
+	/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+	/obj/machinery/portable_atmospherics/canister/air,
+	)
+
+/obj/map/spawner/atmos/canister
+	name = "Atmos caniter spawner"
+	icon_state = "atm_canister"
+	chance = 50
+	toSpawn = list(
+	/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+	/obj/machinery/portable_atmospherics/canister/nitrogen,
+	/obj/machinery/portable_atmospherics/canister/oxygen,
+	/obj/machinery/portable_atmospherics/canister/toxins,
+	/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+	/obj/machinery/portable_atmospherics/canister/air,
+	)
+
+/obj/map/spawner/atmos/tank
+	name = "Atmos tank spawner"
+	icon_state = "atm_tank"
+	chance = 80
+	toSpawn = list(
+	/obj/item/weapon/tank/oxygen/red,
+	/obj/item/weapon/tank/oxygen,
+	/obj/item/weapon/tank/nitrogen,
+	)
