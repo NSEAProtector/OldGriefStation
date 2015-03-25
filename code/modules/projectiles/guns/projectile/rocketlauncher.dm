@@ -14,7 +14,7 @@
 	throw_range = 3
 	fire_delay = 5
 	flags =  FPRINT | TABLEPASS | CONDUCT | USEDELAY
-	slot_flags = SLOT_BACK
+	//slot_flags = SLOT_BACK
 	gun_flags = 0
 	caliber = list("rpg" = 1)
 	origin_tech = "combat=4;materials=2;syndicate=2"

@@ -100,7 +100,7 @@
 	w_class = 4.0
 	max_shells = 30
 	caliber = list("5.56" = 1)
-	origin_tech = "combat=4;materials=4"
+	origin_tech = "combat=3;materials=3;engineering=2"
 	ammo_type = "/obj/item/ammo_casing/a556"
 	mag_type = "/obj/item/ammo_storage/magazine/a556"
 	load_method = 2
@@ -113,6 +113,11 @@
 /obj/item/weapon/gun/projectile/automatic/arifles/k4m/isHandgun()
 	return 1
 
+/obj/item/weapon/gun/projectile/automatic/arifles/k4m/rnd
+	desc = "Carbine Mk4, made from plastic and plasteel composite alloys. Uses 5.56 rounds."
+	icon_state = "k4mr"
+	origin_tech = "combat=3;materials=5"
+
 
 /obj/item/weapon/gun/projectile/automatic/arifles/c20r
 	name = "\improper C-20r SMG"
@@ -124,7 +129,7 @@
 	burst_count = 4
 	m_amt = 7500
 	caliber = list("12mm" = 1)
-	origin_tech = "combat=5;materials=2;syndicate=4"
+	origin_tech = "combat=4;materials=2;syndicate=4"
 	ammo_type = "/obj/item/ammo_casing/a12mm"
 	mag_type = "/obj/item/ammo_storage/magazine/a12mm"
 	fire_sound = 'sound/weapons/Gunshot_c20.ogg'
@@ -148,12 +153,12 @@
 	desc = "For a PKS/EXALT fire support"
 	icon_state = "g36k"
 	item_state = "c20r"
-	w_class = 4.0
+	w_class = 3.0
 	max_shells = 30
 	m_amt = 5600
 	burst_count = 3
 	caliber = list("5.56" = 1)
-	origin_tech = "combat=5;materials=3;syndicate=4"
+	origin_tech = "combat=4;materials=3;syndicate=4;engineering=2"
 	ammo_type = "/obj/item/ammo_casing/a556"
 	mag_type = "/obj/item/ammo_storage/magazine/a556"
 	fire_sound = 'sound/weapons/G36.ogg'
@@ -170,7 +175,7 @@
 	name = "\improper Assault Rifle"
 	desc = "Very fast firing gun, issued to shadow organization members."
 	icon_state = "assaultrifle"
-	origin_tech = "combat=5;materials=2"
+	origin_tech = "combat=4;materials=5"
 	m_amt = 1800
 	w_class = 4.0
 	max_shells = 30
@@ -193,7 +198,7 @@
 	icon_state = "pkst1m"
 	lefthand_file = 'icons/mob/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/guns_righthand.dmi'
-	origin_tech = "combat=5;materials=2;syndicate=2"
+	origin_tech = "combat=5;materials=5;"
 	item_state = "pkst1m"
 	w_class = 4.0
 	max_shells = 15
@@ -262,7 +267,7 @@
 	automatic = 0
 	m_amt = 3750
 	force = 6
-	origin_tech = "combat=3;materials=1"
+	origin_tech = "combat=3;materials=1;engineering=2"
 	ammo_type = "/obj/item/ammo_casing/c9mm"
 	mag_type = "/obj/item/ammo_storage/magazine/mc9mm"
 	load_method = 2
@@ -297,7 +302,7 @@
 	var/cover_open = 0
 
 /obj/item/weapon/gun/projectile/automatic/arifles/l6_saw/attack_self(mob/user as mob)
-	if (user.a_intent == "harm")
+	if(user.a_intent == "harm")
 		cover_open = !cover_open
 		user << "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>"
 		update_icon()

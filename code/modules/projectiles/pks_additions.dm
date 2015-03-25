@@ -6,6 +6,7 @@
 	icon_state = "lpistol"
 	projectile_type = /obj/item/projectile/beam
 	cell_type = "/obj/item/weapon/cell/ammo"
+	origin_tech = "combat=3;magnets=2;materials=6;magnets=3"
 	w_class = 2.0
 	cell_removing = 1
 	fire_delay = 3
@@ -17,6 +18,7 @@
 	icon_state = "lrifle"
 	projectile_type = /obj/item/projectile/beam/captain
 	cell_type = "/obj/item/weapon/cell/ammo"
+	origin_tech = "combat=4;magnets=3;materials=4;magnets=3"
 	cell_removing = 1
 	fire_delay = 0.5
 	charge_cost = 500
@@ -26,6 +28,7 @@
 	name = "Plasma pistol"
 	desc = "Plasma pistol that is given to members of an unknown shadow organization."
 	icon_state = "ppistol"
+	origin_tech = "combat=4;magnets=3;materials=4;magnets=3"
 	item_state = null
 	lefthand_file = 'icons/mob/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/guns_righthand.dmi'
@@ -34,10 +37,25 @@
 	w_class = 2.0
 	cell_removing = 1
 
+/obj/item/weapon/gun/energy/stunrevolver
+	name = "stun pistol"
+	desc = "A high-tech revolver that fires stun cartridges. The stun cartridges can be recharged using a conventional energy gun cell, who can be removed."
+	icon_state = "stunrevolver"
+	fire_sound = 'sound/weapons/Gunshot.ogg'
+	origin_tech = "combat=3;materials=3;powerstorage=2;magnets=4"
+	cell_type = "/obj/item/weapon/cell/ammo"
+	charge_cost = 1000
+	cell_removing = 1
+	fire_delay = 2 //учитесь стрелять наконец!!
+	w_class = 2.0
+	projectile_type = "/obj/item/projectile/energy/electrode"
+
+
 /obj/item/weapon/gun/energy/plasma/light
 	name = "light plasma rifle"
 	desc = "Light plasma rifle that is given to members of an unknown shadow organization."
 	icon_state = "plightrifle"
+	origin_tech = "combat=3;materials=3;powerstorage=2;magnets=4;plasmatech=3"
 	item_state = null
 	lefthand_file = 'icons/mob/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/guns_righthand.dmi'
@@ -50,6 +68,7 @@
 	name = "plasma rifle"
 	desc = "Plasma rifle that is given to members of an unknown shadow organization."
 	icon_state = "prifle"
+	origin_tech = "combat=3;materials=3;powerstorage=2;magnets=4;plasmatech=3"
 	item_state = null
 	lefthand_file = 'icons/mob/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/guns_righthand.dmi'
@@ -159,6 +178,40 @@
 			if(scope_installed)
 				icon_state = "[initial(icon_state)]-empty.scope"
 		return
+
+/obj/item/weapon/gun/energy/shockrifle
+	name = "Shock Rifle"
+	desc = "The Pacificer energy shock rifle, two modes, beam and taser"
+	icon_state = "shockrifle"
+	item_state = null	//so the human update icon uses the icon_state instead.
+	cell_type = "/obj/item/weapon/cell/ammo"
+	slot_flags = SLOT_BACK
+	scope_allowed = 1
+	two_handed = 1
+	cell_removing = 1
+	w_class = 4
+	force = 10
+	var/mode = 1
+
+	attack_self(mob/living/user as mob)
+		..()
+
+		if(user.a_intent == "help")
+			switch(mode)
+				if(0)
+					mode = 0
+					charge_cost = 500
+					fire_delay = 3
+					fire_sound = 'sound/weapons/laser2.ogg'
+					user << "\red [src.name] is now set to shock beam mode."
+					projectile_type = "/obj/item/projectile/beam/xsniper"
+				if(1)
+					mode = 1
+					charge_cost = 500
+					fire_delay = 3
+					fire_sound = 'sound/weapons/Taser.ogg'
+					user << "\red [src.name] is now set to taser mode."
+					projectile_type = "/obj/item/projectile/energy/electrode"
 
 //melee//
 /obj/item/weapon/kitchenknife/tento
