@@ -4,6 +4,7 @@
 	name = "Laser pistol"
 	desc = "A laser pistol issued to high ranking members of a certain shadow corporation."
 	icon_state = "lpistol"
+	origin_tech = "combat=3;materials=6;magnets=3"
 	projectile_type = /obj/item/projectile/beam
 	cell_type = "/obj/item/weapon/cell/ammo"
 	w_class = 2.0
@@ -15,6 +16,7 @@
 	name = "Laser rifle"
 	desc = "improper laser rifle, standart shots and ejectable cell"
 	icon_state = "lrifle"
+	origin_tech = "combat=4;materials=4;magnets=3"
 	projectile_type = /obj/item/projectile/beam/captain
 	cell_type = "/obj/item/weapon/cell/ammo"
 	cell_removing = 1
@@ -26,6 +28,7 @@
 	name = "Plasma pistol"
 	desc = "Plasma pistol that is given to members of an unknown shadow organization."
 	icon_state = "ppistol"
+	origin_tech = "combat=3;magnets=3;materials=4;plasmatech=3"
 	item_state = null
 	lefthand_file = 'icons/mob/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/guns_righthand.dmi'
@@ -38,6 +41,7 @@
 	name = "light plasma rifle"
 	desc = "Light plasma rifle that is given to members of an unknown shadow organization."
 	icon_state = "plightrifle"
+	origin_tech = "combat=4;materials=4;magnets=3;plasmatech=4"
 	item_state = null
 	lefthand_file = 'icons/mob/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/guns_righthand.dmi'
@@ -51,6 +55,7 @@
 	desc = "Plasma rifle that is given to members of an unknown shadow organization."
 	icon_state = "prifle"
 	item_state = null
+	origin_tech = "combat=4;materials=4;magnets=3;plasmatech=4"
 	lefthand_file = 'icons/mob/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/guns_righthand.dmi'
 	projectile_type = /obj/item/projectile/energy/plasma/rifle
@@ -66,6 +71,7 @@
 	icon_state = "erttaser"
 	lefthand_file = 'icons/mob/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/guns_righthand.dmi'
+	origin_tech = "combat=3;magnets=6;materials=6;powerstorage=8"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
 	charge_cost = 1250
@@ -93,11 +99,76 @@
 		update_icon()
 		return 1
 
-/obj/item/weapon/gun/energy/sniper //Самое мощное летальное энерго оружие, что должно быть на станции. от него баланс.
-	name = "P.E.S.R. Mk80"
-	desc = "pulse-based energy sniper rifle, stable model - Mark 80"
-	icon_state = "sniper"
+/obj/item/weapon/gun/energy/stunrevolver
+	name = "stun pistol"
+	desc = "A high-tech revolver that fires stun cartridges. The stun cartridges can be recharged using a conventional energy gun cell, who can be removed."
+	icon_state = "stunrevolver"
+	fire_sound = 'sound/weapons/Gunshot.ogg'
+	origin_tech = "combat=3;materials=3;powerstorage=2;magnets=4"
+	cell_type = "/obj/item/weapon/cell/ammo"
+	charge_cost = 1000
+	cell_removing = 1
+	fire_delay = 2
+	w_class = 2.0
+	projectile_type = "/obj/item/projectile/energy/electrode"
+
+/obj/item/weapon/gun/energy/shockrifle
+	name = "Shock Rifle"
+	desc = "The Pacificer energy shock rifle, two modes, beam and taser"
+	icon_state = "shockrifle"
 	item_state = null	//so the human update icon uses the icon_state instead.
+	cell_type = "/obj/item/weapon/cell/ammo"
+	slot_flags = SLOT_BACK
+	scope_allowed = 1
+	two_handed = 1
+	cell_removing = 1
+	w_class = 4
+	force = 10
+	var/mode = 1
+
+	attack_self(mob/living/user as mob)
+		..()
+
+		if(user.a_intent == "help")
+			switch(mode)
+				if(0)
+					mode = 0
+					charge_cost = 500
+					fire_delay = 3
+					fire_sound = 'sound/weapons/laser2.ogg'
+					user << "\red [src.name] is now set to shock beam mode."
+					projectile_type = "/obj/item/projectile/beam/xsniper"
+				if(1)
+					mode = 1
+					charge_cost = 500
+					fire_delay = 3
+					fire_sound = 'sound/weapons/Taser.ogg'
+					user << "\red [src.name] is now set to taser mode."
+					projectile_type = "/obj/item/projectile/energy/electrode"
+
+/obj/item/weapon/gun/energy/pulsesniper
+	name = "Sniper Rifle"
+	desc = "pulse-based energy sniper rifle, stable model - Mark 11"
+	icon_state = "psniper"
+	item_state = null
+	cell_type = "/obj/item/weapon/cell/ammo"
+	slot_flags = SLOT_BACK
+	two_handed = 1
+	cell_removing = 1
+	w_class = 4
+	force = 10
+	scope_installed = 1
+//mode settings
+	charge_cost = 2500
+	fire_delay = 40
+	projectile_type = "/obj/item/projectile/beam/hpulse"
+	fire_sound = 'sound/weapons/pulse.ogg'
+
+/obj/item/weapon/gun/energy/sniper
+	name = "Sniper Rifle"
+	desc = "pulse-based energy sniper rifle, stable model - Mark 8"
+	icon_state = "sniper"
+	item_state = null
 	cell_type = "/obj/item/weapon/cell/ammo"
 	slot_flags = SLOT_BACK
 	scope_allowed = 1

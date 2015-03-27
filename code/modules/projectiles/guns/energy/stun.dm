@@ -46,24 +46,12 @@
 		return 1
 
 
-/obj/item/weapon/gun/energy/stunrevolver
-	name = "stun revolver"
-	desc = "A high-tech revolver that fires stun cartridges. The stun cartridges can be recharged using a conventional energy weapon recharger."
-	icon_state = "stunrevolver"
-	fire_sound = 'sound/weapons/Gunshot.ogg'
-	origin_tech = "combat=3;materials=3;powerstorage=2"
-	cell_type = "/obj/item/weapon/cell/crap"
-	charge_cost = 500
-	fire_delay = 2 //учитесь стрелять наконец!!
-	projectile_type = "/obj/item/projectile/energy/electrode"
-
-
-
 /obj/item/weapon/gun/energy/crossbow
 	name = "mini energy-crossbow"
 	desc = "A weapon favored by many of the syndicates stealth specialists."
 	icon_state = "crossbow"
 	w_class = 2.0
+	charge_cost = 1250
 	item_state = "crossbow"
 	m_amt = 2000
 	w_type = RECYK_ELECTRONIC
@@ -102,11 +90,13 @@
 /obj/item/weapon/gun/energy/crossbow/largecrossbow
 	name = "Energy Crossbow"
 	desc = "A weapon favored by syndicate infiltration teams."
+	icon_state = "largecrossbow"
 	w_class = 4.0
 	force = 10
-	m_amt = 20000
+	m_amt = 8000
 	two_handed = 1
 	w_type = RECYK_ELECTRONIC
+	charge_cost = 500
 	projectile_type = "/obj/item/projectile/energy/bolt/large"
 
 

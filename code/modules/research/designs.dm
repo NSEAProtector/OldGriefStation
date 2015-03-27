@@ -1666,7 +1666,7 @@ other types of metals and chemistry for reagents).
 /////////////////////////////////////////
 /////////////////Weapons/////////////////
 /////////////////////////////////////////
-
+/*
 /datum/design/smg
 	name = "Submachine Gun"
 	desc = "A lightweight, fast firing gun."
@@ -1676,7 +1676,7 @@ other types of metals and chemistry for reagents).
 	materials = list("$metal" = 8000, "$silver" = 200)
 	build_path = /obj/item/weapon/gun/projectile/automatic
 	locked = 0
-
+*/
 /datum/design/ammo_9mm
 	name = "Ammunition Box (9mm)"
 	desc = "A box of prototype 9mm ammunition."
@@ -1690,20 +1690,30 @@ other types of metals and chemistry for reagents).
 	name = "Carbine Mk4"
 	desc = "An Assault Rifle."
 	id = "k4m"
-	req_tech = list("combat" = 4, "materials" = 2,  "engineering" = 2)
+	req_tech = list("combat" = 4, "materials" = 3, "engineering" = 2)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 7500, "$glass" = 100)
-	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/k4m
+	materials = list("$metal" = 10500, "$glass" = 100, "$plastic" = 1100, "$silver" = 200)
+	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/k4m/rnd
 	locked = 0
 
-/datum/design/k4me
-	name = "Carbine Mk4 short"
+/datum/design/assault
+	name = "Assault Rifle"
 	desc = "An Assault Rifle."
-	id = "k4me"
-	req_tech = list("combat" = 5, "materials" = 2,  "engineering" = 3)
+	id = "assault"
+	req_tech = list("combat" = 4, "materials" = 4)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 6500, "$glass" = 100)
-	build_path = /obj/item/weapon/gun/projectile/automatic/k4me
+	materials = list("$metal" = 8500, "$glass" = 100, "$plastic" = 1100, "$silver" = 200)
+	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/assault
+	locked = 0
+
+/datum/design/ammo_a556
+	name = "magazine (5.56)"
+	desc = "hot magazine 5.56 from protolate."
+	id = "a556"
+	req_tech = list("combat" = 4, "materials" = 3)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 3000, "$plastic" = 100)
+	build_path = /obj/item/ammo_storage/magazine/a556
 	locked = 0
 
 /datum/design/c20r
@@ -1712,7 +1722,7 @@ other types of metals and chemistry for reagents).
 	id = "c20r"
 	req_tech = list("combat" = 5, "materials" = 2,  "syndicate" = 6)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 10000, "$glass" = 500, "$gold" = 20, "$silver" = 200)
+	materials = list("$metal" = 8000, "$glass" = 500, "$gold" = 20, "$silver" = 200)
 	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/c20r
 	locked = 0
 
@@ -1726,43 +1736,13 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/ammo_storage/magazine/a12mm
 	locked = 0
 
-/datum/design/g36k
-	name = "G36K"
-	desc = "An Assault Rifle."
-	id = "g36k"
-	req_tech = list("combat" = 5, "materials" = 3,	"syndicate" = 3,  "engineering" = 2)
-	build_type = PROTOLATHE
-	materials = list("$metal" = 7500, "$glass" = 100)
-	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/g36k
-	locked = 0
-
-/datum/design/assault
-	name = "Assault Rifle"
-	desc = "An Assault Rifle."
-	id = "assault"
-	req_tech = list("combat" = 5, "materials" = 3)
-	build_type = PROTOLATHE
-	materials = list("$metal" = 5500, "$glass" = 100)
-	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/assault
-	locked = 0
-
-/datum/design/ammo_a556
-	name = "magazine (5.56)"
-	desc = "hot magazine 5.56 from protolate."
-	id = "a556"
-	req_tech = list("combat" = 5, "materials" = 3)
-	build_type = PROTOLATHE
-	materials = list("$metal" = 3000, "$plastic" = 1000)
-	build_path = /obj/item/ammo_storage/magazine/a556
-	locked = 0
-
 /datum/design/advancedassault
 	name = "Hi Tech Rifle"
 	desc = "An Hi Tech Rifle."
 	id = "advassault"
-	req_tech = list("combat" = 6, "materials" = 4)
+	req_tech = list("combat" = 5, "materials" = 5)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 1000, "$plastic" = 4000, "$glass" = 200)
+	materials = list("$metal" = 3500, "$glass" = 200, "$plastic" = 4400, "$silver" = 200)
 	build_path = /obj/item/weapon/gun/projectile/automatic/arifles/advanced
 	locked = 0
 
@@ -1772,7 +1752,7 @@ other types of metals and chemistry for reagents).
 	id = "a127s"
 	req_tech = list("combat" = 6, "materials" = 4)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 2500)
+	materials = list("$metal" = 2500, "$plastic" = 400)
 	build_path = /obj/item/ammo_storage/magazine/a127s
 	locked = 0
 /*
@@ -1786,31 +1766,22 @@ other types of metals and chemistry for reagents).
 	reliability_base = 76
 	build_path = /obj/item/weapon/gun/energy/gun/nuclear
 */
+//shock weapons
 /datum/design/stunrevolver
 	name = "Stun Revolver"
 	desc = "The prize of the Head of Security."
 	id = "stunrevolver"
 	req_tech = list("combat" = 3, "materials" = 3, "powerstorage" = 2)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 6000, "$glass" = 1000, "$plastic" = 500)
+	materials = list("$metal" = 500, "$glass" = 300, "$plastic" = 500)
 	build_path = /obj/item/weapon/gun/energy/stunrevolver
 	locked = 0
-
-/datum/design/lasercannon
-	name = "Laser Cannon"
-	desc = "A heavy duty laser cannon."
-	id = "lasercannon"
-	req_tech = list("combat" = 4, "materials" = 3, "powerstorage" = 3)
-	build_type = PROTOLATHE
-	materials = list("$metal" = 8000, "$glass" = 1000, "$plastic" = 2000, "$diamond" = 1000)
-	build_path = /obj/item/weapon/gun/energy/lasercannon
-	locked = 0
-
+//plasma weapons
 /datum/design/plasmapistol
 	name = "Plasma Pistol"
 	desc = "A plasma pistol."
 	id = "plasma_pistol"
-	req_tech = list("combat" = 3, "materials" = 4, "powerstorage" = 2, "plasma" = 2)
+	req_tech = list("combat" = 3, "materials" = 4, "powerstorage" = 2, "plasmatech" = 3)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 1000, "$glass" = 300, "$plasma" = 200)
 	build_path = /obj/item/weapon/gun/energy/plasma/pistol
@@ -1820,7 +1791,7 @@ other types of metals and chemistry for reagents).
 	name = "Plasma Rifle"
 	desc = "A plasma rifle."
 	id = "plasma_rifle"
-	req_tech = list("combat" = 4, "materials" = 4, "powerstorage" = 2, "plasma" = 3)
+	req_tech = list("combat" = 4, "materials" = 4, "powerstorage" = 2, "plasmatech" = 3)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 7000, "$glass" = 1000, "$plasma" = 1000,"$plastic" = 500)
 	build_path = /obj/item/weapon/gun/energy/plasma/rifle
@@ -1830,10 +1801,20 @@ other types of metals and chemistry for reagents).
 	name = "Light Plasma Rifle"
 	desc = "A plasma rifle."
 	id = "light_plasma_rifle"
-	req_tech = list("combat" = 5, "materials" = 3, "powerstorage" = 2, "plasma" = 4)
+	req_tech = list("combat" = 5, "materials" = 3, "powerstorage" = 2, "plasmatech" = 3)
 	build_type = PROTOLATHE
 	materials = list("$metal" = 3000, "$glass" = 700, "$plasma" = 600,"$plastic" = 1000)
 	build_path = /obj/item/weapon/gun/energy/plasma/light
+	locked = 0
+//laser weapons
+/datum/design/laserpistol
+	name = "Laser Pistol"
+	desc = "A laser pistol."
+	id = "laser_pistol"
+	req_tech = list("combat" = 3, "materials" = 4, "powerstorage" = 3)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 500, "$glass" = 400,  "$diamond" = 100)
+	build_path = /obj/item/weapon/gun/energy/laser/pistol
 	locked = 0
 
 /datum/design/laserrifle
@@ -1846,16 +1827,16 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/gun/energy/laser/rifle
 	locked = 0
 
-/datum/design/laserpistol
-	name = "Laser Pistol"
-	desc = "A laser pistol."
-	id = "laser_pistol"
-	req_tech = list("combat" = 3, "materials" = 4, "powerstorage" = 3)
+/datum/design/lasercannon
+	name = "Laser Cannon"
+	desc = "A heavy duty laser cannon."
+	id = "lasercannon"
+	req_tech = list("combat" = 4, "materials" = 3, "powerstorage" = 3)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 500, "$glass" = 400,  "$diamond" = 100)
-	build_path = /obj/item/weapon/gun/energy/laser/pistol
+	materials = list("$metal" = 8000, "$glass" = 1000, "$plastic" = 2000, "$diamond" = 1000)
+	build_path = /obj/item/weapon/gun/energy/lasercannon
 	locked = 0
-
+//special weapons
 /datum/design/decloner
 	name = "Decloner"
 	desc = "Your opponent will bubble into a messy pile of goop."
@@ -1890,7 +1871,7 @@ other types of metals and chemistry for reagents).
 	id = "largecrossbow"
 	req_tech = list("combat" = 4, "materials" = 5, "engineering" = 3, "biotech" = 4, "syndicate" = 4)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 5000, "$glass" = 1000, "$uranium" = 1000, "$silver" = 1000)
+	materials = list("$metal" = 10000, "$glass" = 1000, "$uranium" = 1000, "$silver" = 1000)
 	build_path = /obj/item/weapon/gun/energy/crossbow/largecrossbow
 
 /datum/design/temp_gun
@@ -1912,6 +1893,16 @@ other types of metals and chemistry for reagents).
 	materials = list("$metal" = 2000, "$glass" = 500, "$uranium" = 500)
 	build_path = /obj/item/weapon/gun/energy/floragun
 
+/datum/design/pneumatic
+	name = "Pneumatic Cannon"
+	desc = "A launcher powered by compressed air."
+	id = "pneumatic"
+	req_tech = list("materials" = 3, "engineering" = 3)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 12000)
+	build_path = /obj/item/weapon/storage/pneumatic
+
+//other
 /datum/design/large_grenade
 	name = "Large Grenade"
 	desc = "A grenade that affects a larger area and use larger containers."
@@ -1941,14 +1932,13 @@ other types of metals and chemistry for reagents).
 	materials = list("$metal" = 3000)
 	build_path = /obj/item/ammo_casing/shotgun/stunshell
 
-/datum/design/pneumatic
-	name = "Pneumatic Cannon"
-	desc = "A launcher powered by compressed air."
-	id = "pneumatic"
-	req_tech = list("materials" = 3, "engineering" = 3)
+/datum/design/exploshell
+	name = "Shotgun Explosive Shell"
+	desc = "A explosive shell for a shotgun."
+	id = "explo_shell"
 	build_type = PROTOLATHE
-	materials = list("$metal" = 12000)
-	build_path = /obj/item/weapon/storage/pneumatic
+	materials = list("$metal" = 2500, "$plasma" = 500)
+	req_tech = list("combat" = 4, "materials" = 3, "plasmatech" = 2)
 
 /////////////////////////////////////////
 /////////////////Mining//////////////////
