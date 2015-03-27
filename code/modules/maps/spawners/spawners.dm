@@ -1040,3 +1040,17 @@
 	/obj/item/weapon/tank/oxygen,
 	/obj/item/weapon/tank/nitrogen,
 	)
+
+///spellbooks///////////////////////////////////////////////////
+
+/obj/map/spawner/spellbook/oneuse
+	name = "Oneuse spellbook spawner"
+	icon_state = "Sp_book_spw"
+	chance = 25
+	toSpawn = list(
+	/obj/item/weapon/spellbook/oneuse/blind,
+	/obj/item/weapon/spellbook/oneuse/forcewall,
+	/obj/item/weapon/spellbook/oneuse/charge,
+	/obj/item/weapon/spellbook/oneuse/smoke,
+	/obj/item/weapon/spellbook/oneuse/knock
+	)
