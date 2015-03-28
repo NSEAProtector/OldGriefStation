@@ -1054,3 +1054,41 @@
 	/obj/item/weapon/spellbook/oneuse/smoke,
 	/obj/item/weapon/spellbook/oneuse/knock
 	)
+
+///food/////////////////////////////////////////////////////////
+
+/obj/map/spawner/food
+	name = "Food spawner"
+	icon_state = "Food_s"
+	chance = 80
+	toSpawn = list(
+
+	)
+/*
+/obj/map/spawner/food/drink
+	name = "Drink spawner"
+	icon_state = "Drink_s"
+	chance = 80
+	toSpawn = list(
+	/obj/item/weapon/reagent_containers/food/drinks/ale,
+	/obj/item/weapon/reagent_containers/food/drinks/beer,
+	/obj/item/weapon/reagent_containers/food/drinks/absinthe,
+	/obj/item/weapon/reagent_containers/food/drinks/bottleofnothing,
+	/obj/item/weapon/reagent_containers/food/drinks/cognak,
+	/obj/item/weapon/reagent_containers/food/drinks/cream,
+	/obj/item/weapon/reagent_containers/food/drinks/vermounth,
+	/obj/item/weapon/reagent_containers/food/drinks/vodka,
+	/obj/item/weapon/reagent_containers/food/drinks/whiskey,
+	/obj/item/weapon/reagent_containers/food/drinks/wine,
+	/obj/item/weapon/reagent_containers/food/drinks/gin,
+	/obj/item/weapon/reagent_containers/food/drinks/goldschlager,
+	/obj/item/weapon/reagent_containers/food/drinks/holywater,
+	/obj/item/weapon/reagent_containers/food/drinks/kahlua,
+	/obj/item/weapon/reagent_containers/food/drinks/limejuice,
+	/obj/item/weapon/reagent_containers/food/drinks/orangejuice,
+	/obj/item/weapon/reagent_containers/food/drinks/patron,
+	/obj/item/weapon/reagent_containers/food/drinks/rum,
+	/obj/item/weapon/reagent_containers/food/drinks/tequilla,
+	/obj/item/weapon/reagent_containers/food/drinks/tomatojuice
+	)
+*/

@@ -140,11 +140,11 @@
 		var/obj/item/stack/sheet/metal/cyborg/M = new /obj/item/stack/sheet/metal/cyborg(src)
 		M.amount = 50
 		src.modules += M
-
+/*
 		var/obj/item/stack/tile/plasteel/F = new /obj/item/stack/tile/plasteel(src)
 		F.amount = 50
 		src.modules += F
-
+*/
 		var/obj/item/stack/rods/O = new /obj/item/stack/rods(src)
 		O.amount = 50
 		src.modules += O
@@ -168,7 +168,7 @@
 	respawn_consumable(var/mob/living/silicon/robot/R)
 		var/list/what = list (
 			/obj/item/stack/sheet/metal,
-			/obj/item/stack/tile/plasteel,
+//			/obj/item/stack/tile/plasteel,
 			/obj/item/stack/rods,
 			/obj/item/stack/sheet/glass,
 			/obj/item/stack/sheet/rglass,
