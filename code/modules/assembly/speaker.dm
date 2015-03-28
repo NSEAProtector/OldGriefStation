@@ -33,3 +33,7 @@
 	var/tmp/location = get_turf(src)
 	for(var/mob/O in hearers(location, null)) //to all living
 		O.show_message("<span class='game say'><span class='name'>[src]</span> beeps, \"[msg]\"",2)
+
+/obj/item/device/assembly/speaker/mommi
+	name = "MoMMI speaker"
+	real_name = "Syntesized voise"
