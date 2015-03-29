@@ -16,6 +16,8 @@ var/global/list/autolathe_recipes = list( \
 		new /obj/item/weapon/wrench(), \
 		new /obj/item/clothing/head/welding(), \
 		new /obj/item/weapon/stock_parts/console_screen(), \
+		new /obj/item/weapon/circuitboard/airlock(), \
+		new /obj/item/weapon/module/power_control(), \
 		new /obj/item/stack/sheet/metal(), \
 		new /obj/item/stack/sheet/glass(), \
 		new /obj/item/stack/sheet/rglass(), \
@@ -77,6 +79,7 @@ var/global/list/autolathe_recipes_hidden = list( \
 		new /obj/item/ammo_storage/magazine/a50(),  \
 		new /obj/item/ammo_storage/magazine/a762(),  \
 		new /obj/item/ammo_storage/magazine/c45(),  \
+		new /obj/item/weapon/dart_cartridge(),  \
 		new /obj/item/clothing/suit/armor/vest(), \
 		new /obj/item/clothing/head/helmet(), \
 		new /obj/item/weapon/gun/projectile/pistol(), \

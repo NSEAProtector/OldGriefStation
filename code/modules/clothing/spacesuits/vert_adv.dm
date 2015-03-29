@@ -276,11 +276,11 @@
 		if(user.a_intent == "harm")
 			switch(vision_mode)
 				if(0)
-					vision_mode = 0
+					vision_mode = 1
 					user << "\red [src.name] you force switch stupid vision mode to sec hud"
 					/obj/item/clothing/glasses/hud/security/process_hud
 				if(1)
-					vision_mode = 1
+					vision_mode = 0
 					/obj/item/clothing/glasses/thermal
 					user << "\red [src.name] you force switch stupid vision mode to thermal"
 			return

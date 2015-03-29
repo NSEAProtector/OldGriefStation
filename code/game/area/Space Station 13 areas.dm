@@ -362,7 +362,7 @@ proc/process_ghost_teleport_locs()
 	icon_state = "yellow"
 
 /area/shuttle/salvage/commssat
-	name = "\improper The Communications Satellite"
+	name = "\improper The Communications Satellite space"
 	icon_state = "yellow"
 
 /area/shuttle/salvage/mining
@@ -370,20 +370,24 @@ proc/process_ghost_teleport_locs()
 	icon_state = "yellow"
 
 /area/shuttle/salvage/abandoned_ship
-	name = "\improper Abandoned Ship"
+	name = "\improper Abandoned Ship space"
 	icon_state = "yellow"
 
 /area/shuttle/salvage/clown_asteroid
-	name = "\improper Clown Asteroid"
+	name = "\improper Clown Asteroid space"
 	icon_state = "yellow"
 
 /area/shuttle/salvage/trading_post
-	name = "\improper Trading Post"
+	name = "\improper space Trading Post"
 	icon_state = "yellow"
 
 /area/shuttle/salvage/transit
 	name = "\improper hyperspace"
 	icon_state = "shuttle"
+
+/area/shuttle/salvage/ntcivil
+	name = "\improper Civil Station space"
+	icon_state = "yellow"
 
 /area/airtunnel1/      // referenced in airtunnel.dm:759
 

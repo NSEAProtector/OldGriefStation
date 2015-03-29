@@ -66,8 +66,9 @@
 	<a href='?src=\ref[src];clown_asteroid=1'>Clown Asteroid</a> |
 	<a href='?src=\ref[src];derelict=1'>Derelict Station</a> |
 	<a href='?src=\ref[src];djstation=1'>Ruskie DJ Station</a><br>
-	<a href='?src=\ref[src];commssat=1'>NT civil station</a> |
+	<a href='?src=\ref[src];ntcivil=1'>NT civil station</a> |
 	<a href='?src=\ref[src];abandoned_ship=1'>Abandoned Ship</a><br>
+	<a href='?src=\ref[src];commssat=1'>Telecomm satelite</a>
 	<a href='?src=\ref[user];mach_close=computer'>Close</a>"}
 
 	user << browse(dat, "window=computer;size=575x450")
@@ -100,6 +101,8 @@
 		salvage_move_to(/area/shuttle/salvage/south)
 	else if(href_list["commssat"])
 		salvage_move_to(/area/shuttle/salvage/commssat)
+	else if(href_list["ntcivil"])
+		salvage_move_to(/area/shuttle/salvage/ntcivil)
 	else if(href_list["mining"])
 		salvage_move_to(/area/shuttle/salvage/mining)
 	else if(href_list["abandoned_ship"])

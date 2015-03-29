@@ -1666,25 +1666,34 @@ other types of metals and chemistry for reagents).
 /////////////////////////////////////////
 /////////////////Weapons/////////////////
 /////////////////////////////////////////
-/*
+
 /datum/design/smg
 	name = "Submachine Gun"
 	desc = "A lightweight, fast firing gun."
 	id = "smg"
-	req_tech = list("combat" = 4, "materials" = 3)
+	req_tech = list("combat" = 3, "materials" = 3)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 8000, "$silver" = 200)
-	build_path = /obj/item/weapon/gun/projectile/automatic
+	materials = list("$metal" = 3750, "$plastic" = 1100)
+	build_path = /obj/item/weapon/gun/projectile/automatic/rnd
 	locked = 0
-*/
+
 /datum/design/ammo_9mm
 	name = "Ammunition Box (9mm)"
 	desc = "A box of prototype 9mm ammunition."
 	id = "ammo_9mm"
-	req_tech = list("combat" = 4, "materials" = 3)
+	req_tech = list("combat" = 3, "materials" = 3)
 	build_type = PROTOLATHE
-	materials = list("$metal" = 3750)
+	materials = list("$metal" = 1500)
 	build_path = /obj/item/ammo_storage/box/c9mm
+
+/datum/design/magazine_9mm
+	name = "Ammunition Magazine (9mm)"
+	desc = "A magazine of prototype 9mm ammunition - used with smg"
+	id = "mag_9mm"
+	req_tech = list("combat" = 3, "materials" = 3)
+	build_type = PROTOLATHE
+	materials = list("$metal" = 1750)
+	build_path = /obj/item/ammo_storage/magazine/smg9mm
 
 /datum/design/k4m
 	name = "Carbine Mk4"

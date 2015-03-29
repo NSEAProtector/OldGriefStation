@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/automatic //Hopefully someone will find a way to make these fire in bursts or something. --Superxpdude
 	name = "submachine gun"
 	desc = "A lightweight, fast firing gun. Uses 9mm rounds.That gun have module slots for - Tactical silenser, Flashlight."
-	icon_state = "saber"	//ugly
+	icon_state = "saber"
 	w_class = 3.0
 	max_shells = 18
 	caliber = list("9mm" = 1)
@@ -147,7 +147,6 @@
 	burst_count = 3
 	m_amt = 7500
 	caliber = list("5.56" = 1)
-	silenced = 0
 	origin_tech = "combat=4;materials=4"
 	ammo_type = "/obj/item/ammo_casing/a556"
 	mag_type = "/obj/item/ammo_storage/magazine/a556"
@@ -161,6 +160,11 @@
 
 /obj/item/weapon/gun/projectile/automatic/k4me/isHandgun()
 	return 0
+
+/obj/item/weapon/gun/projectile/automatic/rnd //submachine for RnD by viton
+	icon_state = "rndsmg"	//ugly
+	m_amt = 2500
+	origin_tech = "combat=3;materials=3"
 
 //unused//
 /*

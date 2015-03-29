@@ -652,15 +652,11 @@
 		/obj/item/weapon/gun/projectile/gyropistol,
 		/obj/item/weapon/gun/projectile/pistol,
 		/obj/item/weapon/gun/projectile/russian,
-		/obj/item/weapon/gun/projectile/silenced,
+		/obj/item/weapon/gun/projectile/syndi,
 		/obj/item/weapon/harpoon,
 		/obj/item/weapon/melee/classic_baton,
 		/obj/item/weapon/pickaxe/plasmacutter,
-		/obj/item/weapon/shield/energy,
-		/obj/item/weapon/organ/head,
-		/obj/item/weapon/organ/r_leg,
-		/obj/item/weapon/organ/l_arm,
-		/obj/item/weapon/organ/l_foot
+		/obj/item/weapon/shield/energy
 		)
 
 /obj/map/spawner/space/tools
@@ -975,21 +971,21 @@
 	icon_state = "trash"
 	chance = 80
 	toSpawn = list(
-	/obj/item/trash/bowl,
-	/obj/item/trash/bustanuts,
-	/obj/item/trash/candle,
-	/obj/item/trash/cheesie,
-	/obj/item/trash/chips,
-	/obj/item/trash/danitos,
-	/obj/item/trash/discountchocolate,
-	/obj/item/trash/liquidfood,
-	/obj/item/trash/pistachios,
-	/obj/item/trash/popcorn,
-//	/obj/item/trash/raisis,
-	/obj/item/trash/semki,
-	/obj/item/trash/snack_bowl,
-	/obj/item/trash/sosjerky,
-	/obj/item/trash/syndi_cakes
+		/obj/item/trash/bowl,
+		/obj/item/trash/bustanuts,
+		/obj/item/trash/candle,
+		/obj/item/trash/cheesie,
+		/obj/item/trash/chips,
+		/obj/item/trash/danitos,
+		/obj/item/trash/discountchocolate,
+		/obj/item/trash/liquidfood,
+		/obj/item/trash/pistachios,
+		/obj/item/trash/popcorn,
+//		/obj/item/trash/raisis,
+		/obj/item/trash/semki,
+		/obj/item/trash/snack_bowl,
+		/obj/item/trash/sosjerky,
+		/obj/item/trash/syndi_cakes
 	)
 
 //Atmos//////////////////////////////////////////////////////////
@@ -999,23 +995,23 @@
 	icon_state = "atmos"
 	chance = 70
 	toSpawn = list(
-	/obj/item/clothing/suit/space/rig/atmos,
-	/obj/item/clothing/head/helmet/space/rig/atmos,
-	/obj/item/clothing/mask/breath,
-	/obj/item/clothing/suit/fire/firefighter,
-	/obj/item/clothing/mask/gas,
-	/obj/item/weapon/tank/oxygen/red,
-	/obj/item/weapon/extinguisher,
-	/obj/item/clothing/head/hardhat/red,
-	/obj/item/weapon/tank/oxygen,
-	/obj/item/clothing/mask/breath/vox,
-	/obj/item/weapon/tank/nitrogen,
-	/obj/machinery/portable_atmospherics/canister/sleeping_agent,
-	/obj/machinery/portable_atmospherics/canister/nitrogen,
-	/obj/machinery/portable_atmospherics/canister/oxygen,
-	/obj/machinery/portable_atmospherics/canister/toxins,
-	/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-	/obj/machinery/portable_atmospherics/canister/air,
+		/obj/item/clothing/suit/space/rig/atmos,
+		/obj/item/clothing/head/helmet/space/rig/atmos,
+		/obj/item/clothing/mask/breath,
+		/obj/item/clothing/suit/fire/firefighter,
+		/obj/item/clothing/mask/gas,
+		/obj/item/weapon/tank/oxygen/red,
+		/obj/item/weapon/extinguisher,
+		/obj/item/clothing/head/hardhat/red,
+		/obj/item/weapon/tank/oxygen,
+		/obj/item/clothing/mask/breath/vox,
+		/obj/item/weapon/tank/nitrogen,
+		/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+		/obj/machinery/portable_atmospherics/canister/nitrogen,
+		/obj/machinery/portable_atmospherics/canister/oxygen,
+		/obj/machinery/portable_atmospherics/canister/toxins,
+		/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+		/obj/machinery/portable_atmospherics/canister/air,
 	)
 
 /obj/map/spawner/atmos/canister
@@ -1023,12 +1019,12 @@
 	icon_state = "atm_canister"
 	chance = 50
 	toSpawn = list(
-	/obj/machinery/portable_atmospherics/canister/sleeping_agent,
-	/obj/machinery/portable_atmospherics/canister/nitrogen,
-	/obj/machinery/portable_atmospherics/canister/oxygen,
-	/obj/machinery/portable_atmospherics/canister/toxins,
-	/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-	/obj/machinery/portable_atmospherics/canister/air,
+		/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+		/obj/machinery/portable_atmospherics/canister/nitrogen,
+		/obj/machinery/portable_atmospherics/canister/oxygen,
+		/obj/machinery/portable_atmospherics/canister/toxins,
+		/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+		/obj/machinery/portable_atmospherics/canister/air,
 	)
 
 /obj/map/spawner/atmos/tank
@@ -1036,9 +1032,9 @@
 	icon_state = "atm_tank"
 	chance = 80
 	toSpawn = list(
-	/obj/item/weapon/tank/oxygen/red,
-	/obj/item/weapon/tank/oxygen,
-	/obj/item/weapon/tank/nitrogen,
+		/obj/item/weapon/tank/oxygen/red,
+		/obj/item/weapon/tank/oxygen,
+		/obj/item/weapon/tank/nitrogen,
 	)
 
 ///spellbooks///////////////////////////////////////////////////
@@ -1048,15 +1044,15 @@
 	icon_state = "Sp_book_spw"
 	chance = 25
 	toSpawn = list(
-	/obj/item/weapon/spellbook/oneuse/blind,
-	/obj/item/weapon/spellbook/oneuse/forcewall,
-	/obj/item/weapon/spellbook/oneuse/charge,
-	/obj/item/weapon/spellbook/oneuse/smoke,
-	/obj/item/weapon/spellbook/oneuse/knock
+		/obj/item/weapon/spellbook/oneuse/blind,
+		/obj/item/weapon/spellbook/oneuse/forcewall,
+		/obj/item/weapon/spellbook/oneuse/charge,
+		/obj/item/weapon/spellbook/oneuse/smoke,
+		/obj/item/weapon/spellbook/oneuse/knock
 	)
 
 ///food/////////////////////////////////////////////////////////
-
+/*
 /obj/map/spawner/food
 	name = "Food spawner"
 	icon_state = "Food_s"
@@ -1064,31 +1060,31 @@
 	toSpawn = list(
 
 	)
-/*
+
 /obj/map/spawner/food/drink
 	name = "Drink spawner"
 	icon_state = "Drink_s"
 	chance = 80
 	toSpawn = list(
-	/obj/item/weapon/reagent_containers/food/drinks/ale,
-	/obj/item/weapon/reagent_containers/food/drinks/beer,
-	/obj/item/weapon/reagent_containers/food/drinks/absinthe,
-	/obj/item/weapon/reagent_containers/food/drinks/bottleofnothing,
-	/obj/item/weapon/reagent_containers/food/drinks/cognak,
-	/obj/item/weapon/reagent_containers/food/drinks/cream,
-	/obj/item/weapon/reagent_containers/food/drinks/vermounth,
-	/obj/item/weapon/reagent_containers/food/drinks/vodka,
-	/obj/item/weapon/reagent_containers/food/drinks/whiskey,
-	/obj/item/weapon/reagent_containers/food/drinks/wine,
-	/obj/item/weapon/reagent_containers/food/drinks/gin,
-	/obj/item/weapon/reagent_containers/food/drinks/goldschlager,
-	/obj/item/weapon/reagent_containers/food/drinks/holywater,
-	/obj/item/weapon/reagent_containers/food/drinks/kahlua,
-	/obj/item/weapon/reagent_containers/food/drinks/limejuice,
-	/obj/item/weapon/reagent_containers/food/drinks/orangejuice,
-	/obj/item/weapon/reagent_containers/food/drinks/patron,
-	/obj/item/weapon/reagent_containers/food/drinks/rum,
-	/obj/item/weapon/reagent_containers/food/drinks/tequilla,
-	/obj/item/weapon/reagent_containers/food/drinks/tomatojuice
+		/obj/item/weapon/reagent_containers/food/drinks/ale,
+		/obj/item/weapon/reagent_containers/food/drinks/beer,
+		/obj/item/weapon/reagent_containers/food/drinks/absinthe,
+		/obj/item/weapon/reagent_containers/food/drinks/bottleofnothing,
+		/obj/item/weapon/reagent_containers/food/drinks/cognak,
+		/obj/item/weapon/reagent_containers/food/drinks/cream,
+		/obj/item/weapon/reagent_containers/food/drinks/vermounth,
+		/obj/item/weapon/reagent_containers/food/drinks/vodka,
+		/obj/item/weapon/reagent_containers/food/drinks/whiskey,
+		/obj/item/weapon/reagent_containers/food/drinks/wine,
+		/obj/item/weapon/reagent_containers/food/drinks/gin,
+		/obj/item/weapon/reagent_containers/food/drinks/goldschlager,
+		/obj/item/weapon/reagent_containers/food/drinks/holywater,
+		/obj/item/weapon/reagent_containers/food/drinks/kahlua,
+		/obj/item/weapon/reagent_containers/food/drinks/limejuice,
+		/obj/item/weapon/reagent_containers/food/drinks/orangejuice,
+		/obj/item/weapon/reagent_containers/food/drinks/patron,
+		/obj/item/weapon/reagent_containers/food/drinks/rum,
+		/obj/item/weapon/reagent_containers/food/drinks/tequilla,
+		/obj/item/weapon/reagent_containers/food/drinks/tomatojuice
 	)
 */

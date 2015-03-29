@@ -1,4 +1,3 @@
-
 //energy guns//
 /obj/item/weapon/gun/energy/laser/pistol
 	name = "Laser pistol"
@@ -116,7 +115,9 @@
 	name = "Shock Rifle"
 	desc = "The Pacificer energy shock rifle, two modes, beam and taser"
 	icon_state = "shockrifle"
-	item_state = null	//so the human update icon uses the icon_state instead.
+	lefthand_file = 'icons/mob/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/guns_righthand.dmi'
+	item_state = "erttaser"
 	cell_type = "/obj/item/weapon/cell/ammo"
 	slot_flags = SLOT_BACK
 	scope_allowed = 1
@@ -124,6 +125,12 @@
 	cell_removing = 1
 	w_class = 4
 	force = 10
+// for normal firemode at start of the game
+	charge_cost = 500
+	fire_delay = 3
+	fire_sound = 'sound/weapons/laser2.ogg'
+	projectile_type = "/obj/item/projectile/beam/xsniper"
+
 	var/mode = 1
 
 	attack_self(mob/living/user as mob)
@@ -132,21 +139,21 @@
 		if(user.a_intent == "help")
 			switch(mode)
 				if(0)
-					mode = 0
-					charge_cost = 500
-					fire_delay = 3
+					mode = 1
+					charge_cost = 1250
+					fire_delay = 8
 					fire_sound = 'sound/weapons/laser2.ogg'
 					user << "\red [src.name] is now set to shock beam mode."
-					projectile_type = "/obj/item/projectile/beam/xsniper"
+					projectile_type = "/obj/item/projectile/beam/shockrifle"
 				if(1)
-					mode = 1
+					mode = 0
 					charge_cost = 500
-					fire_delay = 3
+					fire_delay = 4
 					fire_sound = 'sound/weapons/Taser.ogg'
 					user << "\red [src.name] is now set to taser mode."
 					projectile_type = "/obj/item/projectile/energy/electrode"
 
-/obj/item/weapon/gun/energy/pulsesniper
+/obj/item/weapon/gun/energy/pulsesniper //basic
 	name = "Sniper Rifle"
 	desc = "pulse-based energy sniper rifle, stable model - Mark 11"
 	icon_state = "psniper"
@@ -164,7 +171,7 @@
 	projectile_type = "/obj/item/projectile/beam/hpulse"
 	fire_sound = 'sound/weapons/pulse.ogg'
 
-/obj/item/weapon/gun/energy/sniper
+/obj/item/weapon/gun/energy/sniper //old and more multipurpose version
 	name = "Sniper Rifle"
 	desc = "pulse-based energy sniper rifle, stable model - Mark 8"
 	icon_state = "sniper"
@@ -289,7 +296,7 @@
 	item_state = "faction"//Could likely use a better one.
 	storage_slots = 8 //Основной ограничитель это Max_combined_w_class
 	max_w_class = 3 //Это что бы туда нельзя было положить пулемет
-	max_combined_w_class = 10 //Основной ограничитель для того, что бы нельзя было положить туда десять вещей размера 3
+	max_combined_w_class = 14 //Основной ограничитель для того, что бы нельзя было положить туда десять вещей размера 3
 
 //Combat Power Cells
 /obj/item/weapon/cell/ammo

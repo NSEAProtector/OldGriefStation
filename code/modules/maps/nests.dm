@@ -42,8 +42,20 @@
 	mobType = /mob/living/simple_animal/mouse
 	breedTime = 1200
 
+/obj/map/nest/alien
+	name = "aliens breeding ground"
+	icon_state = "spider"
+	mobType = list(
+		/mob/living/simple_animal/hostile/alien,
+		/mob/living/simple_animal/hostile/alien/drone,
+		/mob/living/simple_animal/hostile/alien/sentinel,
+		/mob/living/simple_animal/hostile/alien/queen,
+		/mob/living/simple_animal/hostile/alien/queen/large
+		)
+	popMax = 15
+
 /obj/map/nest/spider
-	name = "spider breeding ground"
+	name = "spiders breeding ground"
 	icon_state = "spider"
 	mobType = /mob/living/simple_animal/hostile/giant_spider
 	popMax = 10

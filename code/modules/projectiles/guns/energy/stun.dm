@@ -51,7 +51,7 @@
 	desc = "A weapon favored by many of the syndicates stealth specialists."
 	icon_state = "crossbow"
 	w_class = 2.0
-	charge_cost = 1250
+	charge_cost = 1550
 	item_state = "crossbow"
 	m_amt = 2000
 	w_type = RECYK_ELECTRONIC
@@ -78,7 +78,7 @@
 		if(charge_tick < 4) return 0
 		charge_tick = 0
 		if(!power_supply) return 0
-		power_supply.give(100)
+		power_supply.give(350)
 		return 1
 
 

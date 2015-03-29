@@ -41,6 +41,10 @@
 	sprite_modulo = 3
 	multiple_sprites = 1
 
+/obj/item/ammo_storage/magazine/smg9mm/empty
+	starting_ammo = 0
+	m_amt = 200
+
 /obj/item/ammo_storage/magazine/a50
 	name = "magazine (.50)"
 	icon_state = "50ae"
@@ -124,6 +128,10 @@
 	multiple_sprites = 1
 	sprite_modulo = 2
 
+/obj/item/ammo_storage/magazine/uzi45/empty
+	starting_ammo = 0
+	icon_state = "9x18p-0"
+	m_amt = 500
 
 /obj/item/ammo_storage/magazine/c9mmp
 	name = "magazine (9mm parabellum)"
