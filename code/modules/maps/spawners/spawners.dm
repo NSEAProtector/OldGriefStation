@@ -1022,7 +1022,6 @@
 		/obj/machinery/portable_atmospherics/canister/sleeping_agent,
 		/obj/machinery/portable_atmospherics/canister/nitrogen,
 		/obj/machinery/portable_atmospherics/canister/oxygen,
-		/obj/machinery/portable_atmospherics/canister/toxins,
 		/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 		/obj/machinery/portable_atmospherics/canister/air,
 	)

@@ -100,6 +100,8 @@
 				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/space_adv/faction, slot_head)//frac
 			if(istype(usr:wear_suit, /obj/item/clothing/suit/space/space_adv/roaper))
 				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/space_adv/roaper, slot_head)//roaper//ported from Bay12//
+			if(istype(usr:wear_suit, /obj/item/clothing/suit/space/space_adv/black))
+				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/space_adv/black, slot_head) //CE Black
 			if(istype(usr:wear_suit, /obj/item/clothing/suit/space/space_adv))
 				usr.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/space/space_adv, slot_head)
 
@@ -208,20 +210,19 @@
 /obj/item/clothing/head/helmet/space/space_adv/black
 	name = "suspicius looking advanced hardsuit helmet"
 	desc = "It's a reinforced engineering hardsuit helmet inspiring fear in the ordinary people."
-	icon_state = "rig.0.black"
-	item_state = "black.helm"
-	_color = "black"
+	icon_state = "rig.0.ceblack"
+	item_state = "ceblackhelm"
+	_color = "ceblack"
 	armor = list(melee = 30, bullet = 40, laser = 30, energy = 10, bomb = 50, bio = 100, rad = 100)
 	species_restricted = list("exclude","Vox")
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECITON_TEMPERATURE
 
 /obj/item/clothing/suit/space/space_adv/black
-	icon_state = "rig-black"
 	name = "suspicius looking advanced hardsuit"
 	species_restricted = list("exclude","Vox")
 	desc = "It's a reinforced engineering hardsuit inspiring fear in the ordinary people."
-	item_state = "black_hardsuit"
-	icon_state = "black_hardsuit"
+	item_state = "ceblack"
+	icon_state = "ceblack"
 	armor = list(melee = 40, bullet = 40, laser = 30, energy = 15, bomb = 50, bio = 100, rad = 100)
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECITON_TEMPERATURE
 
@@ -270,23 +271,6 @@
 	_color = "frac"
 	brightness_on = 6
 	armor = list(melee = 80, bullet = 50, laser = 60, energy = 20, bomb = 45, bio = 100, rad = 100)
-	var/vision_mode = 0
-
-	attack_self(mob/living/user as mob)
-		if(user.a_intent == "harm")
-			switch(vision_mode)
-				if(0)
-					vision_mode = 1
-					user << "\red [src.name] you force switch stupid vision mode to sec hud"
-					/obj/item/clothing/glasses/hud/security/process_hud
-				if(1)
-					vision_mode = 0
-					/obj/item/clothing/glasses/thermal
-					user << "\red [src.name] you force switch stupid vision mode to thermal"
-			return
-
-		..()
-
 
 /obj/item/clothing/suit/space/space_adv/faction
 	name = "Suspicious looking SWAT space hardsuit"

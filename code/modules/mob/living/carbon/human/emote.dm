@@ -768,4 +768,4 @@
 	set desc = "Sets an extended description of your character's features."
 	set category = "IC"
 
-	flavor_text =  copytext(sanitize(input(usr, "Please enter your new flavour text.", "Flavour text", null)  as text), 1)
+	flavor_text =  copytext(sanitize_russian(input(usr, "Please enter your new flavour text.", "Flavour text", null)  as text), 1)
