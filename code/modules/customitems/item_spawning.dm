@@ -1,4 +1,4 @@
-
+/*
 /proc/EquipCustomItems(mob/living/carbon/human/M)
 	testing("\[CustomItem\] Checking for custom items for [M.ckey] ([M.real_name])...")
 	if(!establish_db_connection())
@@ -120,7 +120,8 @@
 //gives item to specific people when they join if it can
 //for multiple items just add mutliple entries, unless i change it to be a listlistlist
 //yes, it has to be an item, you can't pick up nonitems
-/* Old as fuck, not SQL-based, hardcoded keys.
+*/
+// Old as fuck, not SQL-based, hardcoded keys.
 /proc/EquipCustomItems(mob/living/carbon/human/M)
 	// load lines
 	var/file = file2text("config/custom_items.txt")
@@ -188,4 +189,4 @@
 				skip:
 				if (ok == 0) // Finally, since everything else failed, place it on the ground
 					Item.loc = get_turf(M.loc)
-*/
+
