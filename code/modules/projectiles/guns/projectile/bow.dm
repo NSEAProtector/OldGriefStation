@@ -6,7 +6,7 @@
 	icon_state = "bolt"
 	item_state = "bolt"
 	flags =  FPRINT | TABLEPASS
-	throwforce = 8
+	throwforce = 30
 	w_class = 3.0
 	sharp = 1
 
@@ -20,13 +20,14 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "quill"
 	item_state = "quill"
-	throwforce = 5
+	throwforce = 40
 
 /obj/item/weapon/arrow/rod
 
 	name = "metal rod"
 	desc = "Don't cry for me, Orithena."
 	icon_state = "metal-rod"
+	throwforce = 20
 
 /obj/item/weapon/arrow/rod/removed(mob/user)
 	if(throwforce == 15) // The rod has been superheated - we don't want it to be useable when removed from the bow.
@@ -203,3 +204,61 @@
 		arrow = null
 		tension = 0
 		icon_state = "crossbow"
+/*
+/obj/item/weapon/bow
+	name = "Bow"
+	desc = "A wooden bow"
+	icon = 'icons/obj/bow.dmi'
+	icon_state = "bow_normal"
+	item_state = "bow_normal"
+	flags =  FPRINT | TABLEPASS
+	slot_flags = SLOT_BACK
+	w_class = 4.0
+	var/armed = 0
+
+/obj/item/weapon/bow_arrow
+	name = "Arrow"
+	desc = "Wooden arrow"
+	icon = 'icons/obj/bow.dmi'
+	icon_state = "arrow"
+	item_state = "arrow"
+	flags = FPRINT | TABLEPASS
+	w_class = 1.0
+
+
+/obj/item/weapon/bow/proc/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0)
+	if (armed==2)
+		add_fingerprint(user)
+
+		var/turf/curloc = get_turf(user)
+		var/turf/targloc = get_turf(target)
+		if (!istype(targloc) || !istype(curloc))
+			return
+
+		user.visible_message("<span class='danger'>You fire from bow and send arrow to the [target]!</span>")
+
+		var/obj/item/weapon/bow_arrow/A = arrow
+		A.loc = get_turf(user)
+		A.throw_at(target,20)
+		icon_state = "bow_normal"
+
+/obj/item/weapon/bow/attackby(obj/item/weapon/bow_arrow as obj, mob/user as mob)
+	if (armed==0)
+		armed = 1
+		icon_state = "bow_arrow"
+	if (armed==1)
+		armed = 2
+		icon_state = "bow_noked"
+	if (armed>0)
+		if (intent==disarm)
+			armed = 0
+			icon_state = "bow_normal"
+
+/obj/item/weapon/bow/dropped(mob/user)
+	if(armed==1)
+		var/obj/item/weapon/bow_arrow/A = arrow
+		A.loc = get_turf(src)
+		A.removed(user)
+		armed = 0
+		icon_state = "bow_normal"
+*/
