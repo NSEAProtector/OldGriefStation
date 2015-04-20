@@ -24,7 +24,6 @@
 	var/obj/item/ammo_casing/chambered = null
 	var/mag_type = ""
 	var/lent_ammo = 0
-	var/cover_open = 0
 
 /obj/item/weapon/gun/projectile/New()
 	..()
@@ -189,9 +188,6 @@
 		return
 
 	if (user.a_intent == "disarm")
-		if(lent_ammo)
-			user << "\red Open cover of \the [src] first!"
-			return
 
 		if (stored_magazine || loaded.len)
 			if (load_method == SPEEDLOADER)
@@ -253,12 +249,6 @@
 				O.desc = "Your second grip on the [initial(name)]"
 				user.put_in_inactive_hand(O)
 				return
-
-	if(user.a_intent == "harm")
-		if(lent_ammo)
-			cover_open = !cover_open
-			user << "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>"
-			update_icon()
 
 /obj/item/weapon/gun/projectile/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 	..()

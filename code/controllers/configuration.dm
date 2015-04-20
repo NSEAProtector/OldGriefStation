@@ -22,7 +22,7 @@
 	var/log_runtimes = 0                // Logs all runtimes.
 	var/sql_enabled = 1					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
-	var/allow_vote_restart = 1 			// allow votes to restart
+	var/allow_vote_restart = 0 			// allow votes to restart
 	var/allow_vote_mode = 1				// allow votes to change mode
 	var/allow_admin_jump = 1			// allows admin jumping
 	var/allow_admin_spawning = 1		// allows admin item spawning

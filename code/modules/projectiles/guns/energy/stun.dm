@@ -99,4 +99,11 @@
 	charge_cost = 500
 	projectile_type = "/obj/item/projectile/energy/bolt/large"
 
-
+	update_icon()
+		if(power_supply)
+			var/ratio = power_supply.charge / power_supply.maxcharge
+			ratio = round(ratio, 0.25) * 100
+			icon_state = "[initial(icon_state)][ratio]"
+		else
+			icon_state = "[initial(icon_state)]-empty"
+		return

@@ -1948,6 +1948,7 @@ other types of metals and chemistry for reagents).
 	build_type = PROTOLATHE
 	materials = list("$metal" = 2500, "$plasma" = 500)
 	req_tech = list("combat" = 4, "materials" = 3, "plasmatech" = 2)
+	build_path = /obj/item/ammo_casing/shotgun/explosiveshell
 
 /////////////////////////////////////////
 /////////////////Mining//////////////////

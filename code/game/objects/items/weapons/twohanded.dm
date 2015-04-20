@@ -258,7 +258,7 @@
  */
 /obj/item/weapon/twohanded/hfrequency
 	icon_state = "hfrequency0"
-	item_state = "hfrequency0"
+	//item_state = "hfrequency0"
 	name = "high-frequency blade"
 	desc = "Keep hands off blade at all times."
 	slot_flags = SLOT_BACK
@@ -270,7 +270,7 @@
 	force_unwielded = 40
 	force_wielded = 120
 	flags = FPRINT | TABLEPASS | NOSHIELD
-	origin_tech = "magnets=4;combat=5"
+	origin_tech = "materials=8;magnets=5;combat=5"
 
 /obj/item/weapon/twohanded/hfrequency/update_icon()
 	icon_state = "hfrequency[wielded]"

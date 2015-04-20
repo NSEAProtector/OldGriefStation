@@ -300,7 +300,13 @@
 	mag_type = "/obj/item/ammo_storage/magazine/a762"
 	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 	load_method = 2
+	var/cover_open = 0
 
+/obj/item/weapon/gun/projectile/automatic/arifles/l6_saw/attack_self(mob/user as mob)
+	if(user.a_intent == "harm")
+		cover_open = !cover_open
+		user << "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>"
+		update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/arifles/l6_saw/update_icon()
 	icon_state = "l6[cover_open ? "open" : "closed"][stored_magazine ? round(getAmmo(), 25) : "-empty"]"
@@ -320,9 +326,9 @@
 	if(!cover_open)
 		..()
 	else if(cover_open && stored_magazine) //since attack_self toggles the cover and not the magazine, we use this instead
-		//drop the mag
-		RemoveMag(user)
-		user << "<span class='notice'>You remove the magazine from [src].</span>"
+		if(user.a_intent == "disarm")
+			RemoveMag(user)//drop the mag
+			user << "<span class='notice'>You remove the magazine from [src].</span>"
 
 /obj/item/weapon/gun/projectile/automatic/arifles/l6_saw/attackby(obj/item/ammo_storage/magazine/a762/A as obj, mob/user as mob)
 	if(!cover_open)
@@ -332,13 +338,14 @@
 		..()
 
 /obj/item/weapon/gun/projectile/automatic/arifles/l6_saw/force_removeMag() //special because of its cover
-	if(cover_open && stored_magazine)
-		RemoveMag(usr)
-		usr << "<span class='notice'>You remove the magazine from [src].</span>"
-	else if(stored_magazine)
-		usr << "<span class='rose'>The [src]'s cover has to be open to do that!</span>"
-	else
-		usr << "<span class='rose'>There is no magazine to remove!</span>"
+	if(user.a_intent == "disarm")
+		if(cover_open && stored_magazine)
+			RemoveMag(usr)
+			usr << "<span class='notice'>You remove the magazine from [src].</span>"
+		else if(stored_magazine)
+			usr << "<span class='rose'>The [src]'s cover has to be open to do that!</span>"
+		else
+			usr << "<span class='rose'>There is no magazine to remove!</span>"
 
 /*
 /////unused////

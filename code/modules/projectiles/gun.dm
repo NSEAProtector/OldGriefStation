@@ -341,9 +341,8 @@
 	return
 
 /obj/item/weapon/gun/verb/scope()
-	if(scope_installed)
+	if(scope_installed == 1)
 		set category = "Object"
 		set name = "Use Scope"
 		set popup_menu = 1
 		zoom()
-	return
