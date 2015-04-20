@@ -10,7 +10,7 @@ hi
 //////////////////////////////////
 ////////// Fluff Items ///////////
 //////////////////////////////////
-
+/*
 /obj/item/fluff/wes_solari_1 //tzefa: Wes Solari
 	name = "family photograph"
 	desc = "A family photograph of a couple and a young child, Written on the back it says \"See you soon Dad -Roy\"."
@@ -750,3 +750,13 @@ hi
 /obj/item/weapon/melee/baton/fluff/oeng_baton
 	name = "well-used stun baton"
 	desc = "A stun baton used for incapacitating targets; there seems to be a bunch of tally marks set into the handle."
+*/
+
+obj/item/weapon/gun/energy/staff/focus/lilian
+	name = "Lilian's mental focus"
+	desc = "An artifact that channels the will of the user into destructive bolts of force. If you aren't careful with it, you might poke someone's brain out.\n Has two modes: Single and AoE"
+	icon = 'icons/obj/wizard.dmi'
+	icon_state = "focus"
+	item_state = "focus"
+	projectile_type = "/obj/item/projectile/forcebolt"
+	charge_cost = 100
