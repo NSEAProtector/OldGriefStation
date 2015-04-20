@@ -122,6 +122,10 @@
 			if(item_in_hand:wielded == 1)
 				usr << "<span class='warning'>Your other hand is too busy holding the [item_in_hand.name]</span>"
 				return
+		if(istype(item_in_hand,/obj/item/weapon/gun))
+			if(item_in_hand:wielded == 1)
+				usr << "<span class='warning'>Your other hand is too busy holding the [item_in_hand.name]</span>"
+				return
 	src.hand = !( src.hand )
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
