@@ -12,53 +12,6 @@
 	recoil = 0.2
 	var/melee_cooldown = 0
 
-/obj/item/weapon/gun/projectile/automatic/arifles/attack(mob/living/M as mob, mob/living/user as mob, def_zone)//
-
-	..()
-	if(wielded)
-		if(user.a_intent == "disarm")
-			if ((M_CLUMSY in user.mutations) && prob(50))
-				user << "\red You club yourself over the head."
-				user.Weaken(3 * force)
-				if(ishuman(user))
-					var/mob/living/carbon/human/H = user
-					H.apply_damage(2*force, BRUTE, "head")
-				else
-					user.take_organ_damage(2*force)
-				return
-			if(user.zone_sel.selecting == "head")
-				if(melee_cooldown <= 0)
-					playsound(get_turf(src), 'sound/effects/woodhit.ogg', 75, 1, -1)
-					target.Weaken(10 * force)
-					target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been knocked with [src.name] by [user.name] ([user.ckey])</font>")
-					user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to knock [target.name] ([target.ckey])</font>")
-					log_attack("<font color='red'>[user.name] ([user.ckey]) knocked down [target.name] ([target.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
-					src.add_fingerprint(user)
-					target.visible_message("\red <B>[target] has been knocked down with \the [src] by [user]!</B>")
-				if(!iscarbon(user))
-					target.LAssailant = null
-				else
-					target.LAssailant = user
-					melee_cooldown = 1
-					spawn(40)
-						melee_cooldown = 0
-				return
-			else
-				playsound(get_turf(src), 'sound/weapons/Genhit.ogg', 50, 1, -1)
-				target.Weaken(2)
-				target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been attacked with [src.name] by [user.name] ([user.ckey])</font>")
-				user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attack [target.name] ([target.ckey])</font>")
-				log_attack("<font color='red'>[user.name] ([user.ckey]) attacked [target.name] ([target.ckey]) with [src.name] (INTENT: [uppertext(user.a_intent)])</font>")
-				src.add_fingerprint(user)
-				target.visible_message("\red <B>[target] has been stunned with \the [src] by [user]!</B>")
-				if(!iscarbon(user))
-					target.LAssailant = null
-				else
-					target.LAssailant = user
-			return
-		else
-			return
-
 /obj/item/weapon/gun/projectile/automatic/arifles/update_icon()
  ..()
 	if(stored_magazine)

@@ -7,7 +7,7 @@
 
 	charge_cost = 500 //How much energy is needed to fire.
 	projectile_type = "/obj/item/projectile/energy/electrode"
-	origin_tech = "combat=3;magnets=2"
+	origin_tech = "combat=6;magnets=6;materials=5;"
 	modifystate = "energystun"
 
 	var/mode = 0 //0 = stun, 1 = kill
@@ -39,7 +39,7 @@
 	name = "Advanced Energy Gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
 	icon_state = "nucgun"
-	origin_tech = "combat=3;materials=5;powerstorage=3"
+	origin_tech = "combat=6;materials=5;powerstorage=5"
 	var/lightfail = 0
 	var/charge_tick = 0
 

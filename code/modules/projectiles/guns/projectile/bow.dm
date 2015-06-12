@@ -1,5 +1,4 @@
 /obj/item/weapon/arrow
-
 	name = "bolt"
 	desc = "It's got a tip for you - get the point?"
 	icon = 'icons/obj/weapons.dmi'
@@ -20,14 +19,14 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "quill"
 	item_state = "quill"
-	throwforce = 40
+	throwforce = 30
 
 /obj/item/weapon/arrow/rod
 
 	name = "metal rod"
 	desc = "Don't cry for me, Orithena."
 	icon_state = "metal-rod"
-	throwforce = 20
+	throwforce = 15
 
 /obj/item/weapon/arrow/rod/removed(mob/user)
 	if(throwforce == 15) // The rod has been superheated - we don't want it to be useable when removed from the bow.
@@ -43,12 +42,10 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow-solid"
-	w_class = 5.0
+	w_class = 4.0
 	flags =  FPRINT | TABLEPASS | CONDUCT |  USEDELAY
 	slot_flags = SLOT_BELT | SLOT_BACK
-
-	w_class = 3.0
-
+	var/bow = 0							  // To block bows to shooting special projectiles like superheated metalrods
 	var/tension = 0                       // Current draw on the bow.
 	var/max_tension = 5                   // Highest possible tension.
 	var/release_speed = 5                 // Speed per unit of tension.
@@ -63,38 +60,44 @@
 			arrow = W
 			arrow.loc = src
 			user.visible_message("[user] slides [arrow] into [src].","You slide [arrow] into [src].")
-			icon_state = "crossbow-nocked"
+			icon_state = "[initial(icon_state)]-nocked"
 			return
 		else if(istype(W,/obj/item/stack/rods))
-			var/obj/item/stack/rods/R = W
-			R.use(1)
-			arrow = new /obj/item/weapon/arrow/rod(src)
-			arrow.fingerprintslast = src.fingerprintslast
-			arrow.loc = src
-			icon_state = "crossbow-nocked"
-			user.visible_message("[user] haphazardly jams [arrow] into [src].","You jam [arrow] into [src].")
-			if(cell)
-				if(cell.charge >= 500)
-					user << "<span class='notice'>[arrow] plinks and crackles as it begins to glow red-hot.</span>"
-					arrow.throwforce = 15
-					arrow.icon_state = "metal-rod-superheated"
-					cell.charge -= 500
-			return
+			if(!bow)
+				var/obj/item/stack/rods/R = W
+				R.use(1)
+				arrow = new /obj/item/weapon/arrow/rod(src)
+				arrow.fingerprintslast = src.fingerprintslast
+				arrow.loc = src
+				icon_state = "[initial(icon_state)]-nocked"
+				user.visible_message("[user] haphazardly jams [arrow] into [src].","You jam [arrow] into [src].")
+				if(cell)
+					if(cell.charge >= 500)
+						user << "<span class='notice'>[arrow] plinks and crackles as it begins to glow red-hot.</span>"
+						arrow.throwforce = 15
+						arrow.icon_state = "metal-rod-superheated"
+						cell.charge -= 500
+			else
+				user << "<span class='notice'>That bow can't shot with this, maybe need craft wooden arrows?</span>"
+				return
 
 	if(istype(W, /obj/item/weapon/cell))
-		if(!cell)
-			user.drop_item()
-			W.loc = src
-			cell = W
-			user << "<span class='notice'>You jam [cell] into [src] and wire it to the firing coil.</span>"
-			if(arrow)
-				if(istype(arrow,/obj/item/weapon/arrow/rod) && arrow.throwforce < 15 && cell.charge >= 500)
-					user << "<span class='notice'>[arrow] plinks and crackles as it begins to glow red-hot.</span>"
-					arrow.throwforce = 15
-					arrow.icon_state = "metal-rod-superheated"
-					cell.charge -= 500
+		if(!bow)
+			if(!cell)
+				user.drop_item()
+				W.loc = src
+				cell = W
+				user << "<span class='notice'>You jam [cell] into [src] and wire it to the firing coil.</span>"
+				if(arrow)
+					if(istype(arrow,/obj/item/weapon/arrow/rod) && arrow.throwforce < 15 && cell.charge >= 500)
+						user << "<span class='notice'>[arrow] plinks and crackles as it begins to glow red-hot.</span>"
+						arrow.throwforce = 15
+						arrow.icon_state = "metal-rod-superheated"
+						cell.charge -= 500
+			else
+				user << "<span class='notice'>[src] already has a cell installed.</span>"
 		else
-			user << "<span class='notice'>[src] already has a cell installed.</span>"
+			user << "<span class='notice'>[src] this is basic crafted bow! That bow can't have power cell!</span>"
 
 	else if(istype(W, /obj/item/weapon/screwdriver))
 		if(cell)
@@ -119,7 +122,7 @@
 		else
 			user.visible_message("[user] relaxes the tension on [src]'s string.","You relax the tension on [src]'s string.")
 		tension = 0
-		icon_state = "crossbow"
+		icon_state = "[initial(icon_state)]"
 	else
 		draw(user)
 
@@ -144,7 +147,7 @@
 		return
 
 	tension++
-	icon_state = "crossbow-drawn"
+	icon_state = "[initial(icon_state)]-drawn"
 
 	if(tension>=max_tension)
 		tension = max_tension
@@ -169,7 +172,7 @@
 		return
 
 	if(!tension)
-		user << "You haven't drawn back the bolt!"
+		user << "You haven't drawn back the [arrow]!"
 		return 0
 
 	if (!arrow)
@@ -194,7 +197,7 @@
 	A.throw_at(target,10,tension*release_speed)
 	arrow = null
 	tension = 0
-	icon_state = "crossbow"
+	icon_state = "[initial(icon_state)]"
 
 /obj/item/weapon/crossbow/dropped(mob/user)
 	if(arrow)
@@ -203,62 +206,14 @@
 		A.removed(user)
 		arrow = null
 		tension = 0
-		icon_state = "crossbow"
-/*
-/obj/item/weapon/bow
-	name = "Bow"
-	desc = "A wooden bow"
-	icon = 'icons/obj/bow.dmi'
-	icon_state = "bow_normal"
-	item_state = "bow_normal"
-	flags =  FPRINT | TABLEPASS
-	slot_flags = SLOT_BACK
-	w_class = 4.0
-	var/armed = 0
+		icon_state = "[initial(icon_state)]"
 
-/obj/item/weapon/bow_arrow
-	name = "Arrow"
-	desc = "Wooden arrow"
-	icon = 'icons/obj/bow.dmi'
-	icon_state = "arrow"
-	item_state = "arrow"
-	flags = FPRINT | TABLEPASS
-	w_class = 1.0
-
-
-/obj/item/weapon/bow/proc/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, reflex = 0)
-	if (armed==2)
-		add_fingerprint(user)
-
-		var/turf/curloc = get_turf(user)
-		var/turf/targloc = get_turf(target)
-		if (!istype(targloc) || !istype(curloc))
-			return
-
-		user.visible_message("<span class='danger'>You fire from bow and send arrow to the [target]!</span>")
-
-		var/obj/item/weapon/bow_arrow/A = arrow
-		A.loc = get_turf(user)
-		A.throw_at(target,20)
-		icon_state = "bow_normal"
-
-/obj/item/weapon/bow/attackby(obj/item/weapon/bow_arrow as obj, mob/user as mob)
-	if (armed==0)
-		armed = 1
-		icon_state = "bow_arrow"
-	if (armed==1)
-		armed = 2
-		icon_state = "bow_noked"
-	if (armed>0)
-		if (intent==disarm)
-			armed = 0
-			icon_state = "bow_normal"
-
-/obj/item/weapon/bow/dropped(mob/user)
-	if(armed==1)
-		var/obj/item/weapon/bow_arrow/A = arrow
-		A.loc = get_turf(src)
-		A.removed(user)
-		armed = 0
-		icon_state = "bow_normal"
-*/
+/obj/item/weapon/crossbow/bow //By viton
+	name = "Fast crafted Bow"
+	desc = "bow, made from stupid hand of other baldy assistant."
+	icon_state = "bow"
+	item_state = "bow-solid"
+	w_class = 3.0
+	flags =  FPRINT | TABLEPASS | CONDUCT | USEDELAY
+	slot_flags = SLOT_BELT
+	bow = 1
